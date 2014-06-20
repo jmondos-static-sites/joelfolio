@@ -1,0 +1,389 @@
+//@project: Joel Kennedy's Portfolio
+//@author: Grant Kiely
+//@date started: 6/18/14
+
+.wrapper
+	padding-bottom: $footer //must be same height as the footer
+
+.banner
+	background-repeat: no-repeat
+	background-position: center
+	width: 100%
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	height: pem(844)
+	position: relative
+	// +media($tablet)
+		//zoom in
+		// background-size: 170% //orig size: 1400/842
+		// background-position: top
+	+media($smlDevice)
+		//zoom out
+		background-size: (1400/1.5)+px (842/1.5)+px //orig size: 1400/842
+		background-position: top
+		height: pem(561)
+
+//Theme photos
+.banner.sweetarts
+	background-image: url(../img/sweetarts.jpg)
+
+.banner.lasagna
+	background-image: url(../img/lasagna.jpg) 
+
+.banner.london
+	background-image: url(../img/london.jpg) 
+
+.banner.zermatt
+	background-image: url(../img/zermatt.jpg) 
+
+
+//Totally fluid image
+// header.banner
+// 	background: url(../img/sweetarts.jpg) no-repeat
+// 	padding-top: 60.142857142857142857142857142857%
+// 	// 842/1400
+// 	width: 100%
+// 	background-size: 100%
+// 	max-height: 844px
+// 	position: relative
+
+.logo-joel
+	position: absolute
+	top: pem(65)
+	left: pc(206, 1400)
+	width: 12.142857142857142857142857142857% //170 / 1400
+	width: pem(170)
+	+media($smlDevice)
+		display: none
+
+
+
+//// Hamburger nav icon /////
+.hamburger-icon
+	$c: #fff //colour
+	display: block
+	+wh(29, 23)
+	+wh(45, 45)
+	position: fixed
+	top: pem(58)
+	right: pc(170, 1400)
+	z-index: 20
+	cursor: pointer
+	.meat, .meat:before, .meat:after
+		+wh(29, 5)
+		background: $c
+		border-radius: 20px
+	.meat:before, .meat:after
+		content: ""
+		position: absolute
+	.meat
+		display: block
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		margin: auto
+		&:before
+			top: pem(-9)
+		&:after
+			top: pem(9)
+	+media($smlDevice)
+		top: pem(6)
+		right: pem(5)
+		+wh(69,66)
+		background: #201C1D
+		border-radius: pem(20)
+
+.hamburger-icon-dark
+	display: none
+
+//// End of hamburger ////
+
+.nav-overlay
+	position: absolute
+	height: 100%
+	width: 100%
+	z-index: 10
+	background: rgba(3,3,3,0.95)
+	padding-top: pem(60)
+	text-align: center
+
+.nav-close
+	background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center
+	+wh(36)
+	background-size: 100%
+	margin: 0 auto pem(85)
+	cursor: pointer
+
+.nav-links li
+	// margin-bottom: pem(68)
+	margin: 0 auto pem(60)
+
+
+.nav-white a
+	font-size: pem(30)
+	color: #fff
+	font-family: $baz
+	text-decoration: none
+
+.nav-about a:hover
+	color: #febd10
+
+.nav-work a:hover
+	color: #c81ca2
+
+
+.nav-email a
+	background: url('../img/email.png')
+	display: block
+	margin: 0 auto
+	+wh(39, 25)
+	background-size: 100%
+	&:after //preloader
+		content: url(../img/email-hover.png)
+		display: none
+
+.nav-email a:hover
+	background: url(../img/email-hover.png)
+	background-size: 100%
+
+$fb-w: 60
+.nav-fb
+	width: pem($fb-w)
+	// background: red
+	height: pem(50)
+	position: relative
+	top: pem(7)
+	// top: pem(-5)
+
+.nav-fb a
+	display: block
+	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#FFFFFF" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
+	background-size: pc(18/$fb-w)
+	height: 100%
+	width: 100%
+	margin: 0 auto
+	position: absolute
+	top: 0
+	bottom: 0
+	margin: auto
+
+.nav-fb a:hover
+	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#1d5cc5" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
+	background-size: pc(18/$fb-w)
+
+
+.nav-cv a
+	font: bolder pem(34) $gent
+	// padding-bottom: 1px
+	&:hover
+		border-bottom: pem(2, 34) solid #fff
+
+.intro-text
+	$val: pc(290 / 1400)
+	$val: pem(290)
+	position: absolute
+	top: pem(241)
+	right: 0
+	left: 0
+	margin: 0 auto
+	width: $val
+	height: pem(130)
+	text-align: center
+	+media($smlDevice)
+		font-size: 80%
+		width: 100%
+		padding: pem(30, 12.8) pem(20, 12.8) 0
+		top: pem(140, 12.8)
+		padding-top: pem(40, 12.8)
+
+
+.title-white
+	font-family: Gentona, Arial
+	font-size: pem(110)
+	color: #fff
+
+.text-white
+	font-family: Bariol, Arial
+	font-size: pem(22)
+	line-height: pem(23)
+	color: #fff
+	font-weight: normal
+	+media($smlDevice)
+		font-size: pem(20,12.8)
+
+
+
+.line-color
+	background: #c81ca2
+	height: pem(10)
+	border-radius: 1em
+	width: 66%
+	margin: 0 auto
+	+media($smlDevice)
+		font-size: pem(10)	
+		width: pc(100, 320)
+
+.sweetarts .line-color
+	background: #c81ca2
+
+.london .line-color
+	background: #1c93c8
+
+.lasagna .line-color
+	background: #75ae11
+
+.zermatt .line-color
+	background: #febd10
+
+
+
+
+.intro-text__line
+	+media($smlDevice)
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+
+
+//=== Navigation widget ===//
+.nav-widget
+	font-family: Bariol
+	font-weight: bold
+	margin: 0 auto
+	background: red
+	width: pc(217 / 1400)
+	width: pem(217)
+	height: pem(44)
+	position: relative
+	top: pem(677)
+	margin: 0 auto
+	background: #d723af
+	border-radius: pem(18)
+	padding-top: pem(12)
+	padding-left: pem(27)
+	color: #1c1c1c
+	&:after //text element
+		font-size: pem(15)
+		top: 0.8em
+		position: absolute
+		padding-left: 0.4em
+	+media($smlDevice)
+		top: 27.8em
+
+//themes
+.sweetarts .nav-widget
+	+bg-gradient(#d723af, #da25b2, #c81ca2)
+	&:after
+		content: "SweeTarts"
+
+.london .nav-widget
+	+bg-gradient(#1c93c8, #2dade6, #1c93c8)
+	&:after
+		content: "London"
+
+.lasagna .nav-widget
+	+bg-gradient(#75af11, #97da22, #75af11)
+	&:after
+		content: "Lasagna"
+
+.zermatt .nav-widget
+	+bg-gradient(#febd10, #ffcb3f, #febd11)
+	&:after
+		content: "Zermatt"
+
+
+.nav-widget .widget-icon
+	margin-top: pem(2)
+	float: left
+	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center
+	height: pem(16)
+	width: pem(13)
+	background-size: 100%
+	display: inline-block
+
+$widget-w: pem(40)
+.widget-btn
+	+resetBtn
+	font-size: pem(16)
+	background: #fff
+	float: right
+	height: 100%
+	position: absolute
+	top: 0
+	width: $widget-w
+	cursor: pointer
+
+.widget-btn.next
+	right: 0
+	border-radius: 0 pem(18) pem(18) 0
+	background: white url(../img/next.png) no-repeat
+	background-position: center
+	background-size: pem(8) pem(15)
+
+.widget-btn.prev
+	right: $widget-w
+	background: white url(../img/prev.png) no-repeat
+	background-position: center
+	background-size: pem(8) pem(15)
+//=== End of nav widget ===//
+
+
+
+//Work section
+.section-work
+	text-align: center
+	padding-top: pem(120)
+	padding-bottom: pem(70)
+	position: relative
+
+.title-dark
+	font-family: Gentona, Arial
+	font-size: pem(80)
+	margin-bottom: pem(5)
+	color: #242424
+
+.sub-text
+	font-family: Bariol
+	font-size: pem(24)
+	color: #424242
+	margin-bottom: pem(25)
+
+$h: pem(58)
+.btn-filter
+	font-size: pem(16)
+	@extend .resetBtn
+	width: pem(187)
+	height: $h
+
+.btn-filter .left-side, .btn-filter .down-arrow
+	float: left
+	height: 100%
+
+.btn-filter .left-side
+	font-size: pem(20)
+	width: pem(126,20)
+	line-height: 2.95em
+	vertical-align: middle
+	background: #1c93c8
+	font-family: Bariol
+	font-weight: bold
+
+.btn-filter .down-arrow
+	display: block
+	width: pem(61)
+	background: #1fa2dc url(../img/down.png) no-repeat
+	background-position: center
+
+.work-collage
+	padding-bottom: pem(58)
+		
+
+
+
+

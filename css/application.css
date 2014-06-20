@@ -1,0 +1,573 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  margin: 0;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, ul, li, p, a, b, i, span, article, figure, header, footer, section, hgroup, fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+fieldset {
+  border: none;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+object, embed {
+  outline: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.resetBtn, .btn-filter {
+  outline: 0;
+  border: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resetLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hideText {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.tac {
+  text-align: center;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+@font-face {
+  font-family: "Gentona";
+  src: url("fonts/Gentona.otf");
+}
+
+@font-face {
+  font-family: "Gentona";
+  src: url(fonts/Gentona_ExtraBold_DEMO.otf);
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: "Bariol";
+  src: url("fonts/Bariol_Regular.otf");
+}
+
+@font-face {
+  font-family: "Bariol";
+  src: url("fonts/Bariol_Bold.otf");
+  font-weight: bold;
+}
+
+footer {
+  background: url(../img/pattern.jpg);
+  color: white;
+}
+footer .links {
+  margin: 0 auto;
+  text-align: center;
+  line-height: 18.75em;
+  vertical-align: middle;
+}
+footer h3 {
+  text-transform: uppercase;
+  font-family: Gentona;
+  font-size: 1.875em;
+  display: inline-block;
+  padding-right: 1.5em;
+}
+footer span {
+  font-family: Bariol;
+  font-size: 1.0625em;
+  padding-left: 2em;
+}
+
+.wrapper {
+  padding-bottom: 18.75em;
+}
+
+.banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 52.75em;
+  position: relative;
+}
+@media (max-width: 320px) {
+  .banner {
+    background-size: 933.333333333px 561.333333333px;
+    background-position: top;
+    height: 35.0625em;
+  }
+}
+
+.banner.sweetarts {
+  background-image: url(../img/sweetarts.jpg);
+}
+
+.banner.lasagna {
+  background-image: url(../img/lasagna.jpg);
+}
+
+.banner.london {
+  background-image: url(../img/london.jpg);
+}
+
+.banner.zermatt {
+  background-image: url(../img/zermatt.jpg);
+}
+
+.logo-joel {
+  position: absolute;
+  top: 4.0625em;
+  left: 14.714285714%;
+  width: 12.142857143%;
+  width: 10.625em;
+}
+@media (max-width: 320px) {
+  .logo-joel {
+    display: none;
+  }
+}
+
+.hamburger-icon {
+  display: block;
+  width: 1.8125em;
+  height: 1.4375em;
+  width: 2.8125em;
+  height: 2.8125em;
+  position: fixed;
+  top: 3.625em;
+  right: 12.142857143%;
+  z-index: 20;
+  cursor: pointer;
+}
+.hamburger-icon .meat, .hamburger-icon .meat:before, .hamburger-icon .meat:after {
+  width: 1.8125em;
+  height: 0.3125em;
+  background: white;
+  border-radius: 20px;
+}
+.hamburger-icon .meat:before, .hamburger-icon .meat:after {
+  content: "";
+  position: absolute;
+}
+.hamburger-icon .meat {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.hamburger-icon .meat:before {
+  top: -0.5625em;
+}
+.hamburger-icon .meat:after {
+  top: 0.5625em;
+}
+@media (max-width: 320px) {
+  .hamburger-icon {
+    top: 0.375em;
+    right: 0.3125em;
+    width: 4.3125em;
+    height: 4.125em;
+    background: #201c1d;
+    border-radius: 1.25em;
+  }
+}
+
+.hamburger-icon-dark {
+  display: none;
+}
+
+.nav-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background: rgba(3, 3, 3, 0.95);
+  padding-top: 3.75em;
+  text-align: center;
+}
+
+.nav-close {
+  background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center;
+  width: 2.25em;
+  height: 2.25em;
+  background-size: 100%;
+  margin: 0 auto 5.3125em;
+  cursor: pointer;
+}
+
+.nav-links li {
+  margin: 0 auto 3.75em;
+}
+
+.nav-white a {
+  font-size: 1.875em;
+  color: white;
+  font-family: Bariol, Arial;
+  text-decoration: none;
+}
+
+.nav-about a:hover {
+  color: #febd10;
+}
+
+.nav-work a:hover {
+  color: #c81ca2;
+}
+
+.nav-email a {
+  background: url("../img/email.png");
+  display: block;
+  margin: 0 auto;
+  width: 2.4375em;
+  height: 1.5625em;
+  background-size: 100%;
+}
+.nav-email a:after {
+  content: url(../img/email-hover.png);
+  display: none;
+}
+
+.nav-email a:hover {
+  background: url(../img/email-hover.png);
+  background-size: 100%;
+}
+
+.nav-fb {
+  width: 3.75em;
+  height: 3.125em;
+  position: relative;
+  top: 0.4375em;
+}
+
+.nav-fb a {
+  display: block;
+  background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#FFFFFF" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center;
+  background-size: 30%;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.nav-fb a:hover {
+  background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#1d5cc5" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center;
+  background-size: 30%;
+}
+
+.nav-cv a {
+  font: bolder 2.125em Gentona, Arial;
+}
+.nav-cv a:hover {
+  border-bottom: 0.058823529em solid white;
+}
+
+.intro-text {
+  position: absolute;
+  top: 15.0625em;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 18.125em;
+  height: 8.125em;
+  text-align: center;
+}
+@media (max-width: 320px) {
+  .intro-text {
+    font-size: 80%;
+    width: 100%;
+    padding: 2.34375em 1.5625em 0;
+    top: 10.9375em;
+    padding-top: 3.125em;
+  }
+}
+
+.title-white {
+  font-family: Gentona, Arial;
+  font-size: 6.875em;
+  color: white;
+}
+
+.text-white {
+  font-family: Bariol, Arial;
+  font-size: 1.375em;
+  line-height: 1.4375em;
+  color: white;
+  font-weight: normal;
+}
+@media (max-width: 320px) {
+  .text-white {
+    font-size: 1.5625em;
+  }
+}
+
+.line-color {
+  background: #c81ca2;
+  height: 0.625em;
+  border-radius: 1em;
+  width: 66%;
+  margin: 0 auto;
+}
+@media (max-width: 320px) {
+  .line-color {
+    font-size: 0.625em;
+    width: 31.25%;
+  }
+}
+
+.sweetarts .line-color {
+  background: #c81ca2;
+}
+
+.london .line-color {
+  background: #1c93c8;
+}
+
+.lasagna .line-color {
+  background: #75ae11;
+}
+
+.zermatt .line-color {
+  background: #febd10;
+}
+
+@media (max-width: 320px) {
+  .intro-text__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.nav-widget {
+  font-family: Bariol;
+  font-weight: bold;
+  margin: 0 auto;
+  background: red;
+  width: 15.5%;
+  width: 13.5625em;
+  height: 2.75em;
+  position: relative;
+  top: 42.3125em;
+  margin: 0 auto;
+  background: #d723af;
+  border-radius: 1.125em;
+  padding-top: 0.75em;
+  padding-left: 1.6875em;
+  color: #1c1c1c;
+}
+.nav-widget:after {
+  font-size: 0.9375em;
+  top: 0.8em;
+  position: absolute;
+  padding-left: 0.4em;
+}
+@media (max-width: 320px) {
+  .nav-widget {
+    top: 27.8em;
+  }
+}
+
+.sweetarts .nav-widget {
+  background: #d723af;
+  background: -webkit-gradient(linear, left top, left bottom, from(#da25b2), to(#c81ca2));
+  background: -moz-linear-gradient(top, #da25b2, #c81ca2);
+  background: -ms-linear-gradient(top, #da25b2, #c81ca2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#da25b2, endColorstr:#c81ca2);
+  background: gradient(linear, top, bottom, from(#da25b2), to(#c81ca2));
+}
+.sweetarts .nav-widget:after {
+  content: "SweeTarts";
+}
+
+.london .nav-widget {
+  background: #1c93c8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2dade6), to(#1c93c8));
+  background: -moz-linear-gradient(top, #2dade6, #1c93c8);
+  background: -ms-linear-gradient(top, #2dade6, #1c93c8);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2dade6, endColorstr:#1c93c8);
+  background: gradient(linear, top, bottom, from(#2dade6), to(#1c93c8));
+}
+.london .nav-widget:after {
+  content: "London";
+}
+
+.lasagna .nav-widget {
+  background: #75af11;
+  background: -webkit-gradient(linear, left top, left bottom, from(#97da22), to(#75af11));
+  background: -moz-linear-gradient(top, #97da22, #75af11);
+  background: -ms-linear-gradient(top, #97da22, #75af11);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#97da22, endColorstr:#75af11);
+  background: gradient(linear, top, bottom, from(#97da22), to(#75af11));
+}
+.lasagna .nav-widget:after {
+  content: "Lasagna";
+}
+
+.zermatt .nav-widget {
+  background: #febd10;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffcb3f), to(#febd11));
+  background: -moz-linear-gradient(top, #ffcb3f, #febd11);
+  background: -ms-linear-gradient(top, #ffcb3f, #febd11);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#ffcb3f, endColorstr:#febd11);
+  background: gradient(linear, top, bottom, from(#ffcb3f), to(#febd11));
+}
+.zermatt .nav-widget:after {
+  content: "Zermatt";
+}
+
+.nav-widget .widget-icon {
+  margin-top: 0.125em;
+  float: left;
+  background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center;
+  height: 1em;
+  width: 0.8125em;
+  background-size: 100%;
+  display: inline-block;
+}
+
+.widget-btn {
+  outline: 0;
+  border: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  background: white;
+  float: right;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 2.5em;
+  cursor: pointer;
+}
+
+.widget-btn.next {
+  right: 0;
+  border-radius: 0 1.125em 1.125em 0;
+  background: white url(../img/next.png) no-repeat;
+  background-position: center;
+  background-size: 0.5em 0.9375em;
+}
+
+.widget-btn.prev {
+  right: 2.5em;
+  background: white url(../img/prev.png) no-repeat;
+  background-position: center;
+  background-size: 0.5em 0.9375em;
+}
+
+.section-work {
+  text-align: center;
+  padding-top: 7.5em;
+  padding-bottom: 4.375em;
+  position: relative;
+}
+
+.title-dark {
+  font-family: Gentona, Arial;
+  font-size: 5em;
+  margin-bottom: 0.3125em;
+  color: #242424;
+}
+
+.sub-text {
+  font-family: Bariol;
+  font-size: 1.5em;
+  color: #424242;
+  margin-bottom: 1.5625em;
+}
+
+.btn-filter {
+  font-size: 1em;
+  width: 11.6875em;
+  height: 3.625em;
+}
+
+.btn-filter .left-side, .btn-filter .down-arrow {
+  float: left;
+  height: 100%;
+}
+
+.btn-filter .left-side {
+  font-size: 1.25em;
+  width: 6.3em;
+  line-height: 2.95em;
+  vertical-align: middle;
+  background: #1c93c8;
+  font-family: Bariol;
+  font-weight: bold;
+}
+
+.btn-filter .down-arrow {
+  display: block;
+  width: 3.8125em;
+  background: #1fa2dc url(../img/down.png) no-repeat;
+  background-position: center;
+}
+
+.work-collage {
+  padding-bottom: 3.625em;
+}
