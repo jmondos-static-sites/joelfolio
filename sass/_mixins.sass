@@ -64,6 +64,14 @@
 	width: rem($w)
 	height: rem($h)
 
+=wh100
+	width: 100%
+	height: 100%
+
+=whe($w, $h:$w, $base:16)
+	width: pem($w, $base)
+	height: pem($h, $base)
+
 =h($h)
 	height: rem($h)
 
@@ -89,7 +97,11 @@
 	+trbl($v1, $v2, $v3, $v4)
 	margin: auto
 
-=svg($posX, $posY)
+=svg($svg)
+	background: url('data:image/svg+xml;utf8, #{$svg}')
+
+
+=svgs($posX, $posY)
 	background: img-path("svg-sprite.svg") no-repeat
 	background-size: cover
 	background-position: $posX $posY

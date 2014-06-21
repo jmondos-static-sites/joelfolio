@@ -86,8 +86,19 @@ img {
 }
 
 @font-face {
+  font-family: "Bariol";
+  src: url(fonts/Bariol_Regular.otf);
+}
+
+@font-face {
+  font-family: "Bariol";
+  src: url(fonts/Bariol_Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
   font-family: "Gentona";
-  src: url("fonts/Gentona.otf");
+  src: url(fonts/Gentona.otf);
 }
 
 @font-face {
@@ -97,14 +108,9 @@ img {
 }
 
 @font-face {
-  font-family: "Bariol";
-  src: url("fonts/Bariol_Regular.otf");
-}
-
-@font-face {
-  font-family: "Bariol";
-  src: url("fonts/Bariol_Bold.otf");
-  font-weight: bold;
+  font-family: "Proxima Nova";
+  src: url(fonts/ProximaNova-Extrabld.otf);
+  font-weight: bolder;
 }
 
 footer {
@@ -772,4 +778,169 @@ footer span {
   bottom: 7.5rem;
   text-align: center;
   width: 100%;
+}
+
+.about__text-white {
+  font-size: 1.625rem;
+  position: absolute;
+  bottom: 5.625rem;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+}
+
+.title-content {
+  font: bolder 3.4375rem Proxima Nova, Arial;
+  color: #242424;
+  text-align: center;
+  padding-top: 9.625rem;
+  position: relative;
+}
+.title-content:after {
+  content: "";
+  background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 35 35" enable-background="new 0 0 35 35" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M32.813,28.438L17.5,35L2.188,28.438C0.979,28.438,0,27.458,0,26.25  V2.188C0,0.979,0.979,0,2.188,0h2.188v0.938L17.5,6.563l13.125-5.625V0h2.188C34.021,0,35,0.979,35,2.188V26.25  C35,27.458,34.021,28.438,32.813,28.438z M4.375,24.063l10.938,5.469V10.208L4.375,6.563V24.063z M30.625,6.563l-10.938,3.646 v19.323l10.938-5.469V6.563z"/></svg>') no-repeat center;
+  position: absolute;
+  bottom: 4.4375rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  left: 0.8125rem;
+  width: 2.1875rem;
+  height: 2.1875rem;
+}
+
+.content-sub {
+  text-transform: uppercase;
+  font: bolder 1.625rem Proxima Nova, Arial;
+  color: #242424;
+  text-align: center;
+  padding-top: 4.8125rem;
+}
+
+.content-sub.first {
+  padding-top: 5.625rem;
+}
+
+.content-text {
+  font: 1.375rem Bariol, Arial;
+  width: 43.857142857%;
+  width: 38.1875rem;
+  margin: 0 auto;
+  color: #424242;
+  line-height: 1.64em;
+  padding-top: 2.5rem;
+}
+
+.link-lb {
+  color: #1c93c8;
+  text-decoration: none;
+  border-bottom: 1px solid #a7cde4;
+}
+
+.frame-map {
+  background: url(../img/frame-map.jpg) no-repeat center;
+  background-size: 100%;
+  width: 47em;
+  height: 34.5em;
+  max-width: 47em;
+  position: relative;
+  margin: 0 auto;
+}
+.frame-map .map-img:after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: 0.35s opacity;
+}
+.frame-map .map-img:before {
+  content: attr(data-place);
+  font: 1.25em Bariol, Arial;
+  color: white;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  transition: 0.35s opacity;
+  height: 5em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+  text-align: center;
+}
+.frame-map .map-img.br:before {
+  max-width: 50%;
+  line-height: 1em;
+}
+.frame-map .map-img:hover:after, .frame-map .map-img:hover:before, .frame-map .map-img:hover .location-pin path {
+  opacity: 1;
+}
+.frame-map .location-pin {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 6.875em;
+}
+.frame-map .location-pin path {
+  opacity: 0;
+  transition: 0.35s opacity;
+}
+.frame-map .pin-blue path {
+  fill: #1c93c8;
+}
+.frame-map .pin-ppl path {
+  fill: #c81ca2;
+}
+.frame-map .pin-orange path {
+  fill: #fe8d00;
+}
+.frame-map .pin-lorange path {
+  fill: #febd10;
+}
+.frame-map .pin-green path {
+  fill: #75ae11;
+}
+.frame-map .photo1 {
+  position: absolute;
+  width: 11.9375em;
+  height: 13.75em;
+  top: 3.0625em;
+  left: 3.125em;
+}
+.frame-map .photo2 {
+  position: absolute;
+  width: 18.5625em;
+  height: 13.6875em;
+  top: 3.0625em;
+  left: 15.375em;
+}
+.frame-map .photo3 {
+  position: absolute;
+  width: 9.6875rem;
+  height: 28.25rem;
+  top: 3.0625em;
+  left: 34.25em;
+}
+.frame-map .photo4 {
+  position: absolute;
+  width: 18.5rem;
+  height: 14.1875rem;
+  left: 3.125em;
+  bottom: 3.1875em;
+}
+.frame-map .photo5 {
+  position: absolute;
+  width: 12rem;
+  height: 14.1875rem;
+  left: 21.9375em;
+  bottom: 3.1875em;
 }

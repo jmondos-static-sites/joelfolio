@@ -5,6 +5,153 @@
 	font: bolder rem(70) $gent
 	color: #fff
 	position: absolute
-	bottom: rem(134- 14)
+	bottom: rem(134 - 14)
 	text-align: center
 	width: 100%
+
+.about__text-white
+	font-size: rem(26)
+	position: absolute
+	bottom: rem(94 - 4)
+	text-align: center
+	width: 100%
+	font-style: italic
+
+.title-content
+	font: bolder rem(55) $prox
+	color: #242424
+	text-align: center
+	padding-top: rem(159 - 5)
+	position: relative
+	&:after
+		content: ""
+		background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 35 35" enable-background="new 0 0 35 35" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M32.813,28.438L17.5,35L2.188,28.438C0.979,28.438,0,27.458,0,26.25  V2.188C0,0.979,0.979,0,2.188,0h2.188v0.938L17.5,6.563l13.125-5.625V0h2.188C34.021,0,35,0.979,35,2.188V26.25  C35,27.458,34.021,28.438,32.813,28.438z M4.375,24.063l10.938,5.469V10.208L4.375,6.563V24.063z M30.625,6.563l-10.938,3.646 v19.323l10.938-5.469V6.563z"/></svg>') no-repeat center
+		position: absolute
+		bottom: rem(49 + 22)
+		+lrma
+		left: rem(13)
+		+wh(35)
+
+.content-sub
+	text-transform: uppercase
+	font: bolder rem(26) $prox
+	color: #242424
+	text-align: center
+	padding-top: rem(95 - 5 - 13)
+
+.content-sub.first
+	padding-top: rem(95 - 5)
+
+.content-text
+	font: rem(22) $baz
+	+wp(614, 1400)
+	+w(611)
+	margin: 0 auto
+	color: #424242
+	line-height: 1.64em
+	padding-top: rem(50 - 10)
+
+.link-lb
+	color: #1c93c8
+	text-decoration: none
+	border-bottom: 1px solid #a7cde4
+
+.frame-map
+	//dimensions: 752 x 552
+	background: url(../img/frame-map.jpg) no-repeat center
+	background-size: 100%
+	//Flexy
+	// width: pc(752, $dw)
+	// height: 0
+	// padding-top: pc(552, 752)
+	+whe(752, 552)
+	max-width: pem(752)
+	position: relative
+	margin: 0 auto
+	+media("(max-width:900px)")
+		//font-size: 80%
+	+media("(max-width:670px)")
+		//font-size: 60%
+	.map-img:after
+		content: ""
+		+trblma
+		position: absolute
+		+wh100
+		background: rgba(0,0,0,0.6)
+		opacity: 0
+		transition: 0.35s opacity
+	
+	.map-img:before
+		content: attr(data-place)
+		font: pem(20) $baz
+		color: #fff
+		position: absolute
+		z-index: 10
+		opacity: 0
+		transition: 0.35s opacity
+		height: pem(80)
+		+lrma
+		bottom: 0
+		text-align: center
+
+	.map-img.br:before
+		max-width: 50%
+		line-height: 1em
+
+
+	.map-img:hover
+		&:after, &:before, .location-pin path
+			opacity: 1
+		
+	.location-pin
+		position: absolute
+		z-index: 10
+		+lrma
+		bottom: pem(80+30)
+		path
+			opacity: 0
+			transition: 0.35s opacity
+	.pin-blue path
+		fill: #1c93c8
+	.pin-ppl path
+		fill: #c81ca2
+	.pin-orange path
+		fill: #fe8d00
+	.pin-lorange path
+		fill: #febd10
+	.pin-green path
+		fill: #75ae11
+
+	.photo1
+		position: absolute
+		+whe(191, 220)
+		top: pem(49)
+		left: pem(50)
+		&:hover:after
+			
+	
+	.photo2
+		position: absolute
+		+whe(297, 219)
+		top: pem(49)
+		left: pem(50 + 191 + 5)
+	
+	.photo3
+		position: absolute
+		+wh(155, 452)
+		top: pem(49)
+		left: pem(50 + 196 + 297 + 5)
+	
+	.photo4
+		position: absolute
+		+wh(296, 227)
+		left: pem(50)
+		bottom: pem(51)
+	
+	.photo5
+		position: absolute
+		+wh(192, 227)
+		left: pem(50 + 296 + 5)
+		bottom: pem(51)
+
+
