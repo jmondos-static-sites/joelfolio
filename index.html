@@ -13,9 +13,9 @@
     <body>
         <div class="wrapper">
             <!-- main photo banner -->
-            <header class="banner zermatt">
+            <header class="banner lasagna">
                 <div class="logo-joel">
-                    <img src="img/logo.png" alt="Campaign photo">
+                    <img src="img/icon/logo.png" alt="Campaign photo">
                 </div>
 
                 <!-- side nav bar -->
@@ -53,8 +53,7 @@
                     <button class="widget-btn prev"></button>
                 </div>
 
-                
-
+                <div class="down-arrow-white"></div>
             </header>
         
             <!-- content section -->
@@ -63,19 +62,110 @@
                 <h2 class="title-dark">Work</h2>
                 <div class="sub-text">A selected sample of my freelance, agency, and personal projects.</div>
 
-                <button class="btn-filter">
-                    <div class="left-side">Filter</div>
-                    <i class="down-arrow"></i>
-                </button>
-            </div>
+                <!-- add class selected-->
+                <div class="btn-filter-ct">
+                    <button class="btn-filter ">
+                        <div class="left-side">Filter</div>
+                        <i class="down-arrow-box"></i>
+                    </button>
+                    <div class="filter-list">
+                        <div class="list-elem">web design<i class="close-blue"></i></div>
+                        <div class="list-elem">branding<i class="close-blue"></i></div>
+                        <div class="list-elem">print<i class="close-blue"></i></div>
+                    </div>
+                </div>
 
-            <div class="work-collage">
-                <img src="img/feature.jpg" alt="feature" />
-                <!-- delete later and use as bg sprite -->
+            </div>
+            <div class="collage-ct">
+                <div class="overlay-collage hide"></div>
+                <div class="work-collage">
+                    <!-- arranged in this way to provide some fallback -->
+                    <!-- 
+                    <img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea">
+
+                    <img data-order="1" class="img-small" src="img/collage/small1.jpg" alt="Threshold Interactive">
+
+                    <img class="img-small flex" src="img/collage/small2.jpg" alt="Example work image">
+                    <img data-order="2" class="img-landscape" src="img/collage/landscape1.jpg" alt="Sugar House">
+                   
+                    <img class="img-landscape" src="img/collage/landscape3.jpg" alt="Sweet to be">
+                    <img class="img-small flex" src="img/collage/small3.jpg" alt="The 2013 Slow Pitch">
+                   
+                    <img class="img-vert" src="img/collage/vert1.jpg" alt="">
+                    <img class="img-large" src="img/collage/lge2.jpg" alt="">
+
+                    <img class="img-large" src="img/collage/lge1.jpg" alt="">
+                    <img class="img-vert" src="img/collage/vert2.jpg" alt="">
+
+                    <img class="img-small flex" style="vertical-align:top" src="img/collage/small4.jpg" alt="I love your more than"> -->
+
+
+
+                    <!-- data-overlay object
+                    If present js will provide the overlay option.
+
+                    All values are optional, pass it an object:
+                    {src: 'img-src', sub:'role', alt: 'project name' }
+                    -no src: uses existing img
+                    -no sub: doesn't show
+                    -no title: uses img alt
+                    -->
+                    <div class="elem">
+                        <img class="img-small" src="img/collage/small1.jpg" alt="Threshold Interactive">
+                    </div>
+                    <div class="elem">
+                        <img class="img-landscape" src="img/collage/landscape1.jpg" alt="Sugar House">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-vert" src="img/collage/vert2.jpg" alt="">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-vert" src="img/collage/vert1.jpg" alt="">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-large" src="img/collage/lge1.jpg" alt="">
+                    </div>
+
+                    <div class="elem">
+
+                    <img class="img-small" data-overlay="{sub: 'design', src: 'img/shirt-orig.jpg'}" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-large" src="img/collage/lge2.jpg" alt="">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-landscape" data-overlay="{sub: 'Art Direction', src: 'img/selfie_lemon.jpg'}" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
+                    </div>
+
+                    <div class="elem">
+                    <img class="img-small" data-overlay="{src: 'ilymt-overlay.jpg', title: 'ILoveYouMoreThan.com', sub: 'personal project'}" src="img/collage/small4.jpg" alt="I love your more than">
+                    </div>
+
+                    <div class="elem">
+                        <img class="img-landscape" data-overlay="{src: 'img/sweetarts-orig.jpg', sub: 'Sweet To Be You Campaign'}" src="img/collage/landscape3.jpg" alt="SweeTarts">
+                    </div>
+                    <div class="elem">
+                        <img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
+                    </div>
+                </div>
+                 <!-- <div class="overlay-collage__overlay-elem">
+                    <img src="img/sweetarts-orig.jpg">
+                </div> -->
             </div>
         
 
         </div>
+
+
 
         <footer>
             <div class="links">
@@ -91,16 +181,28 @@
         <script src="js/commondev.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/folio.js"></script>
+        <script src="js/masonry.min.js"></script>
+        <!--<script src="js/isotope.min.js"></script> -->
+            
+        <script>
+        // (function(){
+        //     var $ct = $('.work-collage');
 
-        <!-- remove after you sprite -->
+        //     $ct.isotope({
+        //         itemSelector: 'img',
+        //         layoutMode: 'fitRows'
+        //         // masonry: { columnWidth: 350 }
+        //     });
+        // })();
+
+        (function(){
+            var ct = document.querySelector('.work-collage');
+            var msnry = new Masonry(ct, {
+                itemSelector: '.work-collage .elem',
+                isFitWidth: true
+            })
+        })();
+        </script>
+
     </body>
 </html>
-
-<!-- todo
-
--Add down arrow at bottom of banner
-
-
-
-
--->

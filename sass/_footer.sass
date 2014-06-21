@@ -1,18 +1,40 @@
 footer
-	background: url(../img/pattern.jpg)
+	background: url(../img/icon/pattern.jpg)
 	color: #fff
 	.links
 		margin: 0 auto
 		text-align: center
 		line-height: $footer
 		vertical-align: middle
+		+media("(max-width: 520px)")
+			height: rem(300)
+			line-height: 1em
+			padding-top: rem(79)
+			font-size: 150%
 	h3
 		text-transform: uppercase
 		font-family: Gentona
 		font-size: pem(30)
 		display: inline-block
 		padding-right: 1.5em
+		+media("(max-width: 520px)")
+			display: block
+			padding: 0
+			text-align: center
+			margin-bottom: rem(33)
 	span
 		font-family: Bariol
 		font-size: pem(17)
 		padding-left: 2em
+		+media("(max-width: 520px)")
+			display: block
+			padding: 0
+			margin-bottom: rem(14)
+	+media("(max-width: 780px)")
+		font-size: 80%
+	+media("(max-width: 645px)")
+		font-size: 65%
+		
+			
+		
+

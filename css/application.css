@@ -108,7 +108,7 @@ img {
 }
 
 footer {
-  background: url(../img/pattern.jpg);
+  background: url(../img/icon/pattern.jpg);
   color: white;
 }
 footer .links {
@@ -117,6 +117,14 @@ footer .links {
   line-height: 18.75em;
   vertical-align: middle;
 }
+@media (max-width: 520px) {
+  footer .links {
+    height: 18.75rem;
+    line-height: 1em;
+    padding-top: 4.9375rem;
+    font-size: 150%;
+  }
+}
 footer h3 {
   text-transform: uppercase;
   font-family: Gentona;
@@ -124,14 +132,35 @@ footer h3 {
   display: inline-block;
   padding-right: 1.5em;
 }
+@media (max-width: 520px) {
+  footer h3 {
+    display: block;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 2.0625rem;
+  }
+}
 footer span {
   font-family: Bariol;
   font-size: 1.0625em;
   padding-left: 2em;
 }
-
-.wrapper {
-  padding-bottom: 18.75em;
+@media (max-width: 520px) {
+  footer span {
+    display: block;
+    padding: 0;
+    margin-bottom: 0.875rem;
+  }
+}
+@media (max-width: 780px) {
+  footer {
+    font-size: 80%;
+  }
+}
+@media (max-width: 645px) {
+  footer {
+    font-size: 65%;
+  }
 }
 
 .banner {
@@ -148,9 +177,9 @@ footer span {
 }
 @media (max-width: 320px) {
   .banner {
-    background-size: 933.333333333px 561.333333333px;
+    background-size: 60.344827586em 36.293103448em;
     background-position: top;
-    height: 35.0625em;
+    height: 35.5em;
   }
 }
 
@@ -177,6 +206,12 @@ footer span {
   width: 12.142857143%;
   width: 10.625em;
 }
+@media (max-width: 1024px) {
+  .logo-joel {
+    top: 3.125rem;
+    left: 4.8828125%;
+  }
+}
 @media (max-width: 320px) {
   .logo-joel {
     display: none;
@@ -185,10 +220,10 @@ footer span {
 
 .hamburger-icon {
   display: block;
-  width: 1.8125em;
-  height: 1.4375em;
-  width: 2.8125em;
-  height: 2.8125em;
+  width: 1.8125rem;
+  height: 1.4375rem;
+  width: 2.8125rem;
+  height: 2.8125rem;
   position: fixed;
   top: 3.625em;
   right: 12.142857143%;
@@ -196,8 +231,8 @@ footer span {
   cursor: pointer;
 }
 .hamburger-icon .meat, .hamburger-icon .meat:before, .hamburger-icon .meat:after {
-  width: 1.8125em;
-  height: 0.3125em;
+  width: 1.8125rem;
+  height: 0.3125rem;
   background: white;
   border-radius: 20px;
 }
@@ -220,12 +255,18 @@ footer span {
 .hamburger-icon .meat:after {
   top: 0.5625em;
 }
+@media (max-width: 1024px) {
+  .hamburger-icon {
+    top: 2.625rem;
+    right: 4.8828125%;
+  }
+}
 @media (max-width: 320px) {
   .hamburger-icon {
     top: 0.375em;
     right: 0.3125em;
-    width: 4.3125em;
-    height: 4.125em;
+    width: 4.3125rem;
+    height: 4.125rem;
     background: #201c1d;
     border-radius: 1.25em;
   }
@@ -247,8 +288,8 @@ footer span {
 
 .nav-close {
   background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center;
-  width: 2.25em;
-  height: 2.25em;
+  width: 2.25rem;
+  height: 2.25rem;
   background-size: 100%;
   margin: 0 auto 5.3125em;
   cursor: pointer;
@@ -274,20 +315,20 @@ footer span {
 }
 
 .nav-email a {
-  background: url("../img/email.png");
+  background: url("../img/icon/email.png");
   display: block;
   margin: 0 auto;
-  width: 2.4375em;
-  height: 1.5625em;
+  width: 2.4375rem;
+  height: 1.5625rem;
   background-size: 100%;
 }
 .nav-email a:after {
-  content: url(../img/email-hover.png);
+  content: url(../img/icon/email-hover.png);
   display: none;
 }
 
 .nav-email a:hover {
-  background: url(../img/email-hover.png);
+  background: url(../img/icon/email-hover.png);
   background-size: 100%;
 }
 
@@ -449,6 +490,11 @@ footer span {
   background: -ms-linear-gradient(top, #2dade6, #1c93c8);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2dade6, endColorstr:#1c93c8);
   background: gradient(linear, top, bottom, from(#2dade6), to(#1c93c8));
+  padding-left: 2.125em;
+}
+.london .nav-widget .widget-icon {
+  background: url(../img/icon/location.png) no-repeat;
+  background-size: 0.75em 0.9375em;
 }
 .london .nav-widget:after {
   content: "London";
@@ -462,7 +508,14 @@ footer span {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#97da22, endColorstr:#75af11);
   background: gradient(linear, top, bottom, from(#97da22), to(#75af11));
 }
+.lasagna .nav-widget .widget-icon {
+  background: url(../img/icon/utensils.png) no-repeat;
+  background-size: 1em 1em;
+  width: 1em;
+  margin-left: -0.1875em;
+}
 .lasagna .nav-widget:after {
+  margin-left: 0.1875em;
   content: "Lasagna";
 }
 
@@ -473,6 +526,11 @@ footer span {
   background: -ms-linear-gradient(top, #ffcb3f, #febd11);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#ffcb3f, endColorstr:#febd11);
   background: gradient(linear, top, bottom, from(#ffcb3f), to(#febd11));
+  padding-left: 2.125em;
+}
+.zermatt .nav-widget .widget-icon {
+  background: url(../img/icon/location.png) no-repeat;
+  background-size: 0.75em 0.9375em;
 }
 .zermatt .nav-widget:after {
   content: "Zermatt";
@@ -507,16 +565,34 @@ footer span {
 .widget-btn.next {
   right: 0;
   border-radius: 0 1.125em 1.125em 0;
-  background: white url(../img/next.png) no-repeat;
+  background: white url(../img/icon/next.png) no-repeat;
   background-position: center;
   background-size: 0.5em 0.9375em;
 }
 
 .widget-btn.prev {
   right: 2.5em;
-  background: white url(../img/prev.png) no-repeat;
+  background: white url(../img/icon/prev.png) no-repeat;
   background-position: center;
   background-size: 0.5em 0.9375em;
+}
+
+.down-arrow-white {
+  background: url(../img/icon/down-arrow.png) no-repeat center;
+  background-size: 1.9375em 0.75em;
+  position: absolute;
+  bottom: 1.5em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 2.875rem;
+  height: 1.875rem;
+  cursor: pointer;
+}
+@media (max-width: 320px) {
+  .down-arrow-white {
+    bottom: 1.25em;
+  }
 }
 
 .section-work {
@@ -524,6 +600,12 @@ footer span {
   padding-top: 7.5em;
   padding-bottom: 4.375em;
   position: relative;
+}
+@media (max-width: 320px) {
+  .section-work {
+    padding-top: 3.125rem;
+    font-size: 90%;
+  }
 }
 
 .title-dark {
@@ -544,30 +626,150 @@ footer span {
   font-size: 1em;
   width: 11.6875em;
   height: 3.625em;
+  vertical-align: bottom;
+}
+@media (max-width: 320px) {
+  .btn-filter {
+    font-size: 110%;
+  }
 }
 
-.btn-filter .left-side, .btn-filter .down-arrow {
+.btn-filter .left-side, .btn-filter .down-arrow-box {
   float: left;
   height: 100%;
 }
 
 .btn-filter .left-side {
-  font-size: 1.25em;
+  font: bold 1.25em Bariol, Arial;
+  color: #232323;
   width: 6.3em;
   line-height: 2.95em;
   vertical-align: middle;
   background: #1c93c8;
-  font-family: Bariol;
-  font-weight: bold;
 }
 
-.btn-filter .down-arrow {
+.down-arrow-box {
   display: block;
   width: 3.8125em;
-  background: #1fa2dc url(../img/down.png) no-repeat;
-  background-position: center;
+  background: #1fa2dc url(../img/icon/down-black.png) no-repeat center;
+  background-size: 1.25em 0.6875em;
+}
+
+.selected .down-arrow-box {
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: flipv;
+  -ms-filter: "flipv";
+}
+
+.filter-list {
+  display: none;
+  width: 11.6875em;
+  margin: 0 auto;
+  position: relative;
+  z-index: 110;
+}
+
+.selected .filter-list {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.filter-list .list-elem {
+  position: relative;
+  font: bold 1.25em Bariol, Arial;
+  color: #242424;
+  background: #1c7ca6;
+  height: 3em;
+  border-bottom: 1px solid #1fa1db;
+  line-height: 3em;
+}
+
+.close-blue {
+  font-size: 1em;
+  width: 1.3125rem;
+  height: 1.3125rem;
+  background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="11.599px" height="11.192px" viewBox="0 0 11.599 11.192" enable-background="new 0 0 11.599 11.192" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M10.899,0.293c0.391,0.391,0.391,1.023,0,1.414l-9.192,9.192  c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l9.192-9.192C9.876-0.098,10.509-0.098,10.899,0.293z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M11.311,10.811c-0.384,0.384-1.006,0.384-1.391,0L0.882,1.772  c-0.384-0.384-0.384-1.007,0-1.391c0.384-0.384,1.006-0.384,1.391,0l9.038,9.038C11.695,9.804,11.695,10.427,11.311,10.811z"/></svg>') no-repeat center;
+  background-color: #20a2dc;
+  background-size: 0.6875em 0.6875em;
+  border-radius: 30px;
+  display: block;
+  position: absolute;
+  top: 0.25em;
+  bottom: 0;
+  right: 0.625em;
+  margin: auto;
+}
+
+.collage-ct {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 19.75rem;
+}
+
+.overlay-collage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  background: black;
+  opacity: 0.85;
 }
 
 .work-collage {
-  padding-bottom: 3.625em;
+  padding-bottom: 3.625rem;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.work-collage img:after {
+  content: "";
+  position: absolute;
+  background: red;
+  width: 0.625rem;
+  height: 0.625rem;
+  z-index: 10;
+}
+
+.work-collage img {
+  vertical-align: top;
+}
+
+.elem {
+  vertical-align: top;
+  cursor: pointer;
+}
+.elem:after {
+  content: "";
+  background: url(../img/icon/open-overlay.png) no-repeat;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-size: 100%;
+  position: absolute;
+  bottom: 1.3125rem;
+  right: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.elem:hover:after {
+  opacity: 1;
+}
+
+.banner.about {
+  background-image: url(../img/test.jpg);
+}
+
+.title-about {
+  font: bolder 4.375rem Gentona, Arial;
+  color: white;
+  position: absolute;
+  bottom: 7.5rem;
+  text-align: center;
+  width: 100%;
 }

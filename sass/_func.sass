@@ -6,6 +6,10 @@
 @function pem($pxval, $base: 16)
 	@return #{$pxval / $base}em
 
+@function rem($px)
+	@return #{$px / $base}rem
+
+
 @function img-path($path)
 	@return url("../img/mobile/#{$path}") //dev
 	@return url("/img/mobile/#{$path}")

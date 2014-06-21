@@ -2,129 +2,175 @@
 // Utility mixins
 //================
 =clearfix
-  &:after
-    content: ""
-    display: table
-    clear: both
+	&:after
+		content: ""
+		display: table
+		clear: both
 =dib
-  display: inline-block
-  margin-right: -4px
+	display: inline-block
+	margin-right: -4px
 
 =hide
-  display: none
+	display: none
 
 =hideText
-  text-indent: 100%
-  white-space: nowrap
-  overflow: hidden
+	text-indent: 100%
+	white-space: nowrap
+	overflow: hidden
 
 =resetBtn
-  outline: 0
-  border: 0
-  background: none
-  margin: 0
-  padding: 0
+	outline: 0
+	border: 0
+	background: none
+	margin: 0
+	padding: 0
 
 =resetLink
-  text-decoration: none
-  color: inherit
+	text-decoration: none
+	color: inherit
 
 =ttu
-  text-transform: uppercase
+	text-transform: uppercase
 
 =tac
-  text-align: center
+	text-align: center
 
 =test
-  background: orange !important
+	background: orange !important
 
 
 
 //===================
 // Mixins with params
 //===================
-=w($w, $em: 16)
-  width: pem($w, $em)
+
+//old methods, if you need ie8
+// =w($w, $em: 16)
+// 	width: pem($w, $em)
+// =wh($w, $h:$w, $em: 16)
+// 	width: pem($w, $em)
+// 	height: pem($h, $em)
+// =h($h, $em: 16) 
+// 	height: pem($h, $em)
+
+=w($w)
+	width: rem($w)
 
 //width perc, defaults to mobile
 =wp($w, $w2: 320)
-  width: pc($w / $w2 )
+	width: pc($w, $w2)
 
-=wh($w, $h:$w, $em: 16)
-  width: pem($w, $em)
-  height: pem($h, $em)
+=wh($w, $h:$w)
+	width: rem($w)
+	height: rem($h)
 
-=h($h, $em: 16)
-  height: pem($h, $em)
+=h($h)
+	height: rem($h)
 
 =br($val)
-  border-radius: $val
+	border-radius: $val
+
+=lr($v1: 0, $v2: $v1)
+	left: $v1
+	right: $v2
+
+=lrma($v1:0, $v2:$v1)
+	+lr($v1, $v2)
+	margin: 0 auto
+
+
+=trbl($v1: 0, $v2: $v1, $v3: $v1, $v4: $v2)
+	top: $v1
+	right: $v2
+	bottom: $v3
+	left: $v4
+
+=trblma($v1: 0, $v2: $v1, $v3: $v1, $v4: $v2)
+	+trbl($v1, $v2, $v3, $v4)
+	margin: auto
 
 =svg($posX, $posY)
-  background: img-path("svg-sprite.svg") no-repeat
-  background-size: cover
-  background-position: $posX $posY
+	background: img-path("svg-sprite.svg") no-repeat
+	background-size: cover
+	background-position: $posX $posY
 
 =bg-gradient($fallback, $from, $to)
-  background: $fallback
-  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to))
-  background: -moz-linear-gradient(top, $from, $to)
-  background: -ms-linear-gradient(top, $from, $to)
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#{$from}, endColorstr:#{$to})
-  background: gradient(linear, top, bottom, from($from), to($to))
+	background: $fallback
+	background: -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+	background: -moz-linear-gradient(top, $from, $to)
+	background: -ms-linear-gradient(top, $from, $to)
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#{$from}, endColorstr:#{$to})
+	background: gradient(linear, top, bottom, from($from), to($to))
 
 
 =triangle($dir, $size, $color)
-  border: $size transparent solid
-  @if $dir == "top" or $dir == "up" or $dir == "left" or $dir == "before"
-    &:before
-      @if $dir == "top" or $dir == "up"
-        border-bottom-color: $color
-      @else if $dir == "right" or $dir == "after"
-        border-left-color: $color
-  @else if $dir == "bottom" or $dir == "down" or $dir == "left" or $dir == "before"
-    &:after
-      @if $dir == "bottom" or $dir == "down"
-        border-top-color: $color
-      @else if $dir == "left" or $dir == "before"
-        border-right-color: $color
+	border: $size transparent solid
+	@if $dir == "top" or $dir == "up" or $dir == "left" or $dir == "before"
+		&:before
+			@if $dir == "top" or $dir == "up"
+				border-bottom-color: $color
+			@else if $dir == "right" or $dir == "after"
+				border-left-color: $color
+	@else if $dir == "bottom" or $dir == "down" or $dir == "left" or $dir == "before"
+		&:after
+			@if $dir == "bottom" or $dir == "down"
+				border-top-color: $color
+			@else if $dir == "left" or $dir == "before"
+				border-right-color: $color
 
 =triangle($dir, $w, $h, $color)
-  border: $h transparent solid
+	border: $h transparent solid
 
-  @if $dir == "top" or $dir == "up"
-    border-bottom-color: $color
-    border-bottom-width: $w
-  @else if $dir == "right" or $dir == "after"
-    border-left-color: $color
-    border-left-width: $w
-  @else if $dir == "bottom" or $dir == "down"
-    border-top-color: $color
-    border-top-width: $w
-  @else if $dir == "left" or $dir == "before"
-    border-right-color: $color
-    border-right-width: $w
+	@if $dir == "top" or $dir == "up"
+		border-bottom-color: $color
+		border-bottom-width: $w
+	@else if $dir == "right" or $dir == "after"
+		border-left-color: $color
+		border-left-width: $w
+	@else if $dir == "bottom" or $dir == "down"
+		border-top-color: $color
+		border-top-width: $w
+	@else if $dir == "left" or $dir == "before"
+		border-right-color: $color
+		border-right-width: $w
 
 =placeholder-color($c)
-  &::-webkit-input-placeholder
-    color: $c
-  &::-moz-placeholder /* Firefox 19+ */
-    color: $c
-  &:-ms-input-placeholder
-    color: $c
+	&::-webkit-input-placeholder
+		color: $c
+	&::-moz-placeholder /* Firefox 19+ */
+		color: $c
+	&:-ms-input-placeholder
+		color: $c
 
 =placeholder-weight($val)
-  &::-webkit-input-placeholder
-    font-weight: $val
-  &::-moz-placeholder /* Firefox 19+ */
-    font-weight: $val
-  &:-ms-input-placeholder
-    font-weight: $val
+	&::-webkit-input-placeholder
+		font-weight: $val
+	&::-moz-placeholder /* Firefox 19+ */
+		font-weight: $val
+	&:-ms-input-placeholder
+		font-weight: $val
 
 //mostly here for an example
 =arrow-up($c: black)
-  width: 0 
-  height: 0 
-  border-left: 5px solid transparent
-  border-right: 5px solid transparent
-  border-bottom: 5px solid $c
+	width: 0 
+	height: 0 
+	border-left: 5px solid transparent
+	border-right: 5px solid transparent
+	border-bottom: 5px solid $c
+
+
+=flipv
+	-moz-transform: scaleY(-1)
+	-o-transform: scaleY(-1)
+	-webkit-transform: scaleY(-1)
+	transform: scaleY(-1)
+	filter: flipv /*IE*/
+	-ms-filter: "flipv" /*IE*/
+
+=fliph
+	-moz-transform: scaleX(-1)
+	-webkit-transform: scaleX(-1)
+	-o-transform: scaleX(-1)
+	transform: scaleX(-1)
+	-ms-filter: fliph /*IE*/
+	filter: fliph /*IE*/
