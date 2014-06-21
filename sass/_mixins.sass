@@ -78,13 +78,31 @@
 =br($val)
 	border-radius: $val
 
+
 =lr($v1: 0, $v2: $v1)
 	left: $v1
 	right: $v2
 
+=tb($v1:0, $v2: $v1)
+	top: $v1
+	bottom: $v2
+
+=tbma($v1:0, $v2:$v1)
+	+tb($v1, $v2)
+	margin: auto 0
+
+
 =lrma($v1:0, $v2:$v1)
 	+lr($v1, $v2)
 	margin: 0 auto
+
+=media($mq, $val:0)
+	@if $mq == "mw"
+		@media #{"(max-width: #{$val}px)" }
+			@content
+	@else 
+		@media #{$mq}
+			@content
 
 
 =trbl($v1: 0, $v2: $v1, $v3: $v1, $v4: $v2)

@@ -1,0 +1,81 @@
+.banner.lean-cuisine
+	background-image: url(../img/case/lean-cuisine-feature.jpg)
+
+.case-text .title-about
+	bottom: rem(198)
+
+.case-text .text-white
+	bottom: rem(168)
+
+
+
+//==== glorious orange banner =====
+$bh: 54 //banner nav height
+.banner-nav
+	width: 100%
+	height: pem($bh)
+	position: absolute
+	bottom: 0
+	background: orange
+	+bg-gradient(#FF9D1E, #FFA932, #FE8D01)
+
+.banner-nav-ctrls
+	width: rem(216)
+	margin: 0 auto
+	height: 100%
+	text-align: center
+	position: relative
+
+.banner-nav-text
+	//full on font tag booya
+	font: bold rem(16.2) / rem($bh - 2) $baz
+	color: #1c1c1c
+	position: absolute
+	+lrma
+	left: rem(14)
+	cursor: default
+
+.banner-nav .widget-icon
+	position: absolute
+	left: rem(38 + 9)
+	+tbma
+
+.arrow-left, .arrow-right
+	position: absolute
+	display: block
+	+whe(10, 19)
+	+tbma
+	cursor: pointer
+	
+
+.arrow-left
+	background: url(../img/icon/prev.png) no-repeat
+	background-size: 100%
+	left: 0
+
+.arrow-right
+	background: blue
+	background: url(../img/icon/next.png) no-repeat
+	right: 0
+	background-size: 100%
+//======= end of orange banner =====
+
+
+//==== progress bar ===
+.progress-ct
+	position: absolute
+	+lrma
+	bottom: pem($bh + 15)
+	text-align: center
+.pdot
+	display: inline-block
+	border: 2px solid #dedede
+	border-radius: 10em
+	+whe(16)
+	margin: 0 pem(3)
+	
+	&.active
+		border: none
+		background: #fe8d00
+
+//===== end of progress bar ====

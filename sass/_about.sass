@@ -8,14 +8,26 @@
 	bottom: rem(134 - 14)
 	text-align: center
 	width: 100%
+	+media($medDevice)
+		font-size: rem(50)
+		bottom: rem(113)
 
 .about__text-white
+	bottom: rem(94 - 4)
+	+media($medDevice)
+		bottom: rem(53)
+
+.text-white
 	font-size: rem(26)
 	position: absolute
-	bottom: rem(94 - 4)
 	text-align: center
 	width: 100%
 	font-style: italic
+	+media($medDevice)
+		font-size: rem(20)
+		line-height: 1.2em
+		+w(179)
+		+lrma
 
 .title-content
 	font: bolder rem(55) $prox
@@ -23,14 +35,25 @@
 	text-align: center
 	padding-top: rem(159 - 5)
 	position: relative
+	+media($medDevice)
+		font-size: rem(40)
+		padding-top: rem(140)
+	+media("mw", 296)
+		font-size: rem(30)
 	&:after
 		content: ""
 		background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 35 35" enable-background="new 0 0 35 35" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M32.813,28.438L17.5,35L2.188,28.438C0.979,28.438,0,27.458,0,26.25  V2.188C0,0.979,0.979,0,2.188,0h2.188v0.938L17.5,6.563l13.125-5.625V0h2.188C34.021,0,35,0.979,35,2.188V26.25  C35,27.458,34.021,28.438,32.813,28.438z M4.375,24.063l10.938,5.469V10.208L4.375,6.563V24.063z M30.625,6.563l-10.938,3.646 v19.323l10.938-5.469V6.563z"/></svg>') no-repeat center
 		position: absolute
-		bottom: rem(49 + 22)
+		// bottom: rem(49 + 22)
+		top: rem(49 + 54)
 		+lrma
 		left: rem(13)
 		+wh(35)
+		+media($smlDevice)
+			top: rem(49 + 30)
+
+
+
 
 .content-sub
 	text-transform: uppercase
@@ -38,120 +61,173 @@
 	color: #242424
 	text-align: center
 	padding-top: rem(95 - 5 - 13)
+	+media($medDevice)
+		font-size: rem(25)
+	+media($smlDevice)
+		font-size: rem(23)
+	+media("mw", 296)
+		font-size: rem(18)
 
 .content-sub.first
 	padding-top: rem(95 - 5)
+	+media("mw", 296)
+		padding-top: rem(60)
 
 .content-text
 	font: rem(22) $baz
 	+wp(614, 1400)
-	+w(611)
+	width: 80%
+	max-width: rem(611)
 	margin: 0 auto
 	color: #424242
 	line-height: 1.64em
 	padding-top: rem(50 - 10)
+	&:last-child
+		background: red
+	+media("mw", 650)
+
+		
 
 .link-lb
 	color: #1c93c8
 	text-decoration: none
 	border-bottom: 1px solid #a7cde4
 
+
+//======= Frame map module =======
+//I have approached this by overlaying div's for the relative areas of the entire img
+//used em's instead of rems as it allows relative resizing of all the elements
+//Notice I have used pem's not rem's for this
+//The svg's use svg.js
+//before: text, after: overlay, .location-pin: svg container
+
 .frame-map
-	//dimensions: 752 x 552
 	background: url(../img/frame-map.jpg) no-repeat center
 	background-size: 100%
-	//Flexy
-	// width: pc(752, $dw)
-	// height: 0
-	// padding-top: pc(552, 752)
-	+whe(752, 552)
-	max-width: pem(752)
+	//Flexy // width: pc(752, $dw) // height: 0 // padding-top: pc(552, 752)
+	+whe(752, 552) // 752 x 552
+	max-width: pem(752) 
 	position: relative
-	margin: 0 auto
+	margin: pem(127 - 11) auto pem(346 - 11)
+	-webkit-transition: all 1s
+	transition: all 1s
 	+media("(max-width:900px)")
-		//font-size: 80%
+		font-size: 80%
 	+media("(max-width:670px)")
-		//font-size: 60%
-	.map-img:after
-		content: ""
-		+trblma
-		position: absolute
-		+wh100
-		background: rgba(0,0,0,0.6)
+		font-size: 60%
+	+media("mw", 594 )
+		font-size: 40%
+	//If device is under 300, they just get the frame
+	+media("mw", 300 )
+		width: 80%
+		.map-img:before, .map-img:after, .location-pin
+			display: none
+
+
+
+//Handles text
+.map-img:before
+	content: attr(data-place)
+	font: pem(20) $baz
+	color: #fff
+	position: absolute
+	z-index: 10
+	opacity: 0
+	transition: 0.35s opacity
+	height: pem(80)
+	+lrma
+	bottom: 0
+	text-align: center
+
+//Two line text
+.map-img.br:before
+	max-width: 50%
+	line-height: 1em
+
+//dark overlay
+.map-img:after
+	content: ""
+	+trblma
+	position: absolute
+	+wh100
+	background: rgba(0,0,0,0.6)
+	opacity: 0
+	transition: 0.35s opacity
+	
+//Hover event, all 3 elements need to fade in
+.map-img:hover
+	&:after, &:before, .location-pin path
+		opacity: 1
+
+//Location pin svg elem
+//uses svg.js
+.location-pin
+	position: absolute
+	z-index: 10
+	+lrma
+	bottom: pem(80+30)
+	+media("mw", 594 )
+		width: 20%
+		.w2 &
+			width: 12%
+	path
 		opacity: 0
 		transition: 0.35s opacity
 	
-	.map-img:before
-		content: attr(data-place)
-		font: pem(20) $baz
-		color: #fff
-		position: absolute
-		z-index: 10
-		opacity: 0
-		transition: 0.35s opacity
-		height: pem(80)
-		+lrma
-		bottom: 0
-		text-align: center
-
-	.map-img.br:before
-		max-width: 50%
-		line-height: 1em
 
 
-	.map-img:hover
-		&:after, &:before, .location-pin path
-			opacity: 1
+.pin-blue path
+	fill: #1c93c8
+.pin-ppl path
+	fill: #c81ca2
+.pin-orange path
+	fill: #fe8d00
+.pin-lorange path
+	fill: #febd10
+.pin-green path
+	fill: #75ae11
+
+
+//photo overlay div container
+.frame-map .photo1
+	position: absolute
+	+whe(191, 220)
+	top: pem(49)
+	left: pem(50)
 		
-	.location-pin
-		position: absolute
-		z-index: 10
-		+lrma
-		bottom: pem(80+30)
-		path
-			opacity: 0
-			transition: 0.35s opacity
-	.pin-blue path
-		fill: #1c93c8
-	.pin-ppl path
-		fill: #c81ca2
-	.pin-orange path
-		fill: #fe8d00
-	.pin-lorange path
-		fill: #febd10
-	.pin-green path
-		fill: #75ae11
+.frame-map .photo2
+	position: absolute
+	+whe(297, 219)
+	top: pem(49)
+	left: pem(50 + 191 + 5)
 
-	.photo1
-		position: absolute
-		+whe(191, 220)
-		top: pem(49)
-		left: pem(50)
-		&:hover:after
-			
+.frame-map .photo3
+	position: absolute
+	+whe(155, 452)
+	top: pem(49)
+	left: pem(50 + 196 + 297 + 5)
 	
-	.photo2
-		position: absolute
-		+whe(297, 219)
-		top: pem(49)
-		left: pem(50 + 191 + 5)
+.frame-map .photo4
+	position: absolute
+	+whe(296, 227)
+	left: pem(50)
+	bottom: pem(51)
 	
-	.photo3
-		position: absolute
-		+wh(155, 452)
-		top: pem(49)
-		left: pem(50 + 196 + 297 + 5)
-	
-	.photo4
-		position: absolute
-		+wh(296, 227)
-		left: pem(50)
-		bottom: pem(51)
-	
-	.photo5
-		position: absolute
-		+wh(192, 227)
-		left: pem(50 + 296 + 5)
-		bottom: pem(51)
+.frame-map .photo5
+	position: absolute
+	+whe(192, 227)
+	left: pem(50 + 296 + 5)
+	bottom: pem(51)
 
+//for x2 height elems
+.map-img.map-img-h2:before
+	+trblma
+	top: pem(76)
 
+.map-img-h2 .location-pin
+	top: pem(0)
+	bottom: pem(55)
+	margin: auto
+	
+	
+//====== End of frame-map =======
