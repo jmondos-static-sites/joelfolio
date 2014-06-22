@@ -275,7 +275,8 @@ $fb-w: 60
 	padding-left: pem(27)
 	color: #1c1c1c
 	//text element
-	&:after 
+	&:after
+		content: attr(data-name)
 		font-size: pem(15)
 		top: 0.8em
 		position: absolute
@@ -286,8 +287,7 @@ $fb-w: 60
 //themes
 .sweetarts .nav-widget
 	+bg-gradient(#d723af, #da25b2, #c81ca2)
-	&:after
-		content: "SweeTarts"
+		
 
 .london .nav-widget
 	+bg-gradient(#1c93c8, #2dade6, #1c93c8)

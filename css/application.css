@@ -466,6 +466,7 @@ footer span {
   color: #1c1c1c;
 }
 .nav-widget:after {
+  content: attr(data-name);
   font-size: 0.9375em;
   top: 0.8em;
   position: absolute;
@@ -484,9 +485,6 @@ footer span {
   background: -ms-linear-gradient(top, #da25b2, #c81ca2);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#da25b2, endColorstr:#c81ca2);
   background: gradient(linear, top, bottom, from(#da25b2), to(#c81ca2));
-}
-.sweetarts .nav-widget:after {
-  content: "SweeTarts";
 }
 
 .london .nav-widget {
@@ -1072,10 +1070,6 @@ footer span {
   margin: auto;
 }
 
-.banner.lean-cuisine {
-  background-image: url(../img/case/lean-cuisine-feature.jpg);
-}
-
 .case-text .title-about {
   bottom: 12.375rem;
 }
@@ -1089,7 +1083,6 @@ footer span {
   height: 3.375em;
   position: absolute;
   bottom: 0;
-  background: orange;
   background: #ff9d1e;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffa932), to(#fe8d01));
   background: -moz-linear-gradient(top, #ffa932, #fe8d01);
@@ -1156,6 +1149,8 @@ footer span {
   margin: 0 auto;
   bottom: 4.3125em;
   text-align: center;
+  cursor: default;
+  display: none;
 }
 
 .pdot {
@@ -1165,8 +1160,251 @@ footer span {
   width: 1em;
   height: 1em;
   margin: 0 0.1875em;
+  cursor: pointer;
 }
 .pdot.active {
   border: none;
   background: #fe8d00;
+}
+
+.content-copy-ct {
+  width: 62.642857143%;
+  margin: 0 auto;
+  padding-top: 7.5em;
+  padding-bottom: 8.125em;
+  position: relative;
+}
+.content-copy-ct:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content-left {
+  width: 81.41391106%;
+  padding-right: 12.542759407%;
+  float: left;
+}
+
+.content-right {
+  width: 38.768529076%;
+  position: absolute;
+  right: -19.384264538%;
+  float: left;
+}
+
+.content-right .title-desc {
+  padding-bottom: 0;
+}
+
+.content-right .text-normal {
+  padding-bottom: 1em;
+}
+
+.title-desc {
+  font: bolder 1.875em Gentona, Arial;
+  color: #232323;
+  padding-bottom: 1em;
+  position: relative;
+}
+
+.title-desc.accent-line:before {
+  content: "";
+  position: absolute;
+  width: 4.333333333em;
+  height: 0.1em;
+  top: -0.733333333em;
+  background: #fe8d00;
+  border-radius: 10em;
+}
+
+.text-normal {
+  font: 1.25em/1.6em Bariol, Arial;
+  color: #767676;
+}
+
+.design-feature {
+  text-align: center;
+  padding-bottom: 7.5em;
+}
+
+.nav-widget.case-widget {
+  top: auto;
+  padding-left: 0.875em;
+}
+
+.section-case {
+  padding-bottom: 9.375em;
+}
+
+.case-wrapper.lean-cuisine .banner {
+  background-image: url(../img/case/lean-cuisine-feature.jpg);
+}
+.case-wrapper.lean-cuisine .progress-ct {
+  display: block;
+}
+.case-wrapper.lean-cuisine .case-widget {
+  background: #ff9b1f;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff9b1f), to(#fe8d00));
+  background: -moz-linear-gradient(top, #ff9b1f, #fe8d00);
+  background: -ms-linear-gradient(top, #ff9b1f, #fe8d00);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#ff9b1f, endColorstr:#fe8d00);
+  background: gradient(linear, top, bottom, from(#ff9b1f), to(#fe8d00));
+}
+.case-wrapper.lean-cuisine .case-widget .widget-btn {
+  background-color: #da8319;
+}
+.case-wrapper.lean-cuisine .pdot.active {
+  background-color: #ff9b1f;
+}
+
+.case-wrapper.lean-pockets .banner {
+  background-image: url(../img/case/lean-pockets-feature.jpg);
+}
+.case-wrapper.lean-pockets .banner-nav {
+  background: #87c51a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#87c51a), to(#76ae11));
+  background: -moz-linear-gradient(top, #87c51a, #76ae11);
+  background: -ms-linear-gradient(top, #87c51a, #76ae11);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#87c51a, endColorstr:#76ae11);
+  background: gradient(linear, top, bottom, from(#87c51a), to(#76ae11));
+}
+.case-wrapper.lean-pockets .accent-line:before {
+  background: #78b212;
+}
+.case-wrapper.lean-pockets .banner .title-about {
+  bottom: 9.25rem;
+}
+.case-wrapper.lean-pockets .banner .text-white {
+  bottom: 6.6875rem;
+}
+.case-wrapper.lean-pockets .case-widget {
+  background: #87c51a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#87c51a), to(#76ae11));
+  background: -moz-linear-gradient(top, #87c51a, #76ae11);
+  background: -ms-linear-gradient(top, #87c51a, #76ae11);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#87c51a, endColorstr:#76ae11);
+  background: gradient(linear, top, bottom, from(#87c51a), to(#76ae11));
+}
+.case-wrapper.lean-pockets .case-widget .widget-btn {
+  background-color: #66970f;
+}
+.case-wrapper.lean-pockets .pdot.active {
+  background-color: #87c51a;
+}
+
+.case-wrapper.logos .banner {
+  background-image: url(../img/case/logos-feature.jpg);
+}
+.case-wrapper.logos .banner-nav {
+  background: #d820af;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d820af), to(#c81da2));
+  background: -moz-linear-gradient(top, #d820af, #c81da2);
+  background: -ms-linear-gradient(top, #d820af, #c81da2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#d820af, endColorstr:#c81da2);
+  background: gradient(linear, top, bottom, from(#d820af), to(#c81da2));
+}
+.case-wrapper.logos .accent-line:before {
+  background: #c81ca2;
+}
+.case-wrapper.logos .case-widget {
+  background: #d820af;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d820af), to(#c81da2));
+  background: -moz-linear-gradient(top, #d820af, #c81da2);
+  background: -ms-linear-gradient(top, #d820af, #c81da2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#d820af, endColorstr:#c81da2);
+  background: gradient(linear, top, bottom, from(#d820af), to(#c81da2));
+}
+.case-wrapper.logos .case-widget .widget-btn {
+  background-color: #b21a90;
+}
+.case-wrapper.logos .pdot.active {
+  background-color: #d820af;
+}
+
+.case-wrapper.logos .banner {
+  background-image: url(../img/case/hwmfty-feature.jpg);
+}
+.case-wrapper.logos .banner-nav {
+  background: #2eace4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2eace4), to(#1c94c9));
+  background: -moz-linear-gradient(top, #2eace4, #1c94c9);
+  background: -ms-linear-gradient(top, #2eace4, #1c94c9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2eace4, endColorstr:#1c94c9);
+  background: gradient(linear, top, bottom, from(#2eace4), to(#1c94c9));
+}
+.case-wrapper.logos .accent-line:before {
+  background: #1c93c8;
+}
+.case-wrapper.logos .case-widget {
+  background: #2eace4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2eace4), to(#1c94c9));
+  background: -moz-linear-gradient(top, #2eace4, #1c94c9);
+  background: -ms-linear-gradient(top, #2eace4, #1c94c9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2eace4, endColorstr:#1c94c9);
+  background: gradient(linear, top, bottom, from(#2eace4), to(#1c94c9));
+}
+.case-wrapper.logos .case-widget .widget-btn {
+  background-color: #1984b3;
+}
+.case-wrapper.logos .pdot.active {
+  background-color: #2eace4;
+}
+
+.case-wrapper.threshold .banner {
+  background-image: url(../img/case/threshold-feature.jpg);
+}
+.case-wrapper.threshold .banner-nav {
+  background: #fcc73a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcc73a), to(#febd10));
+  background: -moz-linear-gradient(top, #fcc73a, #febd10);
+  background: -ms-linear-gradient(top, #fcc73a, #febd10);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#fcc73a, endColorstr:#febd10);
+  background: gradient(linear, top, bottom, from(#fcc73a), to(#febd10));
+}
+.case-wrapper.threshold .accent-line:before {
+  background: #febd10;
+}
+.case-wrapper.threshold .case-widget {
+  background: #fcc73a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcc73a), to(#febd10));
+  background: -moz-linear-gradient(top, #fcc73a, #febd10);
+  background: -ms-linear-gradient(top, #fcc73a, #febd10);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#fcc73a, endColorstr:#febd10);
+  background: gradient(linear, top, bottom, from(#fcc73a), to(#febd10));
+}
+.case-wrapper.threshold .case-widget .widget-btn {
+  background-color: #f3b101;
+}
+.case-wrapper.threshold .pdot.active {
+  background-color: #fcc73a;
+}
+
+.case-wrapper.recipes .banner {
+  background-image: url(../img/case/recipes-feature.jpg);
+}
+.case-wrapper.recipes .banner-nav {
+  background: #2069e3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2069e3), to(#1d5cc6));
+  background: -moz-linear-gradient(top, #2069e3, #1d5cc6);
+  background: -ms-linear-gradient(top, #2069e3, #1d5cc6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2069e3, endColorstr:#1d5cc6);
+  background: gradient(linear, top, bottom, from(#2069e3), to(#1d5cc6));
+}
+.case-wrapper.recipes .accent-line:before {
+  background: #1d5cc5;
+}
+.case-wrapper.recipes .case-widget {
+  background: #2069e3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2069e3), to(#1d5cc6));
+  background: -moz-linear-gradient(top, #2069e3, #1d5cc6);
+  background: -ms-linear-gradient(top, #2069e3, #1d5cc6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2069e3, endColorstr:#1d5cc6);
+  background: gradient(linear, top, bottom, from(#2069e3), to(#1d5cc6));
+}
+.case-wrapper.recipes .case-widget .widget-btn {
+  background-color: #1a52b0;
+}
+.case-wrapper.recipes .pdot.active {
+  background-color: #2069e3;
 }

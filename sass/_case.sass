@@ -1,6 +1,3 @@
-.banner.lean-cuisine
-	background-image: url(../img/case/lean-cuisine-feature.jpg)
-
 .case-text .title-about
 	bottom: rem(198)
 
@@ -16,7 +13,6 @@ $bh: 54 //banner nav height
 	height: pem($bh)
 	position: absolute
 	bottom: 0
-	background: orange
 	+bg-gradient(#FF9D1E, #FFA932, #FE8D01)
 
 .banner-nav-ctrls
@@ -67,15 +63,183 @@ $bh: 54 //banner nav height
 	+lrma
 	bottom: pem($bh + 15)
 	text-align: center
+	cursor: default
+	display: none
 .pdot
 	display: inline-block
 	border: 2px solid #dedede
 	border-radius: 10em
 	+whe(16)
 	margin: 0 pem(3)
-	
+	cursor: pointer
+
 	&.active
 		border: none
 		background: #fe8d00
 
 //===== end of progress bar ====
+
+.content-copy-ct
+	+clearfix
+	width: pc(877, $dw)
+	margin: 0 auto
+	padding-top: pem(120)
+	padding-bottom: pem(130)
+	position: relative
+
+.content-left
+	width: pc(714, 877)
+	padding-right: pc(110, 877)
+	float: left
+
+.content-right
+	width: pc(340, 877)
+	position: absolute
+	right: pc(-170, 877)
+	float: left
+
+.content-right .title-desc
+	padding-bottom: 0
+
+.content-right .text-normal
+	padding-bottom: pem(20, 20)
+
+.title-desc
+	font: bolder pem(30) $gent
+	color: #232323
+	padding-bottom: pem(30, 30)
+	position: relative
+
+.title-desc.accent-line:before
+	content: ""
+	position: absolute
+	+whe(130, 3, 30)
+	top: pem(-22, 30)
+	background: #FE8D00
+	border-radius: 10em
+
+.text-normal
+	font: pem(20)/1.6em $baz
+	color: #767676
+
+
+.design-feature
+	text-align: center
+	padding-bottom: pem(120)
+
+.nav-widget.case-widget
+	top: auto
+	padding-left: pem(14)
+	
+
+
+
+//This area changes up the content & the theme
+.section-case
+	padding-bottom: pem(150)
+
+//=== lean cuisine
+.case-wrapper.lean-cuisine
+	.banner
+		background-image: url(../img/case/lean-cuisine-feature.jpg)
+	.progress-ct
+		display: block
+
+	.case-widget
+		+bg-gradient(#FF9B1F, #FF9B1F, #FE8D00)
+		& .widget-btn
+			background-color: #DA8319
+	.pdot.active
+		background-color: #FF9B1F
+
+//=== lean pockets
+.case-wrapper.lean-pockets
+	.banner
+		background-image: url(../img/case/lean-pockets-feature.jpg)
+	.banner-nav
+		+bg-gradient(#87c51a, #87c51a, #76ae11)
+	.accent-line:before
+		background: #78b212
+
+	.banner .title-about
+		bottom: rem(40 + 108)
+	.banner .text-white
+		bottom: rem(40 + 67)
+
+	.case-widget
+		+bg-gradient(#87c51a, #87c51a, #76ae11)
+		& .widget-btn
+			background-color: darken(#76ae11, 5%)
+	.pdot.active
+		background-color: #87c51a
+
+
+//=== logos
+.case-wrapper.logos
+	$grad: #d820af #c81da2
+	.banner
+		background-image: url(../img/case/logos-feature.jpg)
+	.banner-nav
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+	.accent-line:before
+		background: #c81ca2
+	.case-widget
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+		& .widget-btn
+			background-color: darken(nth($grad, 2), 5%)
+	.pdot.active
+		background-color: nth($grad, 1)
+
+//=== hwmfty
+.case-wrapper.logos
+	$grad: #2eace4 #1c94c9
+	.banner
+		background-image: url(../img/case/hwmfty-feature.jpg)
+	.banner-nav
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+	.accent-line:before
+		background: #1c93c8
+	.case-widget
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+		& .widget-btn
+			background-color: darken(nth($grad, 2), 5%)
+	.pdot.active
+		background-color: nth($grad, 1)
+
+//=== threshold
+.case-wrapper.threshold
+	$grad: #fcc73a #febd10
+	.banner
+		background-image: url(../img/case/threshold-feature.jpg)
+	.banner-nav
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+	.accent-line:before
+		background: #febd10
+	.case-widget
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+		& .widget-btn
+			background-color: darken(nth($grad, 2), 5%)
+	.pdot.active
+		background-color: nth($grad, 1)
+
+//=== recipes
+.case-wrapper.recipes
+	$grad: #2069e3 #1d5cc6
+	.banner
+		background-image: url(../img/case/recipes-feature.jpg)
+	.banner-nav
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+	.accent-line:before
+		background: #1d5cc5
+	.case-widget
+		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
+		& .widget-btn
+			background-color: darken(nth($grad, 2), 5%)
+	.pdot.active
+		background-color: nth($grad, 1)
+
+
+
+
+
+
