@@ -166,14 +166,13 @@
                 }
                 //Render with smooth 3d, fallback to 2d
                 if(Modernizr.csstransforms3d){
+                    imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
+                    imgs.css("transform", "translate3d("+value +",0px,0px)");
+                }
+                else{
                     imgs.css("-ms-transform", "translate("+value +",0px)");
                     imgs.css("-webkit-transform", "translate("+value +",0px)");
                     imgs.css("transform", "translate("+value +",0px)");
-                }
-                else{
-                    imgs.css("-ms-transform", "translate3d("+value +",0px,0px)");
-                    imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
-                    imgs.css("transform", "translate3d("+value +",0px,0px)");
                 }
             }
 
