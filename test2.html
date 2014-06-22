@@ -35,124 +35,151 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
+        <script src="js/util.js"></script>
         <script>
-        var slider = {};
+        (function(){
+            var $w = $(window)
+            var IMG_WIDTH = $w.width(),
+            currentImg=0,
+            maxImages=3,
+            speed=500,
+            imgs = $(".testbg"),
+            pcval;
 
-        
-            (function(){
-                var $w = $(window)
-                var IMG_WIDTH = $w.width(),
-                currentImg=0,
-                maxImages=3,
-                speed=500,
-                imgs = $(".testbg");
-
-               
-
-
-                if(!Modernizr.cssvwunit){
-                //Init touch swipe
-                    imgs.swipe( {
-                        triggerOnTouchEnd : true,
-                        swipeStatus : swipeStatus,
-                        allowPageScroll:"vertical"
-                    });
-                }
-
-                /**
-                * Catch each phase of the swipe.
-                * move : we drag the div.
-                * cancel : we animate back to where we were
-                * end : we animate to the next image
-                */
-                function swipeStatus(event, phase, direction, distance, fingers)
-                {
-                    //If we are moving before swipe, and we are going L or R, then manually drag the images
-                    if( phase=="move" && (direction=="left" || direction=="right") )
-                    {
-                        var duration=0;
-                        if (direction == "left")
-                            scrollImages((IMG_WIDTH * currentImg) + distance, duration);
-
-                        else if (direction == "right")
-                            scrollImages((IMG_WIDTH * currentImg) - distance, duration);
-                    }
-
-                    //Else, cancel means snap back to the begining
-                    else if ( phase == "cancel")
-                    {
-                        scrollImages(IMG_WIDTH * currentImg, speed);
-                    }
-
-                    //Else end means the swipe was completed, so move to the next image
-                    else if ( phase =="end" )
-                    {
-                        if (direction == "right")
-                            prevImage()
-                        else if (direction == "left")
-                            nextImage()
-                    }
-                }
-
-                function prevImage()
-                {
-                    currentImg = Math.max(currentImg-1, 0);
-                    scrollImages(currentImg, speed);
-                    //pixel based
-                    //scrollImages( IMG_WIDTH * currentImg, speed);
-                }
-
-                function nextImage()
-                {
-                    currentImg = Math.min(currentImg+1, maxImages-1);
-                    scrollImages(currentImg, speed);
-                    //pixel based
-                    //scrollImages( IMG_WIDTH * currentImg, speed);
-                    
-                }
-
-                /**
-                 * Manually update the position of the imgs on drag
-                 */
-                function scrollImages(distance, duration)
-                {
-                    imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
-
-                    //inverse the number we set in the css
-                    var value = (distance<0 ? "" : "-") + distance*100 + "%";
-                    //pixel based
-                    //var value = (distance<0 ? "" : "-") + Math.abs(distance).toString();
+            //if is mobile: use pixels, assume the viewport size is not going to change.
+            //use % for desktop
+            //Unfortunately % disables the touch swipe motion, look at fixing that
+            //If there is no fix, work out way to account for resize on mobile.
+            
+            pcval = !UTIL.isMobile;
 
 
-
-                    imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
-                }
-
-                function updateInternalVals(){
-                    IMG_WIDTH = $w.width();
-                    clog('ran');
-                }
-
-
-
-                //===== UTIL functions =====//
-                var timer={};
-                function delayTimer(func, time){
-                    clearTimeout(timer);
-                    var name = func.name || func.toString().match(/^function\s*([^\s(]+)/)[1]
-                    timer[func] = setTimeout(func, time || 0);
-                }
-               
-
-
-                //Attach handlers
-                $('.nav-widget .next').click(nextImage)
-                $('.nav-widget .prev').click(prevImage)
-                $w.resize(function(){
-                    delayTimer(updateInternalVals, 0)
+            if(Modernizr.cssvwunit && UTIL.isMobile){
+            //Init touch swipe
+                imgs.swipe( {
+                    triggerOnTouchEnd : true,
+                    swipeStatus : swipeStatus,
+                    allowPageScroll:"vertical"
                 });
+            }
 
-            })();
+            /**
+            * Catch each phase of the swipe.
+            * move : we drag the div.
+            * cancel : we animate back to where we were
+            * end : we animate to the next image
+            */
+            function swipeStatus(event, phase, direction, distance, fingers)
+            {
+                //If we are moving before swipe, and we are going L or R, then manually drag the images
+                if( phase=="move" && (direction=="left" || direction=="right") )
+                {
+                    var duration=0;
+                    if (direction == "left"){
+                        if(pcval){
+                           scrollImages(currentImg, duration); 
+                        }
+                        else{
+                            //pixel version
+                            scrollImages((IMG_WIDTH * currentImg) + distance, duration);
+                        }
+                    }
+                        
+                       
+
+                    else if (direction == "right"){
+                        if(pcval){
+                            scrollImages(currentImg, duration);
+                        }
+                        else{
+                            //pixel version
+                            scrollImages((IMG_WIDTH * currentImg) - distance, duration);
+                        }
+
+                    }
+                }
+
+                //Else, cancel means snap back to the begining
+                else if ( phase == "cancel")
+                {
+                    scrollImages(IMG_WIDTH * currentImg, speed);
+                }
+
+                //Else end means the swipe was completed, so move to the next image
+                else if ( phase =="end" )
+                {
+                    if (direction == "right")
+                        prevImage()
+                    else if (direction == "left")
+                        nextImage()
+                }
+            }
+
+            function prevImage()
+            {
+                currentImg = Math.max(currentImg-1, 0);
+                if(pcval){
+                    scrollImages(currentImg, speed);
+                }
+                else{
+                    //pixel based
+                    scrollImages( IMG_WIDTH * currentImg, speed);
+                }
+               
+            }
+
+            function nextImage()
+            {
+                currentImg = Math.min(currentImg+1, maxImages-1);
+                
+                if(pcval){
+                    scrollImages(currentImg, speed);
+                }
+                else{
+                    //pixel based
+                    scrollImages( IMG_WIDTH * currentImg, speed);
+                }
+            }
+
+            /**
+             * Manually update the position of the imgs on drag
+             */
+            function scrollImages(distance, duration)
+            {
+                var val;
+                imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+
+                //inverse the number we set in the css
+                if(pcval){
+                    value = (distance<0 ? "" : "-") + distance*100 + "%";
+                }
+                else{
+                    //pixel based
+                    var value = (distance<0 ? "" : "-") + Math.abs(distance) + "px";
+                }
+
+                imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
+            }
+
+            function updateInternalVals(){
+                IMG_WIDTH = $w.width();
+            }
+
+
+
+            //===== UTIL Functions =====//
+            
+           
+
+
+            //Attach handlers
+            $('.nav-widget .next').click(nextImage)
+            $('.nav-widget .prev').click(prevImage)
+            $w.resize(function(){
+                UTIL.timer(updateInternalVals, 0)
+            });
+
+        })();
       
 
 
