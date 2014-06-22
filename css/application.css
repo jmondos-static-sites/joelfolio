@@ -765,6 +765,81 @@ footer span {
   opacity: 1;
 }
 
+.galleryTouch .swipe-imgs {
+  float: left;
+  display: inline;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  padding: 0px;
+  margin: 0px;
+  width: 1510px;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.galleryTouch .swipe-imgs img {
+  padding: 0px;
+  margin: 0px;
+  width: 500px;
+  height: 340px;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.galleryTouch2 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.galleryTouch2 .swipe-imgs {
+  float: left;
+  display: inline;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  padding: 0px;
+  margin: 0px;
+  width: 330%;
+  overflow: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.galleryTouch2 .swipe-imgs .testbg {
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 52.75em;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  float: left;
+}
+
+.testbg {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 52.75em;
+}
+@media (max-width: 480px) {
+  .testbg {
+    background-size: 60.344827586em 36.293103448em;
+    background-position: top;
+    height: 35.5em;
+  }
+}
+.testbg.sweetarts {
+  background-image: url(../img/sweetarts.jpg);
+}
+.testbg.lasagna {
+  background-image: url(../img/lasagna.jpg);
+}
+.testbg.london {
+  background-image: url(../img/london.jpg);
+}
+
 .banner.about {
   background-image: url(../img/test.jpg);
 }

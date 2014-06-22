@@ -544,3 +544,84 @@ $bfw: 187
 // 		width: pc(700,1400)
 
 
+
+
+
+//====== test.html ======
+//=== remove for prod ===
+.galleryTouch .swipe-imgs 
+	float: left
+	display: inline
+	-webkit-transition-property: -webkit-transform
+	-webkit-transition-duration: 0.5s
+	-webkit-transition-timing-function: ease-out
+	padding: 0px
+	margin: 0px
+	width: 1510px
+	-webkit-transform: translate3d(0px,0px,0px)
+
+.galleryTouch .swipe-imgs img
+	padding: 0px
+	margin: 0px
+	width: 500px
+	height: 340px
+	-webkit-transform: translate3d(0px,0px,0px)
+
+
+
+.galleryTouch2
+	width: 100%
+	overflow: hidden
+
+.galleryTouch2 .swipe-imgs 
+	float: left
+	display: inline
+	-webkit-transition-property: -webkit-transform
+	-webkit-transition-duration: 0.5s
+	-webkit-transition-timing-function: ease-out
+	padding: 0px
+	margin: 0px
+
+	width: 330%
+	//width needs to be (img-num x the current window width), needs to fix on resize
+
+	overflow: hidden
+	
+	-webkit-transform: translate3d(0px,0px,0px)
+
+
+
+.galleryTouch2 .swipe-imgs .testbg
+	padding: 0px
+	margin: 0px
+	// width:  pem(1400)
+	width: 100vw
+	height: pem(844)
+	-webkit-transform: translate3d(0px,0px,0px)
+	float: left
+
+.testbg
+	background-repeat: no-repeat
+	background-position: center
+	width: 100%
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	height: pem(844)
+	+media($medDevice)
+		//zoom out
+		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		background-position: top
+		height: pem(568)
+
+	&.sweetarts
+		background-image: url(../img/sweetarts.jpg)
+
+	&.lasagna
+		background-image: url(../img/lasagna.jpg) 
+
+	&.london
+		background-image: url(../img/london.jpg) 
+

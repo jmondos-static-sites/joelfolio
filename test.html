@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Joel's Portfolio</title>
+        <meta name="description" content="My name is Joel Kennedy. I'm an entrepreneur, art director, food lover, and world traveler." />
+        <meta name="author" content="Joel Kennedy">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
+        <link rel="stylesheet" href="css/application.css" />
+        <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <div class="galleryTouch hide">
+              <div class="swipe-imgs">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
+              </div>
+            </div>
+
+            <div class="galleryTouch bg">
+              <div class="swipe-imgs">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
+                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
+              </div>
+            </div>
+
+
+
+
+        </div>
+        <script src="js/commondev.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.touchswipe.min.js"></script>
+        <script>
+            $(function() {
+                    var IMG_WIDTH = 500,
+                    currentImg=0,
+                    maxImages=3,
+                    speed=500,
+                    imgs = $(".swipe-imgs");
+
+                    //Check if window width is > img, if so use it instead, edge case
+                    // var $ww = $(window).width();
+                    // IMG_WIDTH = ($ww > IMG_WIDTH ) ? $ww : IMG_WIDTH;
+
+                    //Init touch swipe
+                    imgs.swipe( {
+                        triggerOnTouchEnd : true,
+                        swipeStatus : swipeStatus,
+                        allowPageScroll:"vertical"
+                    });
+
+                    /**
+                    * Catch each phase of the swipe.
+                    * move : we drag the div.
+                    * cancel : we animate back to where we were
+                    * end : we animate to the next image
+                    */
+                    function swipeStatus(event, phase, direction, distance, fingers)
+                    {
+                        //If we are moving before swipe, and we are going L or R, then manually drag the images
+                        if( phase=="move" && (direction=="left" || direction=="right") )
+                        {
+                            var duration=0;
+
+                            if (direction == "left")
+                                scrollImages((IMG_WIDTH * currentImg) + distance, duration);
+
+                            else if (direction == "right")
+                                scrollImages((IMG_WIDTH * currentImg) - distance, duration);
+                        }
+
+                        //Else, cancel means snap back to the begining
+                        else if ( phase == "cancel")
+                        {
+                            scrollImages(IMG_WIDTH * currentImg, speed);
+                        }
+
+                        //Else end means the swipe was completed, so move to the next image
+                        else if ( phase =="end" )
+                        {
+                            if (direction == "right")
+                                previousImage()
+                            else if (direction == "left")
+                                nextImage()
+                        }
+                    }
+
+                    function previousImage()
+                    {
+                        currentImg = Math.max(currentImg-1, 0);
+                        scrollImages( IMG_WIDTH * currentImg, speed);
+                    }
+
+                    function nextImage()
+                    {
+                        currentImg = Math.min(currentImg+1, maxImages-1);
+                        scrollImages( IMG_WIDTH * currentImg, speed);
+                    }
+
+                    /**
+                     * Manually update the position of the imgs on drag
+                     */
+                    function scrollImages(distance, duration)
+                    {
+                        imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+
+                        //inverse the number we set in the css
+                        var value = (distance<0 ? "" : "-") + Math.abs(distance).toString();
+
+                        imgs.css("-webkit-transform", "translate3d("+value +"px,0px,0px)");
+                    }
+                });
+        </script>
+    </body>
+</html>
