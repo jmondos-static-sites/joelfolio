@@ -44,14 +44,21 @@
             maxImages=3,
             speed=500,
             imgs = $(".testbg"),
-            pcval;
+            pcval, testMobile;
 
             //if is mobile: use pixels, assume the viewport size is not going to change.
             //use % for desktop
             //Unfortunately % disables the touch swipe motion, look at fixing that
             //If there is no fix, work out way to account for resize on mobile.
-            
+
             pcval = !UTIL.isMobile;
+
+            // testing flag to get desktop to behave like mobile
+            // testMobile = true;
+            if(testMobile){
+                UTIL.isMobile = true
+                pcval = false;
+            }
 
 
             if(Modernizr.cssvwunit && UTIL.isMobile){
@@ -157,8 +164,17 @@
                     //pixel based
                     var value = (distance<0 ? "" : "-") + Math.abs(distance) + "px";
                 }
-
-                imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
+                //Render with smooth 3d, fallback to 2d
+                if(Modernizr.csstransforms3d){
+                    imgs.css("-ms-transform", "translate("+value +",0px)");
+                    imgs.css("-webkit-transform", "translate("+value +",0px)");
+                    imgs.css("transform", "translate("+value +",0px)");
+                }
+                else{
+                    imgs.css("-ms-transform", "translate3d("+value +",0px,0px)");
+                    imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
+                    imgs.css("transform", "translate3d("+value +",0px,0px)");
+                }
             }
 
             function updateInternalVals(){
