@@ -54,10 +54,22 @@ UTIL.isMobile = (function(){
 })();
 
 var timer={};
-UTIL.timer = function delayTimer(func, time){
+UTIL.timer = function timer(func, time){
     clearTimeout(timer);
-    var name = func.name || func.toString().match(/^function\s*([^\s(]+)/)[1]
-    timer[func] = setTimeout(func, time || 0);
+    var name, reg;
+    
+    if(Function.name){
+        name = func.name
+    }
+    else{
+        reg = func.toString().match(/^function\s*([^\s(]+)/);
+        if(reg && reg[1])
+            name = reg[1];
+    }
+    if(name)
+        timer[name] = setTimeout(func, time || 0);
+    else
+        setTimeout(func, time || 0);
 }
 })();
 

@@ -5,39 +5,7 @@
 .wrapper
 	//padding-bottom: $footer //must be same height as the footer
 
-.banner
-	background-repeat: no-repeat
-	background-position: center
-	width: 100%
-	position: relative
-	-webkit-background-size: cover
-	-moz-background-size: cover
-	-o-background-size: cover
-	background-size: cover
-	height: pem(844)
-	position: relative
-	// +media($tablet)
-		//zoom in
-		// background-size: 170% //orig size: 1400/842
-		// background-position: top
-	+media($medDevice)
-		//zoom out
-		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
-		background-position: top
-		height: pem(568)
 
-//Theme photos
-.banner.sweetarts
-	background-image: url(../img/sweetarts.jpg)
-
-.banner.lasagna
-	background-image: url(../img/lasagna.jpg) 
-
-.banner.london
-	background-image: url(../img/london.jpg) 
-
-.banner.zermatt
-	background-image: url(../img/zermatt.jpg) 
 
 
 //Totally fluid image
@@ -56,6 +24,7 @@
 	left: pc(206, 1400)
 	width: 12.142857142857142857142857142857% //170 / 1400
 	width: pem(170)
+	z-index: 1
 	+media($tablet)
 		top: rem(50)
 		left: pc(50, $tw)
@@ -202,6 +171,7 @@ $fb-w: 60
 	width: $val
 	height: pem(130)
 	text-align: center
+	z-index: 1
 	+media($smlDevice)
 		font-size: 80%
 		width: 100%
@@ -215,7 +185,7 @@ $fb-w: 60
 	font-size: pem(110)
 	color: #fff
 
-.text-white
+.intro__text
 	font-family: Bariol, Arial
 	font-size: pem(22)
 	line-height: pem(23)
@@ -232,6 +202,8 @@ $fb-w: 60
 	border-radius: 1em
 	width: 66%
 	margin: 0 auto
+	-webkit-transition: background 0.9s
+	transition: background 0.9s
 	+media($smlDevice)
 		font-size: pem(10)	
 		width: pc(100, 320)
@@ -262,61 +234,78 @@ $fb-w: 60
 	font-family: Bariol
 	font-weight: bold
 	margin: 0 auto
-	background: red
+
 	width: pc(217 / 1400)
 	width: pem(217)
 	height: pem(44)
 	position: relative
 	top: pem(677)
 	margin: 0 auto
-	background: #d723af
 	border-radius: pem(18)
+	border-radius: 10em
 	padding-top: pem(12)
 	padding-left: pem(27)
 	color: #1c1c1c
 	//text element
+	transition: background 0.9s
+
+.bg-grad
+	background-color: #fff
+	position: absolute
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	border-radius: pem(18)
+	border-radius: 10em
+	opacity: 1
+	transition: opacity 0.9s
 	&:after
-		content: attr(data-name)
+		content: attr(data-slide)
 		font-size: pem(15)
 		top: 0.8em
 		position: absolute
 		padding-left: 0.4em
+		text-transform: capitalize
+		padding-left: pem(47, 15)
+
 	+media($smlDevice)
 		top: 27.8em
 
 //themes
-.sweetarts .nav-widget
+
+.bg-grad[data-slide="sweetarts"]
 	+bg-gradient(#d723af, #da25b2, #c81ca2)
-		
+	&:after
+		content: "SweeTarts"
+
+.bg-grad[data-slide="london"]
+	+bg-gradient(#1c93c8, #2dade6, #1c93c8)
+
+
+.bg-grad[data-slide="lasagna"]
+	+bg-gradient(#75af11, #97da22, #75af11)
+
+.bg-grad[data-slide="zermatt"]
+	+bg-gradient(#febd10, #ffcb3f, #febd11)
+
 
 .london .nav-widget
-	+bg-gradient(#1c93c8, #2dade6, #1c93c8)
-	padding-left: pem(34)
 	.widget-icon
 		background: url(../img/icon/location.png) no-repeat
 		background-size: pem(12) pem(15)
-	&:after
-		content: "London"
 
 .lasagna .nav-widget
-	+bg-gradient(#75af11, #97da22, #75af11)
 	.widget-icon
 		background: url(../img/icon/utensils.png) no-repeat
 		background-size: pem(16) pem(16)
 		width: pem(16)
 		margin-left: pem(-3)
-	&:after
-		margin-left: pem(3)
-		content: "Lasagna"
 
 .zermatt .nav-widget
-	+bg-gradient(#febd10, #ffcb3f, #febd11)
-	padding-left: pem(34)
 	.widget-icon
 		background: url(../img/icon/location.png) no-repeat
 		background-size: pem(12) pem(15)
-	&:after
-		content: "Zermatt"
 	
 
 .widget-icon
@@ -327,6 +316,12 @@ $fb-w: 60
 	width: pem(13)
 	background-size: 100%
 	display: inline-block
+	position: absolute
+	left: pem(25)
+	top: 0
+	bottom: 0
+	z-index: 1
+	margin: auto
 
 $widget-w: pem(40)
 .widget-btn
@@ -343,6 +338,7 @@ $widget-w: pem(40)
 .widget-btn.next
 	right: 0
 	border-radius: 0 pem(18) pem(18) 0
+	border-radius: 0 10em 10em 0
 	background: white url(../img/icon/next.png) no-repeat
 	background-position: center
 	background-size: pem(8) pem(15)
@@ -545,38 +541,77 @@ $bfw: 187
 
 
 
+$slides: sweetarts lasagna london zermatt
 
+.swipe-ct .swipe-slide
+	&[data-slide="#{nth($slides,1)}"]
+		background-image: url(../img/#{nth($slides, 1)}.jpg)
 
-//====== test.html ======
-//=== remove for prod ===
-.galleryTouch .swipe-imgs 
+	&[data-slide="#{nth($slides,2)}"]
+		background-image: url(../img/#{nth($slides, 2)}.jpg) 
+
+	&[data-slide="#{nth($slides,3)}"]
+		background-image: url(../img/#{nth($slides, 3)}.jpg)
+	
+	&[data-slide="#{nth($slides,4)}"]
+		background-image: url(../img/#{nth($slides, 4)}.jpg)
+
+.swipe-ct
+	width: 110 * length($slides) * 1%
+
+.banner
+	width: 100%
+	overflow: hidden
+
+.banner .swipe-ct
 	float: left
 	display: inline
 	-webkit-transition-property: -webkit-transform
 	-webkit-transition-duration: 0.5s
 	-webkit-transition-timing-function: ease-out
-	padding: 0px
-	margin: 0px
-	width: 1510px
+	padding: 0
+	margin: 0
+	overflow: hidden
 	-webkit-transform: translate3d(0px,0px,0px)
+	transform:  translate3d(0px,0px,0px)
 
-.galleryTouch .swipe-imgs img
-	padding: 0px
-	margin: 0px
-	width: 500px
-	height: 340px
+.swipe-ct .swipe-slide
+	background-repeat: no-repeat
+	background-position: center
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	
+	height: pem(844)
+	color: #fff
+	padding: 0
+	margin: 0
+	// width:  pem(1400)
+	width: 100vw
+	height: pem(844)
 	-webkit-transform: translate3d(0px,0px,0px)
+	transform:  translate3d(0px,0px,0px)
+	float: left
+
+	+media($medDevice)
+		//zoom out
+		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		background-position: top
+		height: pem(568)
+	
+	
 
 
 
 
 
-
-.galleryTouch2
+.galleryTouch
 	width: 100%
 	overflow: hidden
 
-.galleryTouch2 .swipe-imgs 
+.galleryTouch .swipe-imgs 
 	float: left
 	display: inline
 	-webkit-transition-property: -webkit-transform
@@ -591,7 +626,7 @@ $bfw: 187
 	transform:  translate3d(0px,0px,0px)
 
 
-.galleryTouch2 .swipe-imgs .testbg
+.galleryTouch .swipe-imgs .testbg
 	padding: 0px
 	margin: 0px
 	// width:  pem(1400)
@@ -636,6 +671,8 @@ $imgs: sweetarts lasagna london zermatt
 		background-image: url(../img/#{nth($imgs, 4)}.jpg) 
 
 //Slider container relies on $imgs length
-.galleryTouch2 .swipe-imgs
+.galleryTouch .swipe-imgs
 	width: 110 * length($imgs) * 1%
+
+
 

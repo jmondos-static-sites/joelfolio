@@ -37,18 +37,40 @@
                     <i class="meat"></i>
                 </i>
 
+                <!-- content and banner image slides-->
                 <div class="intro-text">
                     <div class="intro-text__line line-color"></div>
                     <h1 class="intro__title title-white">Hello</h1>
-                    <h2 class="intro__text text-white">
+                    <h2 class="intro__text">
                         My name is Joel Kennedy.<br>
                         I'm an entrepreneur, art director,
                         food lover, and world traveler.
                     </h2>
                 </div>
 
-                <div data-name="SweeTarts" class="nav-widget">
+                <div class="swipe-ct">
+                    <!-- anything in these slides will slide :) -->
+                    <div data-slide="sweetarts" class="swipe-slide active">
+                        <div class="bg-image"></div>
+                    </div>
+                    
+                    <div data-slide="lasagna" class="swipe-slide">
+                        <div class="bg-image"></div>
+                    </div>
+
+                    <div data-slide="london" class="swipe-slide">
+                        <div class="bg-image"></div>
+                    </div>
+
+                    <div data-slide="zermatt" class="swipe-slide">
+                        <div class="bg-image"></div>
+                    </div>
+                </div><!-- swipe-ct -->
+
+
+                <div class="nav-widget">
                     <i class="widget-icon"></i>
+                    <div data-slide="sweetarts" class="bg-grad active"></div>
                     <button class="widget-btn next"></button>
                     <button class="widget-btn prev"></button>
                 </div>
@@ -177,14 +199,124 @@
             </div>
             
         </footer>
-        
+
+        <!-- remove commondev for prod -->
         <script src="js/commondev.js"></script>
+        
+        <!-- frameworks -->
         <script src="js/jquery.min.js"></script>
-        <script src="js/folio.js"></script>
+        <script src="js/jquery.touchswipe.min.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <script src="js/hide-addr-bar.js"></script>
         <script src="js/masonry.min.js"></script>
-        <!--<script src="js/isotope.min.js"></script> -->
+        
+        <!-- site code -->
+        <script src="js/util.js"></script>
+        <script src="js/responsive-swipe.js"></script>
+        <script src="js/progress-bar.js"></script>
+        <script src="js/folio.js"></script>
+
             
         <script>
+
+        //==== init code ====
+        var $swipe_slides = $('.swipe-slide'),
+            $banner = $('.banner'),
+            $nav_widget = $('.nav-widget');
+        swipe.init({
+            $imgs: $swipe_slides
+        });
+
+        var progress = create(ProgressBar, {
+            $ct: $('.progress-ct'),
+            $imgs: $swipe_slides
+        });
+
+
+        //Attach handlers
+        $('.nav-widget .next').click(function(){
+            swipe.nextImage();
+
+            var $curElem = $swipe_slides.filter('.active');
+            var $nextElem = $curElem.next();
+            var nextData = $nextElem.data('slide');
+
+            var $bg, $next;
+
+            if($nextElem.length){
+                //update colour scheme
+                $banner.addClass( nextData )
+                       .removeClass($curElem.data('slide'));
+                
+                //change active slide
+                $curElem.removeClass('active');
+                $nextElem.addClass('active');
+
+
+
+                //bg-grad change of widget, necessary for bg-gradients
+                $bg = $nav_widget.children('.bg-grad');
+                $bg.not('.active').remove();
+
+                $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
+                $bg.after($next);
+
+                //$bg.addClass('op0');
+                $bg.removeClass('active');
+                $next.addClass('active')
+                UTIL.timer(function(){
+                    $next.removeClass('op0');
+                });
+            }
+
+            
+
+            
+
+
+
+        });
+        $('.nav-widget .prev').click(function(){
+            swipe.prevImage();
+
+            var $curElem = $swipe_slides.filter('.active');
+            var $prevElem = $curElem.prev();
+            var prevData = $prevElem.data('slide');
+
+            var $bg, $next;
+
+            if($prevElem.length){
+                //update colour scheme
+                $banner.addClass( $prevElem.data('slide') )
+                       .removeClass($curElem.data('slide'));
+                
+                //change active slide
+                $curElem.removeClass('active');
+                $prevElem.addClass('active');
+
+
+                //bg-grad change of widget, necessary for bg-gradients
+                $bg = $nav_widget.children('.bg-grad');
+                $bg.not('.active').remove();
+                $prev = $('<div class="bg-grad op0 " data-slide="'+ prevData + '"></div>');
+                $bg.after($prev);
+
+                $bg.removeClass('active');
+                $prev.addClass('active');
+
+                UTIL.timer(function(){
+                    $prev.removeClass('op0');
+                });
+            }
+
+           
+
+        });
+
+
+
+
+        //==== masonry ====
         // (function(){
         //     var $ct = $('.work-collage');
 
@@ -194,7 +326,6 @@
         //         // masonry: { columnWidth: 350 }
         //     });
         // })();
-
         (function(){
             var ct = document.querySelector('.work-collage');
             var msnry = new Masonry(ct, {

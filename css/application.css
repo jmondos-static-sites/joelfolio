@@ -44,6 +44,10 @@ img {
   display: none;
 }
 
+.op0 {
+  opacity: 0 !important;
+}
+
 .clearfix:after {
   content: "";
   display: table;
@@ -169,48 +173,13 @@ footer span {
   }
 }
 
-.banner {
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  position: relative;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 52.75em;
-  position: relative;
-}
-@media (max-width: 480px) {
-  .banner {
-    background-size: 60.344827586em 36.293103448em;
-    background-position: top;
-    height: 35.5em;
-  }
-}
-
-.banner.sweetarts {
-  background-image: url(../img/sweetarts.jpg);
-}
-
-.banner.lasagna {
-  background-image: url(../img/lasagna.jpg);
-}
-
-.banner.london {
-  background-image: url(../img/london.jpg);
-}
-
-.banner.zermatt {
-  background-image: url(../img/zermatt.jpg);
-}
-
 .logo-joel {
   position: absolute;
   top: 4.0625em;
   left: 14.714285714%;
   width: 12.142857143%;
   width: 10.625em;
+  z-index: 1;
 }
 @media (max-width: 1024px) {
   .logo-joel {
@@ -379,6 +348,7 @@ footer span {
   width: 18.125em;
   height: 8.125em;
   text-align: center;
+  z-index: 1;
 }
 @media (max-width: 320px) {
   .intro-text {
@@ -396,7 +366,7 @@ footer span {
   color: white;
 }
 
-.text-white {
+.intro__text {
   font-family: Bariol, Arial;
   font-size: 1.375em;
   line-height: 1.4375em;
@@ -404,7 +374,7 @@ footer span {
   font-weight: normal;
 }
 @media (max-width: 320px) {
-  .text-white {
+  .intro__text {
     font-size: 1.5625em;
   }
 }
@@ -415,6 +385,8 @@ footer span {
   border-radius: 1em;
   width: 66%;
   margin: 0 auto;
+  -webkit-transition: background 0.9s;
+  transition: background 0.9s;
 }
 @media (max-width: 320px) {
   .line-color {
@@ -452,33 +424,48 @@ footer span {
   font-family: Bariol;
   font-weight: bold;
   margin: 0 auto;
-  background: red;
   width: 15.5%;
   width: 13.5625em;
   height: 2.75em;
   position: relative;
   top: 42.3125em;
   margin: 0 auto;
-  background: #d723af;
   border-radius: 1.125em;
+  border-radius: 10em;
   padding-top: 0.75em;
   padding-left: 1.6875em;
   color: #1c1c1c;
+  transition: background 0.9s;
 }
-.nav-widget:after {
-  content: attr(data-name);
+
+.bg-grad {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 1.125em;
+  border-radius: 10em;
+  opacity: 1;
+  transition: opacity 0.9s;
+}
+.bg-grad:after {
+  content: attr(data-slide);
   font-size: 0.9375em;
   top: 0.8em;
   position: absolute;
   padding-left: 0.4em;
+  text-transform: capitalize;
+  padding-left: 3.133333333em;
 }
 @media (max-width: 320px) {
-  .nav-widget {
+  .bg-grad {
     top: 27.8em;
   }
 }
 
-.sweetarts .nav-widget {
+.bg-grad[data-slide="sweetarts"] {
   background: #d723af;
   background: -webkit-gradient(linear, left top, left bottom, from(#da25b2), to(#c81ca2));
   background: -moz-linear-gradient(top, #da25b2, #c81ca2);
@@ -486,25 +473,20 @@ footer span {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#da25b2, endColorstr:#c81ca2);
   background: gradient(linear, top, bottom, from(#da25b2), to(#c81ca2));
 }
+.bg-grad[data-slide="sweetarts"]:after {
+  content: "SweeTarts";
+}
 
-.london .nav-widget {
+.bg-grad[data-slide="london"] {
   background: #1c93c8;
   background: -webkit-gradient(linear, left top, left bottom, from(#2dade6), to(#1c93c8));
   background: -moz-linear-gradient(top, #2dade6, #1c93c8);
   background: -ms-linear-gradient(top, #2dade6, #1c93c8);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#2dade6, endColorstr:#1c93c8);
   background: gradient(linear, top, bottom, from(#2dade6), to(#1c93c8));
-  padding-left: 2.125em;
-}
-.london .nav-widget .widget-icon {
-  background: url(../img/icon/location.png) no-repeat;
-  background-size: 0.75em 0.9375em;
-}
-.london .nav-widget:after {
-  content: "London";
 }
 
-.lasagna .nav-widget {
+.bg-grad[data-slide="lasagna"] {
   background: #75af11;
   background: -webkit-gradient(linear, left top, left bottom, from(#97da22), to(#75af11));
   background: -moz-linear-gradient(top, #97da22, #75af11);
@@ -512,32 +494,31 @@ footer span {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#97da22, endColorstr:#75af11);
   background: gradient(linear, top, bottom, from(#97da22), to(#75af11));
 }
-.lasagna .nav-widget .widget-icon {
-  background: url(../img/icon/utensils.png) no-repeat;
-  background-size: 1em 1em;
-  width: 1em;
-  margin-left: -0.1875em;
-}
-.lasagna .nav-widget:after {
-  margin-left: 0.1875em;
-  content: "Lasagna";
-}
 
-.zermatt .nav-widget {
+.bg-grad[data-slide="zermatt"] {
   background: #febd10;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffcb3f), to(#febd11));
   background: -moz-linear-gradient(top, #ffcb3f, #febd11);
   background: -ms-linear-gradient(top, #ffcb3f, #febd11);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr:#ffcb3f, endColorstr:#febd11);
   background: gradient(linear, top, bottom, from(#ffcb3f), to(#febd11));
-  padding-left: 2.125em;
 }
-.zermatt .nav-widget .widget-icon {
+
+.london .nav-widget .widget-icon {
   background: url(../img/icon/location.png) no-repeat;
   background-size: 0.75em 0.9375em;
 }
-.zermatt .nav-widget:after {
-  content: "Zermatt";
+
+.lasagna .nav-widget .widget-icon {
+  background: url(../img/icon/utensils.png) no-repeat;
+  background-size: 1em 1em;
+  width: 1em;
+  margin-left: -0.1875em;
+}
+
+.zermatt .nav-widget .widget-icon {
+  background: url(../img/icon/location.png) no-repeat;
+  background-size: 0.75em 0.9375em;
 }
 
 .widget-icon {
@@ -548,6 +529,12 @@ footer span {
   width: 0.8125em;
   background-size: 100%;
   display: inline-block;
+  position: absolute;
+  left: 1.5625em;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  margin: auto;
 }
 
 .widget-btn {
@@ -569,6 +556,7 @@ footer span {
 .widget-btn.next {
   right: 0;
   border-radius: 0 1.125em 1.125em 0;
+  border-radius: 0 10em 10em 0;
   background: white url(../img/icon/next.png) no-repeat;
   background-position: center;
   background-size: 0.5em 0.9375em;
@@ -765,32 +753,73 @@ footer span {
   opacity: 1;
 }
 
-.galleryTouch .swipe-imgs {
+.swipe-ct .swipe-slide[data-slide="sweetarts"] {
+  background-image: url(../img/sweetarts.jpg);
+}
+.swipe-ct .swipe-slide[data-slide="lasagna"] {
+  background-image: url(../img/lasagna.jpg);
+}
+.swipe-ct .swipe-slide[data-slide="london"] {
+  background-image: url(../img/london.jpg);
+}
+.swipe-ct .swipe-slide[data-slide="zermatt"] {
+  background-image: url(../img/zermatt.jpg);
+}
+
+.swipe-ct {
+  width: 440%;
+}
+
+.banner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner .swipe-ct {
   float: left;
   display: inline;
   -webkit-transition-property: -webkit-transform;
   -webkit-transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-out;
-  padding: 0px;
-  margin: 0px;
-  width: 1510px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
   -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
-.galleryTouch .swipe-imgs img {
-  padding: 0px;
-  margin: 0px;
-  width: 500px;
-  height: 340px;
+.swipe-ct .swipe-slide {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 52.75em;
+  color: white;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 52.75em;
   -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+  float: left;
+}
+@media (max-width: 480px) {
+  .swipe-ct .swipe-slide {
+    background-size: 60.344827586em 36.293103448em;
+    background-position: top;
+    height: 35.5em;
+  }
 }
 
-.galleryTouch2 {
+.galleryTouch {
   width: 100%;
   overflow: hidden;
 }
 
-.galleryTouch2 .swipe-imgs {
+.galleryTouch .swipe-imgs {
   float: left;
   display: inline;
   -webkit-transition-property: -webkit-transform;
@@ -803,7 +832,7 @@ footer span {
   transform: translate3d(0px, 0px, 0px);
 }
 
-.galleryTouch2 .swipe-imgs .testbg {
+.galleryTouch .swipe-imgs .testbg {
   padding: 0px;
   margin: 0px;
   width: 100vw;
@@ -846,8 +875,28 @@ footer span {
   background-image: url(../img/zermatt.jpg);
 }
 
-.galleryTouch2 .swipe-imgs {
+.galleryTouch .swipe-imgs {
   width: 440%;
+}
+
+.banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 52.75em;
+  position: relative;
+}
+@media (max-width: 480px) {
+  .banner {
+    background-size: 60.344827586em 36.293103448em;
+    background-position: top;
+    height: 35.5em;
+  }
 }
 
 .banner.about {
@@ -879,11 +928,20 @@ footer span {
 }
 
 .text-white {
+  font-family: Bariol, Arial;
+  line-height: 1.4375em;
+  color: white;
+  font-weight: normal;
   font-size: 1.625rem;
   position: absolute;
   text-align: center;
   width: 100%;
   font-style: italic;
+}
+@media (max-width: 320px) {
+  .text-white {
+    font-size: 1.5625em;
+  }
 }
 @media (max-width: 480px) {
   .text-white {

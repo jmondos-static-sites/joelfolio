@@ -1,3 +1,24 @@
+.banner
+	background-repeat: no-repeat
+	background-position: center
+	width: 100%
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	height: pem(844)
+	position: relative
+	// +media($tablet)
+		//zoom in
+		// background-size: 170% //orig size: 1400/842
+		// background-position: top
+	+media($medDevice)
+		//zoom out
+		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		background-position: top
+		height: pem(568)
+
 .banner.about
 	background-image: url(../img/test.jpg)
 
@@ -18,11 +39,17 @@
 		bottom: rem(53)
 
 .text-white
+	font-family: Bariol, Arial
+	line-height: pem(23)
+	color: #fff
+	font-weight: normal
 	font-size: rem(26)
 	position: absolute
 	text-align: center
 	width: 100%
 	font-style: italic
+	+media($smlDevice)
+		font-size: pem(20,12.8)
 	+media($medDevice)
 		font-size: rem(20)
 		line-height: 1.2em
