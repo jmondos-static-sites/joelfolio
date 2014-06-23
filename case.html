@@ -122,6 +122,29 @@
         <script src="js/commondev.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/folio.js"></script>
+
+        <!-- site code -->
+        <script src="js/util.js"></script>
+        <script src="js/responsive-swipe.js"></script>
+        <script src="js/responsive.swipe.js"></script>
+        
+        <script>
+        (function(){
+
+            var $imgs = $('.testbg');
+
+             //init code
+            swipe.init({
+                $imgs: $imgs
+            });
+
+            var progress = create(ProgressBar, {
+                $ct: $('.progress-ct'),
+                $imgs: $imgs
+            });
+
+        })();
+        </script>
         
     </body>
 </html>

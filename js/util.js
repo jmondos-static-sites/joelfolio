@@ -1,18 +1,42 @@
 window.UTIL = {};
 
-//global create function
-function create(parent, obj){
-    var child = Object.create(parent);
-    if(obj){
-        for(var i in obj){
-            child[i] = obj[i]
+// global create function
+var create = (function(){
+    function addProps(child, o){
+        for(var i in o){
+            child[i] = o[i];
         }
     }
-    if(typeof child.init === "function") child.init();
-    return child;
-}
+    function checkReq(obj, req){
+        var err = [];
+        for(var i in req){
+            if(obj.hasOwnProperty(i)){
+                //also check against type
+                if(typeof req[i] === 'function'){
+                    if( !req[i](obj[i]) ) {
+                        throw new Error ('parameter: ['+ i + '] did not meed param requirements');
+                    }
+                }
+            }
+            else{
+                err.push(i);
+            }
+        }
+        if(err.length) {
+            throw new Error('create() missing parameter' + (err.length > 1 ? 's' : '') + ': ' + err.join(', ') );
+        }
+    }
+    return function create(parent, obj){
+        var child = Object.create(parent);
+        if(obj) addProps(child, obj);
+        if(typeof child.init === "function") child.init();
+        if(typeof child.req === "object") checkReq(obj, child.req);
+        return child;
+    }
+})();
 
-//global console.log
+
+//prod safe console.log
 var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
 
 

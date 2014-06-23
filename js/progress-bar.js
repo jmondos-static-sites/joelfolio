@@ -1,20 +1,30 @@
+//@details: Progress bar element for touch-swipe js
+//@authors: Grant Kiely
+
 var ProgressBar = (function(){
     /////////
     // Public: Anything inside this object is public
+    // _name: to indicate private
     ////////
     return {
         //=== Defaults ===//
-        // Can be overwritten w/ optional create obj
+        // Can be overwritten w/ optional 2nd {} argument in create()
         $ct: [],
         $imgs: [],
         length: 3,
         active: 1,
 
-        //=== Always gets called by create ===//
+        //==== Required params ====
+        //==== gets evaluated by by checkReq in create()
+        req: {$ct:[], $imgs: []},
+
+        //==== Runs on object creation ====
+        //==== gets called by create() on all all instances
         init: function(){
-            //Runtime constructors right here
+            // Runtime constructors
             this.length = this.$imgs.length;
             
+            // Init code
             if(this.length){
                 var str = this.buildDots();
                 this._attachEventHandlers()

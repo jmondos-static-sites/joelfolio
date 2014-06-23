@@ -823,6 +823,7 @@ footer span {
   -o-background-size: cover;
   background-size: cover;
   height: 52.75em;
+  color: white;
 }
 @media (max-width: 480px) {
   .testbg {

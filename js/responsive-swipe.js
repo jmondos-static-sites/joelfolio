@@ -7,7 +7,7 @@ var swipe = (function(){
     currentImg=0,
     maxImages=3,
     speed=500,
-    imgs = $(".testbg"),
+    imgs = [],
     pcval, testMobile;
 
     //if is mobile: use pixels, assume the viewport size is not going to change.
@@ -30,8 +30,8 @@ var swipe = (function(){
     function init(props){
         props = props || {};
         testMobile = props.test;
-        imgs = props.elems || imgs;
-        maxImages = props.max || maxImages;
+        imgs = props.$imgs;
+        maxImages = imgs.length;
 
 
         pcval = !UTIL.isMobile;
