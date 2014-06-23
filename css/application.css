@@ -798,9 +798,9 @@ footer span {
   -webkit-transition-timing-function: ease-out;
   padding: 0px;
   margin: 0px;
-  width: 330%;
   overflow: hidden;
   -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
 .galleryTouch2 .swipe-imgs .testbg {
@@ -809,6 +809,7 @@ footer span {
   width: 100vw;
   height: 52.75em;
   -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
   float: left;
 }
 
@@ -830,6 +831,7 @@ footer span {
     height: 35.5em;
   }
 }
+
 .testbg.sweetarts {
   background-image: url(../img/sweetarts.jpg);
 }
@@ -838,6 +840,13 @@ footer span {
 }
 .testbg.london {
   background-image: url(../img/london.jpg);
+}
+.testbg.zermatt {
+  background-image: url(../img/zermatt.jpg);
+}
+
+.galleryTouch2 .swipe-imgs {
+  width: 440%;
 }
 
 .banner.about {
@@ -1225,7 +1234,6 @@ footer span {
   bottom: 4.3125em;
   text-align: center;
   cursor: default;
-  display: none;
 }
 
 .pdot {
@@ -1314,9 +1322,6 @@ footer span {
 
 .case-wrapper.lean-cuisine .banner {
   background-image: url(../img/case/lean-cuisine-feature.jpg);
-}
-.case-wrapper.lean-cuisine .progress-ct {
-  display: block;
 }
 .case-wrapper.lean-cuisine .case-widget {
   background: #ff9b1f;

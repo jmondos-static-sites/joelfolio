@@ -12,228 +12,71 @@
     </head>
     <body>
         <div class="wrapper">
-
             <div class="galleryTouch2">
               <div class="swipe-imgs">
                 <div class="testbg sweetarts"></div>
                 <div class="testbg lasagna"></div>
                 <div class="testbg london"></div>
+                <div class="testbg zermatt"></div>
+                
               </div>
-               <div data-name="SweeTarts" class="nav-widget">
+               <!-- <div data-name="SweeTarts" class="nav-widget">
                     <i class="widget-icon"></i>
                     <button class="widget-btn next"></button>
                     <button class="widget-btn prev"></button>
+                </div> -->
+
+                <div class="progress-ct">
+<!--                     <i class="pdot"></i>
+                    <i class="pdot"></i>
+                    <i class="pdot active"></i>
+                    <i class="pdot"></i>
+                    <i class="pdot"></i>
+                    <i class="pdot"></i> -->
                 </div>
+
             </div>
 
-
+        
 
 
 
         </div>
+        <!-- remove commondev for prod -->
         <script src="js/commondev.js"></script>
+        
+        <!-- frameworks -->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
+        <script src="js/hide-addr-bar.js"></script>
+        
+        <!-- site code -->
         <script src="js/util.js"></script>
+        <script src="js/responsive-swipe.js"></script>
+        <script src="js/progress-bar.js"></script>
+
+
         <script>
-        (function(){
-            var $w = $(window)
-            var IMG_WIDTH = $w.width(),
-            currentImg=0,
-            maxImages=3,
-            speed=500,
-            imgs = $(".testbg"),
-            pcval, testMobile;
 
-            //if is mobile: use pixels, assume the viewport size is not going to change.
-            //use % for desktop
-            //Unfortunately % disables the touch swipe motion, look at fixing that
-            //If there is no fix, work out way to account for resize on mobile.
-
-            pcval = !UTIL.isMobile;
-
-            // testing flag to get desktop to behave like mobile
-            // testMobile = true;
-            if(testMobile){
-                UTIL.isMobile = true
-                pcval = false;
-            }
+        //init code
+        swipe.init();
 
 
-            if(Modernizr.cssvwunit && UTIL.isMobile){
-            //Init touch swipe
-                imgs.swipe( {
-                    triggerOnTouchEnd : true,
-                    swipeStatus : swipeStatus,
-                    allowPageScroll:"vertical"
-                });
-            }
-
-            /**
-            * Catch each phase of the swipe.
-            * move : we drag the div.
-            * cancel : we animate back to where we were
-            * end : we animate to the next image
-            */
-            function swipeStatus(event, phase, direction, distance, fingers)
-            {
-                //If we are moving before swipe, and we are going L or R, then manually drag the images
-                if( phase=="move" && (direction=="left" || direction=="right") )
-                {
-                    var duration=0;
-                    if (direction == "left"){
-                        if(pcval){
-                           scrollImages(currentImg, duration); 
-                        }
-                        else{
-                            //pixel version
-                            scrollImages((IMG_WIDTH * currentImg) + distance, duration);
-                        }
-                    }
-                        
-                       
-
-                    else if (direction == "right"){
-                        if(pcval){
-                            scrollImages(currentImg, duration);
-                        }
-                        else{
-                            //pixel version
-                            scrollImages((IMG_WIDTH * currentImg) - distance, duration);
-                        }
-
-                    }
-                }
-
-                //Else, cancel means snap back to the begining
-                else if ( phase == "cancel")
-                {
-                    scrollImages(IMG_WIDTH * currentImg, speed);
-                }
-
-                //Else end means the swipe was completed, so move to the next image
-                else if ( phase =="end" )
-                {
-                    if (direction == "right")
-                        prevImage()
-                    else if (direction == "left")
-                        nextImage()
-                }
-            }
-
-            function prevImage()
-            {
-                currentImg = Math.max(currentImg-1, 0);
-                if(pcval){
-                    scrollImages(currentImg, speed);
-                }
-                else{
-                    //pixel based
-                    scrollImages( IMG_WIDTH * currentImg, speed);
-                }
-               
-            }
-
-            function nextImage()
-            {
-                currentImg = Math.min(currentImg+1, maxImages-1);
-                
-                if(pcval){
-                    scrollImages(currentImg, speed);
-                }
-                else{
-                    //pixel based
-                    scrollImages( IMG_WIDTH * currentImg, speed);
-                }
-            }
-
-            /**
-             * Manually update the position of the imgs on drag
-             */
-            function scrollImages(distance, duration)
-            {
-                var val;
-                imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
-
-                //inverse the number we set in the css
-                if(pcval){
-                    value = (distance<0 ? "" : "-") + distance*100 + "%";
-                }
-                else{
-                    //pixel based
-                    var value = (distance<0 ? "" : "-") + Math.abs(distance) + "px";
-                }
-                //Render with smooth 3d, fallback to 2d
-                if(Modernizr.csstransforms3d){
-                    imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
-                    imgs.css("transform", "translate3d("+value +",0px,0px)");
-                }
-                else{
-                    imgs.css("-ms-transform", "translate("+value +",0px)");
-                    imgs.css("-webkit-transform", "translate("+value +",0px)");
-                    imgs.css("transform", "translate("+value +",0px)");
-                }
-            }
-
-            function updateInternalVals(){
-                IMG_WIDTH = $w.width();
-            }
+        var progressBanner = create(ProgressBar, {
+            $ct: $('.progress-ct'),
+            $imgs: $('.testbg')
+        });
 
 
 
-            //===== UTIL Functions =====//
-            
-           
+        //progress bar
+        //build it out -> how many images
 
 
-            //Attach handlers
-            $('.nav-widget .next').click(nextImage)
-            $('.nav-widget .prev').click(prevImage)
-            $w.resize(function(){
-                UTIL.timer(updateInternalVals, 0)
-            });
-
-        })();
-      
-
-
-
-        //=== Scott Gehls scroll top onload ===//
-        var ios6Hideurl = function( win ){
-            var doc = win.document;
-            
-            // If there's a hash, or addEventListener is undefined, stop here
-            if( !location.hash && win.addEventListener ){
-                
-                //scroll to 1
-                window.scrollTo( 0, 1 );
-                var scrollTop = 1,
-                    getScrollTop = function(){
-                        return win.pageYOffset || doc.compatMode === "CSS1Compat" && doc.documentElement.scrollTop || doc.body.scrollTop || 0;
-                    },
-                
-                    //reset to 0 on bodyready, if needed
-                    bodycheck = setInterval(function(){
-                        if( doc.body ){
-                            clearInterval( bodycheck );
-                            scrollTop = getScrollTop();
-                            win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-                        }   
-                    }, 15 );
-                
-                win.addEventListener( "load", function(){
-                    setTimeout(function(){
-                        //at load, if user hasn't scrolled more than 20 or so...
-                        if( getScrollTop() < 20 ){
-                            //reset to hide addr bar at onload
-                            win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-                        }
-                    }, 0);
-                } );
-            }
-        }
-        ios6Hideurl(window);
+        //Attach handlers
+        $('.nav-widget .next').click(swipe.nextImage)
+        $('.nav-widget .prev').click(swipe.prevImage)
         </script>
     </body>
 </html>
