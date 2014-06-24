@@ -226,8 +226,11 @@
             $banner = $('.banner'),
             $nav_widget = $('.nav-widget');
         
-        var swipe = create(Swipe ,{
-            $imgs: $swipe_slides,
+        //temporary workaround for index.html using util.attachEventHandlers
+        //clean this up
+        window.swipe = create(Swipe ,{
+            imgs: $swipe_slides,
+            mobile: true
         })
         .removePointer($('.intro-text'));
 

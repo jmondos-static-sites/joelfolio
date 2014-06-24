@@ -1,74 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Joel's Portfolio</title>
-        <meta name="description" content="My name is Joel Kennedy. I'm an entrepreneur, art director, food lover, and world traveler." />
-        <meta name="author" content="Joel Kennedy">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
-        <link rel="stylesheet" href="css/application.css" />
-        <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="galleryTouch">
-              <div class="swipe-imgs">
-                <div class="testbg sweetarts">Content</div>
-                <div class="testbg lasagna"></div>
-                <div class="testbg london"></div>
-                <div class="testbg zermatt"></div>
+	<head>
+		<meta charset="utf-8">
+		<title>Joel's Portfolio</title>
+		<meta name="description" content="My name is Joel Kennedy. I'm an entrepreneur, art director, food lover, and world traveler." />
+		<meta name="author" content="Joel Kennedy">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
+		<link rel="stylesheet" href="css/application.css" />
+		<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="galleryTouch">
+			  <div class="swipe-imgs">
+				<div class="testbg sweetarts">Content</div>
+				<div class="testbg lasagna"></div>
+				<div class="testbg london"></div>
+				<div class="testbg zermatt"></div>
 
-              </div>
-               <div data-name="SweeTarts" class="nav-widget">
-                    <i class="widget-icon"></i>
-                    <button class="widget-btn next"></button>
-                    <button class="widget-btn prev"></button>
-                </div>
+			  </div>
+			   <div data-name="SweeTarts" class="nav-widget">
+					<i class="widget-icon"></i>
+					<button class="widget-btn next"></button>
+					<button class="widget-btn prev"></button>
+				</div>
 
-                <div class="progress-ct"></div>
+				<div class="progress-ct"></div>
 
-            </div>
+			</div>
 
-        
-
-
-
-        </div>
-        <!-- remove commondev for prod -->
-        <script src="js/commondev.js"></script>
-        
-        <!-- frameworks -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.touchswipe.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/hide-addr-bar.js"></script>
-        
-        <!-- site code -->
-        <script src="js/util.js"></script>
-        <script src="js/responsive-swipe.js"></script>
-        <script src="js/progress-bar.js"></script>
-
-
-        <script>
-
-        //init code
-        swipe.init({
-            $imgs: $('.testbg'),
-            mobile: true
-        });
-
-        var progress = create(ProgressBar, {
-            $ct: $('.progress-ct'),
-            $imgs: $('.testbg')
-        });
+		
 
 
 
+		</div>
+		<!-- remove commondev for prod -->
+		<script src="js/commondev.js"></script>
+		
+		<!-- frameworks -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.touchswipe.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/hide-addr-bar.js"></script>
+		
+		<!-- site code -->
+		<script src="js/util.js"></script>
+		<script src="js/responsive-swipe.js"></script>
+		<script src="js/progress-bar.js"></script>
 
-        //Attach handlers
-        $('.nav-widget .next').click(swipe.nextImage)
-        $('.nav-widget .prev').click(swipe.prevImage)
-        </script>
-    </body>
+
+		<script>
+
+		//init code
+		// var swipe = create(Swipe, {
+		//     $imgs: $('.testbg'),
+		//     mobile: true
+		// });
+
+		// var progress = create(ProgressBar, {
+		// 	$ct: $('.progress-ct'),
+		// 	$imgs: $('.testbg')
+		// });
+		
+
+
+
+
+		var swipe = create(Swipe, {
+			imgs: $('.testbg'),
+			mobile: true
+		});
+
+
+		//Attach handlers
+		$('.nav-widget .next').click(function(){
+			swipe.next();
+		});
+		$('.nav-widget .prev').click(function(){
+			swipe.prev();
+		});
+		</script>
+	</body>
 </html>

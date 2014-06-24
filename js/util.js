@@ -41,7 +41,7 @@ var create = (function(){
         //Check params
         if(child.req){
             //If object do normal checkReq
-            if(typeof child.req === "object" && child.req.length > -1 ) checkReq(obj, child.req);
+            if(typeof child.req === "object") checkReq(obj, child.req);
             //If string get do full check, does not include vars prefixed with _
             else if(typeof child.req === "string" && child.req.toLowerCase() === "all"){
                 var tempObj = getAllProps(parent);

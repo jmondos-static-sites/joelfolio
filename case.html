@@ -98,7 +98,7 @@
                     </div><!-- swipe-ct -->
 
                     <div class="banner-nav">
-                        <div class="banner-nav-ctrls">
+                        <div class="banner-nav-ctrls nos">
                             <i class="arrow-left"></i>
                              <i class="widget-icon"></i>
                             <div class="banner-nav-text">
@@ -296,7 +296,8 @@
             //Ideally the Swipe class keeps a list of instances and we update it through that?
 
             var swipe = create(Swipe, {
-                $imgs: $swipe_slides
+                imgs: $swipe_slides,
+                mobile: true
             })
             .removePointer($('.case-text'));
 
@@ -318,12 +319,12 @@
             // Event handlers
             //===============
             $('.arrow-left, .widget-btn.prev').click(function(){
-                swipe.prevImage();
+                swipe.prev();
                 banner.prev();
                 progress.prev();
             });
             $('.arrow-right, .widget-btn.next').click(function(){
-                swipe.nextImage();
+                swipe.next();
                 banner.next();
                 progress.next();
             });

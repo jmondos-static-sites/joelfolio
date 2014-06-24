@@ -46,7 +46,7 @@ UTIL.app={};
 //yeah this needs to be taken out.
 UTIL.app._attachNavWidgetHandlers = function(){
   $('.nav-widget .next').click(function(){
-      swipe.nextImage();
+      swipe.next();
 
 
       //This is all for the nav widget ehh
@@ -85,7 +85,7 @@ UTIL.app._attachNavWidgetHandlers = function(){
   });
 
   $('.nav-widget .prev').click(function(){
-      swipe.prevImage();
+      swipe.prev();
 
       var $curElem = $swipe_slides.filter('.active');
       var $prevElem = $curElem.prev();

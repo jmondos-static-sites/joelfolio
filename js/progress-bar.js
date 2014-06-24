@@ -4,7 +4,7 @@
 var ProgressBar = (function(){
     /////////
     // Public: Anything inside this object is public
-    // _name: to indicate private
+    // _: to indicate private
     ////////
     return {
         //=== Defaults ===//

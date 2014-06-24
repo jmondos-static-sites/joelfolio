@@ -378,10 +378,10 @@ $widget-w: pem(40)
 	cursor: pointer
 	// -webkit-transition: background 0.3s
 	// transition: background 0.3s
-	
-	&:hover
-		-webkit-animation: updown 1.1s ease-out infinite
-		animation: updown 1.1s ease-out infinite
+	+media("screen and (min-width: 1025px)")
+		&:hover
+			-webkit-animation: updown 1.1s ease-out infinite
+			animation: updown 1.1s ease-out infinite
 
 	+media($smlDevice)
 		bottom: pem(20)
