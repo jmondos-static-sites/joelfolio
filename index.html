@@ -224,7 +224,8 @@
             $banner = $('.banner'),
             $nav_widget = $('.nav-widget');
         swipe.init({
-            $imgs: $swipe_slides
+            $imgs: $swipe_slides,
+            mobile: true
         });
 
         var progress = create(ProgressBar, {

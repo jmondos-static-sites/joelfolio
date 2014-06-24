@@ -606,5 +606,78 @@ $slides: sweetarts lasagna london zermatt
 		background-position: top
 		height: pem(568)
 	
+	
+
+
+
+
+
+.galleryTouch
+	width: 100%
+	overflow: hidden
+
+.galleryTouch .swipe-imgs 
+	float: left
+	display: inline
+	-webkit-transition-property: -webkit-transform
+	-webkit-transition-duration: 0.5s
+	-webkit-transition-timing-function: ease-out
+	padding: 0px
+	margin: 0px
+	//width needs to be (img-num x the current window width), needs to fix on resize
+	overflow: hidden
+
+	-webkit-transform: translate3d(0px,0px,0px)
+	transform:  translate3d(0px,0px,0px)
+
+
+.galleryTouch .swipe-imgs .testbg
+	padding: 0px
+	margin: 0px
+	// width:  pem(1400)
+	width: 100vw
+	height: pem(844)
+	-webkit-transform: translate3d(0px,0px,0px)
+	transform:  translate3d(0px,0px,0px)
+	float: left
+
+.testbg
+	background-repeat: no-repeat
+	background-position: center
+	width: 100%
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	height: pem(844)
+	color: #fff
+	+media($medDevice)
+		//zoom out
+		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		background-position: top
+		height: pem(568)
+	
+
+//Like to add an image? do so here
+$imgs: sweetarts lasagna london zermatt
+
+.testbg
+	&.#{nth($imgs,1)}
+		background-image: url(../img/#{nth($imgs, 1)}.jpg)
+
+	&.#{nth($imgs,2)}
+		background-image: url(../img/#{nth($imgs, 2)}.jpg) 
+
+	&.#{nth($imgs,3)}
+		background-image: url(../img/#{nth($imgs, 3)}.jpg)
+	
+	&.#{nth($imgs,4)}
+		background-image: url(../img/#{nth($imgs, 4)}.jpg) 
+
+//Slider container relies on $imgs length
+.galleryTouch .swipe-imgs
+	width: 110 * length($imgs) * 1%
+
 
 

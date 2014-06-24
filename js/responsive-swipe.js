@@ -29,7 +29,7 @@ var swipe = (function(){
     // @props: {test: [bool], elems: $('.elems'), max: [int]} 
     function init(props){
         props = props || {};
-        testMobile = props.test;
+        testMobile = props.mobile;
         imgs = props.$imgs;
         maxImages = imgs.length;
 

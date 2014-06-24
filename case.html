@@ -145,7 +145,7 @@
                     </div>
 
                     <div class="design-feature">
-                        <img src="img/case/lean-cuisine-design.jpg" alt="Lean Cuisine Website Design" />
+                        <img src="img/case/lean-pockets-design.jpg" alt="Lean Cuisine Website Design" />
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="design-feature">
-                        <img src="img/case/lean-cuisine-design.jpg" alt="Lean Cuisine Website Design" />
+                        <img src="img/case/logos-design.jpg" alt="Lean Cuisine Website Design" />
                     </div>
                 </div>
 
@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="design-feature">
-                        <img src="img/case/lean-cuisine-design.jpg" alt="Lean Cuisine Website Design" />
+                        <img src="img/case/hwmfty-design.jpg" alt="Lean Cuisine Website Design" />
                     </div>
                 </div>
         
@@ -205,7 +205,7 @@
                     </div>
 
                     <div class="design-feature">
-                        <img src="img/case/lean-cuisine-design.jpg" alt="Lean Cuisine Website Design" />
+                        <img src="img/case/threshold-design.jpg" alt="Lean Cuisine Website Design" />
                     </div>
                 </div>
                 
@@ -225,7 +225,7 @@
                     </div>
 
                     <div class="design-feature">
-                        <img src="img/case/lean-cuisine-design.jpg" alt="Lean Cuisine Website Design" />
+                        <img src="img/case/recipes-design.jpg" alt="Lean Cuisine Website Design" />
                     </div>
                 </div>
 
@@ -269,6 +269,7 @@
 
         <!-- frameworks -->
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
         <script src="js/hide-addr-bar.js"></script>
 
@@ -290,7 +291,8 @@
 
             //This handles the swiping movement
             swipe.init({
-                $imgs: $swipe_slides
+                $imgs: $swipe_slides,
+                mobile: true
             });
             //This handles UI changes to the banner, and other small theme changes in case.html
             //banner is just there to update that css class so the theme changes
@@ -320,7 +322,7 @@
             });
             $pct.click(function(e){
                 var i = progress.scrollTo(e);
-                banner.update(i)
+                if(i) banner.update(i)
             })
 
 

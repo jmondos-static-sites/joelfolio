@@ -814,6 +814,71 @@ footer span {
   }
 }
 
+.galleryTouch {
+  width: 100%;
+  overflow: hidden;
+}
+
+.galleryTouch .swipe-imgs {
+  float: left;
+  display: inline;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.galleryTouch .swipe-imgs .testbg {
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 52.75em;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+  float: left;
+}
+
+.testbg {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 52.75em;
+  color: white;
+}
+@media (max-width: 480px) {
+  .testbg {
+    background-size: 60.344827586em 36.293103448em;
+    background-position: top;
+    height: 35.5em;
+  }
+}
+
+.testbg.sweetarts {
+  background-image: url(../img/sweetarts.jpg);
+}
+.testbg.lasagna {
+  background-image: url(../img/lasagna.jpg);
+}
+.testbg.london {
+  background-image: url(../img/london.jpg);
+}
+.testbg.zermatt {
+  background-image: url(../img/zermatt.jpg);
+}
+
+.galleryTouch .swipe-imgs {
+  width: 440%;
+}
+
 .banner {
   background-repeat: no-repeat;
   background-position: center;

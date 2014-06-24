@@ -59,7 +59,7 @@ var ProgressBar = (function(){
         },
         scrollTo: function(e){
             var $e = $(e.target), i;
-
+            debugger
             if( !$e.hasClass('active') && e.target !== this.$ct.get(0) ){
                 i = $e.data('item');
 
