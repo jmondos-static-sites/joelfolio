@@ -1,0 +1,55 @@
+var Banner = (function(){
+  
+  return{
+    //default
+    $banner:[],
+    $slides:[],
+
+    req:{$banner:[], $slides:[]},
+    init: function(){
+    },
+    //next and prev could be taken out & just ref update
+    next: function(){
+      var $curElem =  this.$slides.filter('.active'),
+          $nextElem = $curElem.next(),
+          nextData = $nextElem.data('slide');
+
+      if($nextElem.length){
+        //update colour scheme
+        this.$banner.addClass( nextData )
+            .removeClass($curElem.data('slide'));
+        
+        //change active slide
+        $curElem.removeClass('active');
+        $nextElem.addClass('active');
+      }
+    },
+    prev: function(){
+      var $curElem = this.$slides.filter('.active'),
+          $prevElem = $curElem.prev(),
+          prevData = $prevElem.data('slide');
+
+      if($prevElem.length){
+          //update colour scheme
+          this.$banner.addClass( $prevElem.data('slide') )
+              .removeClass($curElem.data('slide'));
+          
+          //change active slide
+          $curElem.removeClass('active');
+          $prevElem.addClass('active');
+        }
+    },
+    update: function(i){
+      var $curElem =  this.$slides.filter('.active'),
+          $newElem = this.$slides.eq(i-1);
+
+      this.$banner.addClass( $newElem.data('slide') )
+                  .removeClass( $curElem.data('slide') );
+
+      //change active slide
+      $curElem.removeClass('active');
+      $newElem.addClass('active');
+
+    }
+  }
+})();

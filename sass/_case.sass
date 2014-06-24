@@ -1,10 +1,16 @@
 .case-text .title-about
 	bottom: rem(198)
+	z-index: 1
 
 .case-text .text-white
 	bottom: rem(168)
+	z-index: 1
 
-
+.apostrophe-fix
+	font-family: Arial
+	font-size: pem(50, 70)
+	top: pem(-8, 70)
+	position: relative
 
 //==== glorious orange banner =====
 $bh: 54 //banner nav height
@@ -64,6 +70,7 @@ $bh: 54 //banner nav height
 	bottom: pem($bh + 15)
 	text-align: center
 	cursor: default
+	z-index: 1
 
 .pdot
 	display: inline-block
@@ -117,6 +124,8 @@ $bh: 54 //banner nav height
 	top: pem(-22, 30)
 	background: #FE8D00
 	border-radius: 10em
+	-webkit-transition: background 0.9s
+	transition: background 0.9s
 
 .text-normal
 	font: pem(20)/1.6em $baz
@@ -130,18 +139,20 @@ $bh: 54 //banner nav height
 .nav-widget.case-widget
 	top: auto
 	padding-left: pem(14)
+	bottom: 8em
 	
 
 
-
-//This area changes up the content & the theme
+//===================
+// Images and theme
+//===================
 .section-case
 	padding-bottom: pem(150)
 
 //=== lean cuisine
 .case-wrapper.lean-cuisine
-	.banner
-		background-image: url(../img/case/lean-cuisine-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/lean-cuisine-feature.jpg)
 
 	.case-widget
 		+bg-gradient(#FF9B1F, #FF9B1F, #FE8D00)
@@ -152,17 +163,12 @@ $bh: 54 //banner nav height
 
 //=== lean pockets
 .case-wrapper.lean-pockets
-	.banner
-		background-image: url(../img/case/lean-pockets-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/lean-pockets-feature.jpg)
 	.banner-nav
 		+bg-gradient(#87c51a, #87c51a, #76ae11)
 	.accent-line:before
 		background: #78b212
-
-	.banner .title-about
-		bottom: rem(40 + 108)
-	.banner .text-white
-		bottom: rem(40 + 67)
 
 	.case-widget
 		+bg-gradient(#87c51a, #87c51a, #76ae11)
@@ -171,12 +177,18 @@ $bh: 54 //banner nav height
 	.pdot.active
 		background-color: #87c51a
 
+.title-about.move-down
+	bottom: rem(40 + 108)
+
+.text-white.move-down
+	bottom: rem(40 + 67)
+
 
 //=== logos
 .case-wrapper.logos
 	$grad: #d820af #c81da2
-	.banner
-		background-image: url(../img/case/logos-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/logos-feature.jpg)
 	.banner-nav
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 	.accent-line:before
@@ -189,10 +201,10 @@ $bh: 54 //banner nav height
 		background-color: nth($grad, 1)
 
 //=== hwmfty
-.case-wrapper.logos
+.case-wrapper.hwmfty
 	$grad: #2eace4 #1c94c9
-	.banner
-		background-image: url(../img/case/hwmfty-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/hwmfty-feature.jpg)
 	.banner-nav
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 	.accent-line:before
@@ -207,8 +219,8 @@ $bh: 54 //banner nav height
 //=== threshold
 .case-wrapper.threshold
 	$grad: #fcc73a #febd10
-	.banner
-		background-image: url(../img/case/threshold-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/threshold-feature.jpg)
 	.banner-nav
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 	.accent-line:before
@@ -223,8 +235,8 @@ $bh: 54 //banner nav height
 //=== recipes
 .case-wrapper.recipes
 	$grad: #2069e3 #1d5cc6
-	.banner
-		background-image: url(../img/case/recipes-feature.jpg)
+	// .banner
+	// 	background-image: url(../img/case/recipes-feature.jpg)
 	.banner-nav
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 	.accent-line:before
@@ -238,6 +250,25 @@ $bh: 54 //banner nav height
 
 
 
+$slides:  lean-cuisine lean-pockets logos hwmfty threshold recipes
+
+.swipe-ct .swipe-slide
+	@each $i in $slides
+		&[data-slide="#{$i}"]
+			background-image: url(../img/case/#{$i}-feature.jpg)
+
+.case-wrapper .swipe-ct
+	width: 110 * length($slides) * 1%
+
+.banner
+	width: 100%
+	overflow: hidden
 
 
+.case-wrapper
+	.section-case
+		display: none
+	@each $i in $slides
+		&.#{$i} [data-section="#{$i}"]
+			display: block
 

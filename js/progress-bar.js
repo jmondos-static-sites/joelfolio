@@ -27,7 +27,7 @@ var ProgressBar = (function(){
             // Init code
             if(this.length){
                 var str = this.buildDots();
-                this._attachEventHandlers()
+                // this._attachEventHandlers()
             }
         },
 
@@ -47,24 +47,29 @@ var ProgressBar = (function(){
         updateActiveDot: function(i){
             this.$dots.filter('.active').removeClass('active');
             this.$dots.eq(i-1).addClass('active');
+            this.active = i;
         },
-        _attachEventHandlers: function(){
-            var _this = this;
+        next: function(){
+            if(this.active < this.length)
+                this.updateActiveDot(this.active + 1);
+        },
+        prev: function(){
+            if(this.active > 1)
+            this.updateActiveDot(this.active - 1);
+        },
+        scrollTo: function(e){
+            var $e = $(e.target), i;
 
-            //Click event for progress dots
-            this.$ct.click(function(e){
-                var $e = $(e.target), 
-                    i;
-                if( !$e.hasClass('active') && e.target !== _this.$ct.get(0) ){
-                    i = $e.data('item');
+            if( !$e.hasClass('active') && e.target !== this.$ct.get(0) ){
+                i = $e.data('item');
 
-                    //side-scroll images
-                    swipe.scrollImages(i-1);
+                //side-scroll images
+                swipe.scrollImages(i-1);
 
-                    //update dots
-                    _this.updateActiveDot(i);
-                }
-            });
+                //update dots
+                this.updateActiveDot(i);
+                return i;
+            }
         }
     }
 

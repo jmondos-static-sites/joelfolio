@@ -33,7 +33,7 @@
                     </ul>
                 </nav>
 
-                <i class="hamburger-icon">
+                <i class="hamburger-icon top-of-page">
                     <i class="meat"></i>
                 </i>
 
@@ -233,85 +233,13 @@
         });
 
 
+
+
+
         //Attach handlers
-        $('.nav-widget .next').click(function(){
-            swipe.nextImage();
+        UTIL.app._attachNavWidgetHandlers();
 
-            var $curElem = $swipe_slides.filter('.active');
-            var $nextElem = $curElem.next();
-            var nextData = $nextElem.data('slide');
-
-            var $bg, $next;
-
-            if($nextElem.length){
-                //update colour scheme
-                $banner.addClass( nextData )
-                       .removeClass($curElem.data('slide'));
-                
-                //change active slide
-                $curElem.removeClass('active');
-                $nextElem.addClass('active');
-
-
-
-                //bg-grad change of widget, necessary for bg-gradients
-                $bg = $nav_widget.children('.bg-grad');
-                $bg.not('.active').remove();
-
-                $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
-                $bg.after($next);
-
-                //$bg.addClass('op0');
-                $bg.removeClass('active');
-                $next.addClass('active')
-                UTIL.timer(function(){
-                    $next.removeClass('op0');
-                });
-            }
-
-            
-
-            
-
-
-
-        });
-        $('.nav-widget .prev').click(function(){
-            swipe.prevImage();
-
-            var $curElem = $swipe_slides.filter('.active');
-            var $prevElem = $curElem.prev();
-            var prevData = $prevElem.data('slide');
-
-            var $bg, $next;
-
-            if($prevElem.length){
-                //update colour scheme
-                $banner.addClass( $prevElem.data('slide') )
-                       .removeClass($curElem.data('slide'));
-                
-                //change active slide
-                $curElem.removeClass('active');
-                $prevElem.addClass('active');
-
-
-                //bg-grad change of widget, necessary for bg-gradients
-                $bg = $nav_widget.children('.bg-grad');
-                $bg.not('.active').remove();
-                $prev = $('<div class="bg-grad op0 " data-slide="'+ prevData + '"></div>');
-                $bg.after($prev);
-
-                $bg.removeClass('active');
-                $prev.addClass('active');
-
-                UTIL.timer(function(){
-                    $prev.removeClass('op0');
-                });
-            }
-
-           
-
-        });
+        
 
 
 

@@ -10,7 +10,7 @@ var create = (function(){
     function checkReq(obj, req){
         var err = [];
         for(var i in req){
-            if(obj.hasOwnProperty(i)){
+            if(obj && obj.hasOwnProperty(i)){
                 //also check against type
                 if(typeof req[i] === 'function'){
                     if( !req[i](obj[i]) ) {
@@ -26,11 +26,29 @@ var create = (function(){
             throw new Error('create() missing parameter' + (err.length > 1 ? 's' : '') + ': ' + err.join(', ') );
         }
     }
+    function getAllProps(parent){
+        var obj={};
+        for(var i in parent){
+            if(typeof parent[i] !== "function" && i !== "req" && i.charAt(0) !== "_"){
+                obj[i] = parent[i];
+            }
+        }
+        return obj;
+    }
     return function create(parent, obj){
         var child = Object.create(parent);
         if(obj) addProps(child, obj);
+        //Check params
+        if(child.req){
+            //If object do normal checkReq
+            if(typeof child.req === "object" && child.req.length > -1 ) checkReq(obj, child.req);
+            //If string get do full check, does not include vars prefixed with _
+            else if(typeof child.req === "string" && child.req.toLowerCase() === "all"){
+                var tempObj = getAllProps(parent);
+                checkReq(obj, tempObj);
+            }
+        }
         if(typeof child.init === "function") child.init();
-        if(typeof child.req === "object") checkReq(obj, child.req);
         return child;
     }
 })();
@@ -38,6 +56,11 @@ var create = (function(){
 
 //prod safe console.log
 var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
+
+
+
+
+
 
 
 //UTIL methods
