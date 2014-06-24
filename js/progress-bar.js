@@ -59,12 +59,8 @@ var ProgressBar = (function(){
         },
         scrollTo: function(e){
             var $e = $(e.target), i;
-            debugger
             if( !$e.hasClass('active') && e.target !== this.$ct.get(0) ){
                 i = $e.data('item');
-
-                //side-scroll images
-                swipe.scrollImages(i-1);
 
                 //update dots
                 this.updateActiveDot(i);

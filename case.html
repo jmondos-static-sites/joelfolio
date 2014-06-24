@@ -17,9 +17,9 @@
             <!-- ==== Entire case wrapper ====  -->
             <div class="case-wrapper lean-cuisine">
                 <header class="banner">
-                    <div class="logo-joel">
+                    <a href="index.html" class="logo-joel">
                         <img src="img/icon/logo.png" alt="Campaign photo">
-                    </div>
+                    </a>
 
                     <!-- side nav bar -->
                     <i class="nav-icon top-of-page"></i>
@@ -58,7 +58,7 @@
                         </div>
                         
                         
-
+                        
                         <div data-slide="lean-pockets" class="swipe-slide">
                             <div class="bg-image"></div>
                              <div data-case="lc" class="case-text">
@@ -272,6 +272,7 @@
         <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
         <script src="js/hide-addr-bar.js"></script>
+        <script src="js/lightbox.min.js"></script>
 
         <!-- site code -->
         <script src="js/util.js"></script>
@@ -282,6 +283,7 @@
 
 
         
+
         <script>
         //Init section
         (function(){
@@ -290,10 +292,14 @@
                 $pct =  $('.progress-ct');
 
             //This handles the swiping movement
-            swipe.init({
-                $imgs: $swipe_slides,
-                mobile: true
-            });
+            //This window ref is not ideal, and progress bar must access it.
+            //Ideally the Swipe class keeps a list of instances and we update it through that?
+
+            var swipe = create(Swipe, {
+                $imgs: $swipe_slides
+            })
+            .removePointer($('.case-text'));
+
             //This handles UI changes to the banner, and other small theme changes in case.html
             //banner is just there to update that css class so the theme changes
             var banner = create(Banner, {
@@ -308,8 +314,9 @@
             });
 
 
-
-            //Event handlers
+            //===============
+            // Event handlers
+            //===============
             $('.arrow-left, .widget-btn.prev').click(function(){
                 swipe.prevImage();
                 banner.prev();
@@ -322,7 +329,11 @@
             });
             $pct.click(function(e){
                 var i = progress.scrollTo(e);
-                if(i) banner.update(i)
+
+                if(i){
+                    swipe.scrollImages(i-1);
+                    banner.update(i)
+                }
             })
 
 

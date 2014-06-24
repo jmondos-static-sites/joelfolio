@@ -1,4 +1,5 @@
-var swipe = (function(){
+
+var Swipe = (function(){
 
     var $w = window.$w = (window.$w || $(window) );
     var UTIL = window.UTIL || {};
@@ -17,20 +18,27 @@ var swipe = (function(){
 
 
     return{
+        $imgs: [],
+        mobile:false,
         init: init,
         nextImage: nextImage,
         prevImage : prevImage,
-        scrollImages: scrollImages
+        scrollImages: scrollImages,
+        removePointer: function($elem){
+            $elem.css('pointer-events', 'none');
+            return this;
+        }
 
     }
 
     //=== Inner methods ===//
 
+
+
     // @props: {test: [bool], elems: $('.elems'), max: [int]} 
     function init(props){
-        props = props || {};
-        testMobile = props.mobile;
-        imgs = props.$imgs;
+        testMobile = this.mobile
+        imgs = this.$imgs;
         maxImages = imgs.length;
 
 

@@ -14,9 +14,9 @@
         <div class="wrapper">
             <!-- main photo banner -->
             <header class="banner sweetarts">
-                <div class="logo-joel">
+                <a href="index.html" class="logo-joel">
                     <img src="img/icon/logo.png" alt="Campaign photo">
-                </div>
+                </a>
 
                 <!-- side nav bar -->
                 <i class="nav-icon top-of-page"></i>
@@ -132,52 +132,51 @@
                     -no sub: doesn't show
                     -no title: uses img alt
                     -->
-                    <div class="elem">
+                    <a class="elem">
                         <img class="img-small" src="img/collage/small1.jpg" alt="Threshold Interactive">
-                    </div>
-                    <div class="elem">
+                    </a>
+                    <a class="elem">
                         <img class="img-landscape" src="img/collage/landscape1.jpg" alt="Sugar House">
-                    </div>
+                    </a>
 
-                    <div class="elem">
+                    <a class="elem">
                     <img class="img-vert" src="img/collage/vert2.jpg" alt="">
-                    </div>
+                    </a>
 
-                    <div class="elem">
+                    <a class="elem">
                     <img class="img-vert" src="img/collage/vert1.jpg" alt="">
-                    </div>
+                    </a>
 
-                    <div class="elem">
+                    <a class="elem">
                     <img class="img-large" src="img/collage/lge1.jpg" alt="">
-                    </div>
+                    </a>
 
-                    <div class="elem">
+                    <a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem">
+                    <img class="img-small" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+                    </a>
 
-                    <img class="img-small" data-overlay="{sub: 'design', src: 'img/shirt-orig.jpg'}" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
-                    </div>
-
-                    <div class="elem">
+                    <a class="elem">
                     <img class="img-large" src="img/collage/lge2.jpg" alt="">
-                    </div>
+                    </a>
 
-                    <div class="elem">
-                    <img class="img-landscape" data-overlay="{sub: 'Art Direction', src: 'img/selfie_lemon.jpg'}" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
-                    </div>
+                    <a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt">
+                    <img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+                    </a>
 
-                    <div class="elem">
+                    <a class="elem">
                     <img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
-                    </div>
+                    </a>
 
-                    <div class="elem">
-                    <img class="img-small" data-overlay="{src: 'ilymt-overlay.jpg', title: 'ILoveYouMoreThan.com', sub: 'personal project'}" src="img/collage/small4.jpg" alt="I love your more than">
-                    </div>
+                    <a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" >
+                    <img class="img-small" src="img/collage/small4.jpg" alt="I love your more than">
+                    </a>
 
-                    <div class="elem">
-                        <img class="img-landscape" data-overlay="{src: 'img/sweetarts-orig.jpg', sub: 'Sweet To Be You Campaign'}" src="img/collage/landscape3.jpg" alt="SweeTarts">
-                    </div>
-                    <div class="elem">
+                    <a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts">
+                        <img class="img-landscape" src="img/collage/landscape3.jpg" alt="SweeTarts">
+                    </a>z
+                    <a class="elem">
                         <img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
-                    </div>
+                    </a>
                 </div>
                  <!-- <div class="overlay-collage__overlay-elem">
                     <img src="img/sweetarts-orig.jpg">
@@ -207,8 +206,9 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
-        <script src="js/hide-addr-bar.js"></script>
+        <!-- <script src="js/hide-addr-bar.js"></script> -->
         <script src="js/masonry.min.js"></script>
+        <script src="js/lightbox.min.js"></script>
         
         <!-- site code -->
         <script src="js/util.js"></script>
@@ -218,15 +218,18 @@
 
             
         <script>
+        
+
 
         //==== init code ====
         var $swipe_slides = $('.swipe-slide'),
             $banner = $('.banner'),
             $nav_widget = $('.nav-widget');
-        swipe.init({
+        
+        var swipe = create(Swipe ,{
             $imgs: $swipe_slides,
-            mobile: true
-        });
+        })
+        .removePointer($('.intro-text'));
 
         var progress = create(ProgressBar, {
             $ct: $('.progress-ct'),

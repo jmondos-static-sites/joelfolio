@@ -350,18 +350,43 @@ $widget-w: pem(40)
 	background-size: pem(8) pem(15)
 //=== End of nav widget ===//
 
+@-webkit-keyframes updown 
+	0%
+		background-position: center
+	50%
+		background-position: center pem(23)
+	100%
+		background-position: center
+
+@keyframes updown 
+	0%
+		background-position: center
+	50%
+		background-position: center pem(23)
+	100%
+		background-position: center
+
 .down-arrow-white
 	background: url(../img/icon/down-arrow.png) no-repeat center
 	background-size: pem(31) pem(12)
 	position: absolute
-	bottom: pem(24)
+	bottom: pem(19)
 	left: 0
 	right: 0
 	margin: auto
-	+wh(46, 30)
+	+wh(46, 40)
 	cursor: pointer
+	// -webkit-transition: background 0.3s
+	// transition: background 0.3s
+	
+	&:hover
+		-webkit-animation: updown 1.1s ease-out infinite
+		animation: updown 1.1s ease-out infinite
+
 	+media($smlDevice)
 		bottom: pem(20)
+
+	
 //=== End of header section ===//
 
 

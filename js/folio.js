@@ -43,6 +43,7 @@ UTIL.app={};
 //Methods/vars for this app
 
 //Merge these into 1 function, and make into module for nav widget
+//yeah this needs to be taken out.
 UTIL.app._attachNavWidgetHandlers = function(){
   $('.nav-widget .next').click(function(){
       swipe.nextImage();
