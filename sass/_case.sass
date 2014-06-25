@@ -5,6 +5,9 @@
 .case-text .text-white
 	bottom: rem(168)
 	z-index: 1
+	+media($medDevice)
+		bottom: rem(145)
+		width: 70%
 
 .apostrophe-fix
 	font-family: Arial
@@ -271,6 +274,10 @@ $slides:  lean-cuisine lean-pockets logos hwmfty threshold recipes
 
 .case-wrapper .swipe-ct
 	width: 110 * length($slides) * 1%
+
+.case-wrapper .swipe-ct .swipe-slide
+	// width: 100vw
+	width:  (91) / length($slides) *1%
 
 .banner
 	width: 100%

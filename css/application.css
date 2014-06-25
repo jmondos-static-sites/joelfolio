@@ -300,7 +300,7 @@ footer span {
   margin: 0 auto 5.3125em;
   cursor: pointer;
 }
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .nav-close {
     display: none;
   }
@@ -795,6 +795,11 @@ footer span {
   position: relative;
   margin: 0 auto;
 }
+@media (max-width: 716px) {
+  .work-collage {
+    width: 100% !important;
+  }
+}
 
 .work-collage img:after {
   content: "";
@@ -847,6 +852,11 @@ footer span {
   width: 440%;
 }
 
+.swipe-ct .swipe-slide {
+  width: 100vw;
+  width: 22.75%;
+}
+
 .banner {
   width: 100%;
   overflow: hidden;
@@ -877,7 +887,6 @@ footer span {
   color: white;
   padding: 0;
   margin: 0;
-  width: 100vw;
   height: 52.75em;
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
@@ -1299,6 +1308,12 @@ footer span {
   bottom: 10.5rem;
   z-index: 1;
 }
+@media (max-width: 480px) {
+  .case-text .text-white {
+    bottom: 9.0625rem;
+    width: 70%;
+  }
+}
 
 .apostrophe-fix {
   font-family: Arial;
@@ -1655,6 +1670,10 @@ footer span {
 
 .case-wrapper .swipe-ct {
   width: 660%;
+}
+
+.case-wrapper .swipe-ct .swipe-slide {
+  width: 15.166666667%;
 }
 
 .banner {

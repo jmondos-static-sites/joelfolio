@@ -117,7 +117,7 @@
 	background-size: 100%
 	margin: 0 auto pem(85)
 	cursor: pointer
-	+media($smlDevice)
+	+media($medDevice)
 		display: none
 
 .nav-links li
@@ -548,6 +548,8 @@ $bfw: 187
 	text-align: center
 	position: relative
 	margin: 0 auto
+	+media("mw", 716)
+		width: 100% !important
 	// +media("(max-width: 520px)")
 	// 	padding-bottom: 0
 
@@ -612,7 +614,11 @@ $slides: sweetarts lasagna london zermatt
 		background-image: url(../img/#{nth($slides, 4)}.jpg)
 
 .swipe-ct
-	width: 110 * length($slides) * 1%
+	width: length($slides) * 110%
+
+.swipe-ct .swipe-slide
+	width: 100vw
+	width:  91 / length($slides) *1%
 
 .banner
 	width: 100%
@@ -638,13 +644,13 @@ $slides: sweetarts lasagna london zermatt
 	-moz-background-size: cover
 	-o-background-size: cover
 	background-size: cover
-	
 	height: pem(844)
 	color: #fff
 	padding: 0
 	margin: 0
 	// width:  pem(1400)
-	width: 100vw
+	//width: 100vw
+
 	height: pem(844)
 	-webkit-transform: translate3d(0px,0px,0px)
 	transform:  translate3d(0px,0px,0px)
