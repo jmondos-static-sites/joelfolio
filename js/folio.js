@@ -111,7 +111,7 @@ UTIL.app={};
 
 //Merge these into 1 function, and make into module for nav widget
 //yeah this needs to be taken out.
-UTIL.app._attachNavWidgetHandlers = function(){
+UTIL.app._attachNavWidgetHandlers = function($swipe_slides, $nav_widget){
   $('.nav-widget .next').click(function(){
       swipe.next();
 
