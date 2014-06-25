@@ -196,12 +196,14 @@ $fb-w: 60
 	height: pem(130)
 	text-align: center
 	z-index: 1
-	+media($smlDevice)
+	+media($medDevice)
 		font-size: 80%
-		width: 100%
-		padding: pem(30, 12.8) pem(20, 12.8) 0
 		top: pem(140, 12.8)
-		padding-top: pem(40, 12.8)
+	+media($smlDevice)
+		width: 100%
+		padding: pem(33, 12.8) pem(10, 12.8) 0
+		
+
 
 
 .title-white
@@ -228,9 +230,12 @@ $fb-w: 60
 	margin: 0 auto
 	-webkit-transition: background 0.9s
 	transition: background 0.9s
+	+media($medDevice)
+		font-size: pem(10)
+		width: pc(133, 320)
 	+media($smlDevice)
 		font-size: pem(10)	
-		width: pc(100, 320)
+		width: pc(103, 320)
 
 .sweetarts .line-color
 	background: #c81ca2
@@ -258,7 +263,6 @@ $fb-w: 60
 	font-family: Bariol
 	font-weight: bold
 	margin: 0 auto
-
 	width: pc(217 / 1400)
 	width: pem(217)
 	height: pem(44)
@@ -272,6 +276,8 @@ $fb-w: 60
 	color: #1c1c1c
 	//text element
 	transition: background 0.9s
+	+media($medDevice)
+		top: pem(442)
 
 .bg-grad
 	background-color: #fff
@@ -289,12 +295,8 @@ $fb-w: 60
 		font-size: pem(15)
 		top: 0.8em
 		position: absolute
-		padding-left: 0.4em
 		text-transform: capitalize
-		padding-left: pem(47, 15)
-
-	+media($smlDevice)
-		top: 27.8em
+		padding-left: pem(50, 15)
 
 //themes
 
@@ -333,16 +335,14 @@ $fb-w: 60
 	
 
 .widget-icon
-	margin-top: pem(2)
-	float: left
 	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center
 	height: pem(16)
 	width: pem(13)
 	background-size: 100%
 	display: inline-block
 	position: absolute
-	left: pem(25)
-	top: 0
+	left: pem(28)
+	top: pem(0)
 	bottom: 0
 	z-index: 1
 	margin: auto

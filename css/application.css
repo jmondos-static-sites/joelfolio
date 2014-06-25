@@ -386,13 +386,16 @@ footer span {
   text-align: center;
   z-index: 1;
 }
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .intro-text {
     font-size: 80%;
-    width: 100%;
-    padding: 2.34375em 1.5625em 0;
     top: 10.9375em;
-    padding-top: 3.125em;
+  }
+}
+@media (max-width: 320px) {
+  .intro-text {
+    width: 100%;
+    padding: 2.578125em 0.78125em 0;
   }
 }
 
@@ -424,10 +427,16 @@ footer span {
   -webkit-transition: background 0.9s;
   transition: background 0.9s;
 }
+@media (max-width: 480px) {
+  .line-color {
+    font-size: 0.625em;
+    width: 41.5625%;
+  }
+}
 @media (max-width: 320px) {
   .line-color {
     font-size: 0.625em;
-    width: 31.25%;
+    width: 32.1875%;
   }
 }
 
@@ -473,6 +482,11 @@ footer span {
   color: #1c1c1c;
   transition: background 0.9s;
 }
+@media (max-width: 480px) {
+  .nav-widget {
+    top: 27.625em;
+  }
+}
 
 .bg-grad {
   background-color: white;
@@ -491,14 +505,8 @@ footer span {
   font-size: 0.9375em;
   top: 0.8em;
   position: absolute;
-  padding-left: 0.4em;
   text-transform: capitalize;
-  padding-left: 3.133333333em;
-}
-@media (max-width: 320px) {
-  .bg-grad {
-    top: 27.8em;
-  }
+  padding-left: 3.333333333em;
 }
 
 .bg-grad[data-slide="sweetarts"] {
@@ -558,16 +566,14 @@ footer span {
 }
 
 .widget-icon {
-  margin-top: 0.125em;
-  float: left;
   background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center;
   height: 1em;
   width: 0.8125em;
   background-size: 100%;
   display: inline-block;
   position: absolute;
-  left: 1.5625em;
-  top: 0;
+  left: 1.75em;
+  top: 0em;
   bottom: 0;
   z-index: 1;
   margin: auto;
