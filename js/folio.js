@@ -36,10 +36,77 @@ $('a.smooth-scroll[href*=#]:not([href=#])').click(function() {
 });
 
 
+//=== nav-overlay handler ===//
+var $nav_overlay = $('.nav-overlay');
+
+//check if 3d is supported, if so use it, else fallback to 2d.
+var _closed = Modernizr.csstransforms3d ? "closed" : (function(){
+  $nav_overlay.removeClass('closed').addClass('closed2d'); 
+  return "closed2d";
+})();
+
+//Handlers
+$('.hamburger-icon').click(function(){
+  if(Modernizr.csstransforms3d){
+    $nav_overlay.toggleClass(_closed);
+  }
+  else{
+    $nav_overlay.toggleClass(_closed);
+  }
+});
+
+$('.nav-close').click(function(){
+  $nav_overlay.addClass(_closed);
+});
+//==== End of nav-overlay ====
+
+
+
+
+//=== Hamburger change colour on scroll ===//
+//=== classList for perf win
+var $document = $(document),
+    $banner = $('.banner');
+
+var ham = document.getElementsByClassName('hamburger-icon')[0];
+$document.scroll(function(){
+  if ($document.scrollTop() >= $banner.height() - 76) {
+    if(!ham.classList.contains('dark'))
+      ham.classList.add('dark')
+  }
+  else{
+    if(ham.classList.contains('dark'))
+      ham.classList.remove('dark');
+  }
+});
+
+
+//=== End of hamburger ===
+
+// $document.scroll(function () {
+//     if ($document.scrollTop() >= 300) {
+//         $element.addClass(classNameOne);
+//     } else if ($document.scrollTop() >= 600 && $document.scrollTop() < 600) ) {
+//         $element.addClass(classNameTwo);
+//     } else if ($document.scrollTop() >= 900 && $document.scrollTop() < 900)) {
+//         $element.addClass(classNameThree);
+//     } else if ($document.scrollTop() >= 1200 && $document.scrollTop() < 1200)) {
+//         $element.addClass(classNameFour);
+//     } else if ($document.scrollTop() >= 1500 && $document.scrollTop() < 1500)) {
+//         $element.addClass(classNameFive);
+//     } else if ($document.scrollTop() >= 1800 && $document.scrollTop() < 1800)) {
+//         $element.addClass(classNameSix);
+//     } else {
+
+//     }
+// });
+
+
+
+
+if(typeof UTIL === "undefined") UTIL={};
 
 UTIL.app={};
-
-
 //Methods/vars for this app
 
 //Merge these into 1 function, and make into module for nav widget

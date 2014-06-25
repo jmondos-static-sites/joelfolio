@@ -22,12 +22,13 @@
                     </a>
 
                     <!-- side nav bar -->
-                    <i class="nav-icon top-of-page"></i>
-                    <nav class="nav-overlay hide">
+                   
+
+                    <nav class="nav-overlay closed">
                         <div class="nav-close"></div>
                         <ul class="nav-links">
-                            <li class="nav-white nav-about"><a href="#">About</a></li>
-                            <li class="nav-white nav-work"><a href="#">Work</a></li>
+                            <li class="nav-white nav-about"><a href="about.html">About</a></li>
+                            <li class="nav-white nav-work"><a href="case.html">Work</a></li>
                             <li class="nav-email"><a href="mailto:jtotheoel@gmail.com"></a></li>
                             <li class="nav-fb">
                                 <a href="#"></a>
@@ -57,8 +58,6 @@
                             </div>
                         </div>
                         
-                        
-                        
                         <div data-slide="lean-pockets" class="swipe-slide">
                             <div class="bg-image"></div>
                              <div data-case="lc" class="case-text">
@@ -74,6 +73,7 @@
                                 <h2 class="text-white">Branding, Various Clients</h2>
                             </div>
                         </div>
+
                         <div data-slide="hwmfty" class="swipe-slide">
                             <div class="bg-image"></div>
                             <div data-case="lc" class="case-text">
@@ -88,9 +88,10 @@
                                 <h2 class="text-white">Site and Logo, Threshold Interactive</h2>
                             </div>
                         </div>
+
                         <div data-slide="recipes" class="swipe-slide">
                             <div class="bg-image"></div>
-                            <div data-case="lc" class="case-text">et-btn
+                            <div data-case="lc" class="case-text">
                                 <h1 class="title-about">Butterfinger Recipes</h1>
                                 <h2 class="text-white">Facebook Tab, Butterfinger</h2>
                             </div>
@@ -101,8 +102,23 @@
                         <div class="banner-nav-ctrls nos">
                             <i class="arrow-left"></i>
                              <i class="widget-icon"></i>
-                            <div class="banner-nav-text">
+                            <div class="banner-nav-text"  data-slide="lean-cuisine">
                                 Keeping it Real
+                            </div>
+                            <div class="banner-nav-text" data-slide="lean-pockets">
+                                The Hot Combo
+                            </div>
+                            <div class="banner-nav-text" data-slide="logos">
+                                Logos
+                            </div>
+                            <div class="banner-nav-text" data-slide="hwmfty">
+                                HWMFTY
+                            </div>
+                            <div class="banner-nav-text" data-slide="threshold">
+                                Threshold 10
+                            </div>
+                            <div class="banner-nav-text" data-slide="recipes">
+                                Recipes
                             </div>
                             <i class="arrow-right"></i>
                         </div>
@@ -232,8 +248,26 @@
 
 
 
-                <div data-name="Keeping It Real" class="nav-widget case-widget">
+                <div class="nav-widget case-widget">
                     <i class="widget-icon"></i>
+                    <div class="banner-nav-text"  data-slide="lean-cuisine">
+                        Keeping it Real
+                    </div>
+                    <div class="banner-nav-text" data-slide="lean-pockets">
+                        The Hot Combo
+                    </div>
+                    <div class="banner-nav-text" data-slide="logos">
+                        Logos
+                    </div>
+                    <div class="banner-nav-text" data-slide="hwmfty">
+                        HWMFTY
+                    </div>
+                    <div class="banner-nav-text" data-slide="threshold">
+                        Threshold 10
+                    </div>
+                    <div class="banner-nav-text" data-slide="recipes">
+                        Recipes
+                    </div>
                     <button class="widget-btn next"></button>
                     <button class="widget-btn prev"></button>
                 </div>
@@ -271,7 +305,6 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.touchswipe.min.js"></script>
         <script src="js/modernizr.custom.js"></script>
-        <script src="js/hide-addr-bar.js"></script>
         <script src="js/lightbox.min.js"></script>
 
         <!-- site code -->
@@ -288,16 +321,15 @@
         //Init section
         (function(){
 
-            var $swipe_slides = $('.swipe-slide'),
-                $pct =  $('.progress-ct');
+            var $swipe_slides = $('.swipe-slide');
 
             //This handles the swiping movement
             //This window ref is not ideal, and progress bar must access it.
             //Ideally the Swipe class keeps a list of instances and we update it through that?
 
-            var swipe = create(Swipe, {
+            window.swipe = create(Swipe, {
                 imgs: $swipe_slides,
-                mobile: true
+                // mobile: true
             })
             .removePointer($('.case-text'));
 
@@ -308,11 +340,13 @@
                 $slides: $swipe_slides
             });
 
-            var progress = create(ProgressBar, {
-                $ct: $pct,
-                $banner: $('.case-wrapper'),
-                $imgs: $swipe_slides
-            });
+            // var progress = create(ProgressBar, {
+            //     $ct: $('.progress-ct'),
+            //     $banner: $('.case-wrapper'),
+            //     $imgs: $swipe_slides
+            // });
+
+
 
 
             //===============
@@ -321,22 +355,21 @@
             $('.arrow-left, .widget-btn.prev').click(function(){
                 swipe.prev();
                 banner.prev();
-                progress.prev();
+                //progress.prev();
             });
             $('.arrow-right, .widget-btn.next').click(function(){
                 swipe.next();
                 banner.next();
-                progress.next();
+                //progress.next();
             });
-            $pct.click(function(e){
-                var i = progress.scrollTo(e);
 
-                if(i){
-                    swipe.scrollImages(i-1);
-                    banner.update(i)
-                }
-            })
-
+            // progress.$ct.click(function(e){
+            //     var i = progress.scrollTo(e);
+            //     if(i){
+            //         swipe.scrollImages(i-1, 500);
+            //         banner.update(i)
+            //     }
+            // });
 
 
         })();

@@ -1,274 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Joel's Portfolio</title>
-        <meta name="description" content="My name is Joel Kennedy. I'm an entrepreneur, art director, food lover, and world traveler." />
-        <meta name="author" content="Joel Kennedy">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
-        <link rel="stylesheet" href="css/application.css" />
-        <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
-    </head>
-    <body>
-        <div class="wrapper">
-            <!-- main photo banner -->
-            <header class="banner sweetarts">
-                <a href="index.html" class="logo-joel">
-                    <img src="img/icon/logo.png" alt="Campaign photo">
-                </a>
+	<head>
+		<meta charset="utf-8">
+		<title>Joel's Portfolio</title>
+		<meta name="description" content="My name is Joel Kennedy. I'm an entrepreneur, art director, food lover, and world traveler." />
+		<meta name="author" content="Joel Kennedy">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
+		<link rel="stylesheet" href="css/application.css" />
+		<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- main photo banner -->
+			<header class="banner sweetarts">
+				<a href="index.html" class="logo-joel">
+					<img src="img/icon/logo.png" alt="Campaign photo">
+				</a>
 
-                <!-- side nav bar -->
-                <i class="nav-icon top-of-page"></i>
-                <nav class="nav-overlay hide">
-                    <div class="nav-close"></div>
-                    <ul class="nav-links">
-                        <li class="nav-white nav-about"><a href="#">About</a></li>
-                        <li class="nav-white nav-work"><a href="#">Work</a></li>
-                        <li class="nav-email"><a href="mailto:jtotheoel@gmail.com"></a></li>
-                        <li class="nav-fb">
-                            <a href="#work"></a>
-                        </li>
-                        <li class="nav-cv nav-white"><a href="#">CV</a></li>
-                    </ul>
-                </nav>
+				<!-- side nav bar -->
+			   
+				<nav class="nav-overlay closed">
+					<div class="nav-close"></div>
+					<ul class="nav-links">
+						<li class="nav-white nav-about"><a href="about.html">About</a></li>
+						<li class="nav-white nav-work"><a href="case.html">Work</a></li>
+						<li class="nav-email"><a href="mailto:jtotheoel@gmail.com"></a></li>
+						<li class="nav-fb">
+							<a href="#work"></a>
+						</li>
+						<li class="nav-cv nav-white"><a href="#">CV</a></li>
+					</ul>
+				</nav>
 
-                <i class="hamburger-icon top-of-page">
-                    <i class="meat"></i>
-                </i>
+				<i class="hamburger-icon top-of-page">
+					<i class="meat"></i>
+				</i>
 
-                <!-- content and banner image slides-->
-                <div class="intro-text">
-                    <div class="intro-text__line line-color"></div>
-                    <h1 class="intro__title title-white">Hello</h1>
-                    <h2 class="intro__text">
-                        My name is Joel Kennedy.<br>
-                        I'm an entrepreneur, art director,
-                        food lover, and world traveler.
-                    </h2>
-                </div>
+				<!-- content and banner image slides-->
+				<div class="intro-text">
+					<div class="intro-text__line line-color"></div>
+					<h1 class="intro__title title-white">Hello</h1>
+					<h2 class="intro__text">
+						My name is Joel Kennedy.<br>
+						I'm an entrepreneur, art director,
+						food lover, and world traveler.
+					</h2>
+				</div>
 
-                <div class="swipe-ct">
-                    <!-- anything in these slides will slide :) -->
-                    <div data-slide="sweetarts" class="swipe-slide active">
-                        <div class="bg-image"></div>
-                    </div>
-                    
-                    <div data-slide="lasagna" class="swipe-slide">
-                        <div class="bg-image"></div>
-                    </div>
+				<div class="swipe-ct">
+					<!-- anything in these slides will slide :) -->
+					<div data-slide="sweetarts" class="swipe-slide active">
+						<div class="bg-image"></div>
+					</div>
+					
+					<div data-slide="lasagna" class="swipe-slide">
+						<div class="bg-image"></div>
+					</div>
 
-                    <div data-slide="london" class="swipe-slide">
-                        <div class="bg-image"></div>
-                    </div>
+					<div data-slide="london" class="swipe-slide">
+						<div class="bg-image"></div>
+					</div>
 
-                    <div data-slide="zermatt" class="swipe-slide">
-                        <div class="bg-image"></div>
-                    </div>
-                </div><!-- swipe-ct -->
-
-
-                <div class="nav-widget">
-                    <i class="widget-icon"></i>
-                    <div data-slide="sweetarts" class="bg-grad active"></div>
-                    <button class="widget-btn next"></button>
-                    <button class="widget-btn prev"></button>
-                </div>
-
-                <a href="#work" class="down-arrow-white smooth-scroll"></a>
-            </header>
-        
-            <!-- content section -->
-            <div id="work" class="section-work">
-                <i class="hamburger-icon hamburger-icon-dark"></i>
-                <h2 class="title-dark">Work</h2>
-                <div class="sub-text">A selected sample of my freelance, agency, and personal projects.</div>
-
-                <!-- add class selected-->
-                <div class="btn-filter-ct">
-                    <button class="btn-filter ">
-                        <div class="left-side">Filter</div>
-                        <i class="down-arrow-box"></i>
-                    </button>
-                    <div class="filter-list">
-                        <div class="list-elem">web design<i class="close-blue"></i></div>
-                        <div class="list-elem">branding<i class="close-blue"></i></div>
-                        <div class="list-elem">print<i class="close-blue"></i></div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="collage-ct">
-                <div class="overlay-collage hide"></div>
-                <div class="work-collage">
-                    <!-- arranged in this way to provide some fallback -->
-                    <!-- 
-                    <img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea">
-
-                    <img data-order="1" class="img-small" src="img/collage/small1.jpg" alt="Threshold Interactive">
-
-                    <img class="img-small flex" src="img/collage/small2.jpg" alt="Example work image">
-                    <img data-order="2" class="img-landscape" src="img/collage/landscape1.jpg" alt="Sugar House">
-                   
-                    <img class="img-landscape" src="img/collage/landscape3.jpg" alt="Sweet to be">
-                    <img class="img-small flex" src="img/collage/small3.jpg" alt="The 2013 Slow Pitch">
-                   
-                    <img class="img-vert" src="img/collage/vert1.jpg" alt="">
-                    <img class="img-large" src="img/collage/lge2.jpg" alt="">
-
-                    <img class="img-large" src="img/collage/lge1.jpg" alt="">
-                    <img class="img-vert" src="img/collage/vert2.jpg" alt="">
-
-                    <img class="img-small flex" style="vertical-align:top" src="img/collage/small4.jpg" alt="I love your more than"> -->
+					<div data-slide="zermatt" class="swipe-slide">
+						<div class="bg-image"></div>
+					</div>
+				</div><!-- swipe-ct -->
 
 
+				<div class="nav-widget">
+					<i class="widget-icon"></i>
+					<div data-slide="sweetarts" class="bg-grad active"></div>
+					<button class="widget-btn next"></button>
+					<button class="widget-btn prev"></button>
+				</div>
 
-                    <!-- data-overlay object
-                    If present js will provide the overlay option.
+				<a href="#work" class="down-arrow-white smooth-scroll"></a>
+			</header>
+		
+			<!-- content section -->
+			<div id="work" class="section-work">
+				<h2 class="title-dark">Work</h2>
+				<div class="sub-text">A selected sample of my freelance, agency, and personal projects.</div>
 
-                    All values are optional, pass it an object:
-                    {src: 'img-src', sub:'role', alt: 'project name' }
-                    -no src: uses existing img
-                    -no sub: doesn't show
-                    -no title: uses img alt
-                    -->
-                    <a class="elem">
-                        <img class="img-small" src="img/collage/small1.jpg" alt="Threshold Interactive">
-                    </a>
-                    <a class="elem">
-                        <img class="img-landscape" src="img/collage/landscape1.jpg" alt="Sugar House">
-                    </a>
+				<!-- add class selected-->
+				<div class="btn-filter-ct">
+					<button class="btn-filter ">
+						<div class="left-side">Filter</div>
+						<i class="down-arrow-box"></i>
+					</button>
+					<div class="filter-list">
+						<div class="list-elem">web design<i class="close-blue"></i></div>
+						<div class="list-elem">branding<i class="close-blue"></i></div>
+						<div class="list-elem">print<i class="close-blue"></i></div>
+					</div>
+				</div>
+			</div>
 
-                    <a class="elem">
-                    <img class="img-vert" src="img/collage/vert2.jpg" alt="">
-                    </a>
+			<div class="collage-ct">
+				<div class="overlay-collage hide"></div>
+				<div class="work-collage">
+					<a class="elem img-small">
+						<img class="" src="img/collage/small1.jpg" alt="Threshold Interactive">
+					</a>
+					<a class="elem img-landscape">
+						<img class="" src="img/collage/landscape1.jpg" alt="Sugar House">
+					</a>
 
-                    <a class="elem">
-                    <img class="img-vert" src="img/collage/vert1.jpg" alt="">
-                    </a>
+					<a class="elem img-vert">
+					<img class="" src="img/collage/vert2.jpg" alt="">
+					</a>
 
-                    <a class="elem">
-                    <img class="img-large" src="img/collage/lge1.jpg" alt="">
-                    </a>
+					<a class="elem img-vert">
+					<img class="" src="img/collage/vert1.jpg" alt="">
+					</a>
 
-                    <a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem">
-                    <img class="img-small" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
-                    </a>
+					<a class="elem">
+					<img class="" src="img/collage/lge1.jpg" alt="">
+					</a>
 
-                    <a class="elem">
-                    <img class="img-large" src="img/collage/lge2.jpg" alt="">
-                    </a>
+					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem">
+					<img class="img-small" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+					</a>
 
-                    <a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt">
-                    <img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
-                    </a>
+					<a class="elem">
+					<img class="img-large" src="img/collage/lge2.jpg" alt="">
+					</a>
 
-                    <a class="elem">
-                    <img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
-                    </a>
+					<a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt">
+					<img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+					</a>
 
-                    <a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" >
-                    <img class="img-small" src="img/collage/small4.jpg" alt="I love your more than">
-                    </a>
+					<a class="elem">
+					<img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
+					</a>
 
-                    <a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts">
-                        <img class="img-landscape" src="img/collage/landscape3.jpg" alt="SweeTarts">
-                    </a>z
-                    <a class="elem">
-                        <img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
-                    </a>
-                </div>
-                 <!-- <div class="overlay-collage__overlay-elem">
-                    <img src="img/sweetarts-orig.jpg">
-                </div> -->
-            </div>
-        
+					<a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" >
+					<img class="img-small" src="img/collage/small4.jpg" alt="I love your more than">
+					</a>
 
-        </div>
+					<a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts">
+						<img class="img-landscape" src="img/collage/landscape3.jpg" alt="SweeTarts">
+					</a>
+
+					<a class="elem">
+						<img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
+					</a>
+				</div>
+			</div>
+		
+
+		</div>
 
 
 
-        <footer>
-            <div class="links">
-                <h3>Joel Kennedy</h3>
-                <span>Art Director</span>
-                <span>Food Eater</span>
-                <span>Entrepreneur</span>
-                <span>World Traveler </span>
-            </div>
-            
-        </footer>
+		<footer>
+			<div class="links">
+				<h3>Joel Kennedy</h3>
+				<span>Art Director</span>
+				<span>Food Eater</span>
+				<span>Entrepreneur</span>
+				<span>World Traveler </span>
+			</div>
+			
+		</footer>
 
-        <!-- remove commondev for prod -->
-        <script src="js/commondev.js"></script>
-        
-        <!-- frameworks -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.touchswipe.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <!-- <script src="js/hide-addr-bar.js"></script> -->
-        <script src="js/masonry.min.js"></script>
-        <script src="js/lightbox.min.js"></script>
-        
-        <!-- site code -->
-        <script src="js/util.js"></script>
-        <script src="js/responsive-swipe.js"></script>
-        <script src="js/progress-bar.js"></script>
-        <script src="js/folio.js"></script>
+		<!-- remove commondev for prod -->
+		<script src="js/commondev.js"></script>
+		
+		<!-- frameworks -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.touchswipe.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+		<!-- <script src="js/hide-addr-bar.js"></script> -->
+		<!--  <script src="js/masonry.min.js"></script> -->
+		<script src="js/imagesLoaded.min.js"></script>
+		<!-- <script src="js/isotope.min.js"></script> -->
 
-            
-        <script>
-        
+		<script src="js/isotope.min.1.5.25.js"></script>
+
+		<script src="js/jquery.isotope.perfectmasonry.js"></script>
+		<script async src="js/lightbox.min.js"></script>
+		
+		<!-- site code -->
+		<script src="js/polyfills.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/responsive-swipe.js"></script>
+		<script src="js/progress-bar.js"></script>
+		<script src="js/folio.js"></script>
+
+			
+		<script>
+		(function(){
 
 
-        //==== init code ====
-        var $swipe_slides = $('.swipe-slide'),
-            $banner = $('.banner'),
-            $nav_widget = $('.nav-widget');
-        
-        //temporary workaround for index.html using util.attachEventHandlers
-        //clean this up
-        window.swipe = create(Swipe ,{
-            imgs: $swipe_slides,
-            mobile: true
-        })
-        .removePointer($('.intro-text'));
+		//==== init code ====
+		var $swipe_slides = $('.swipe-slide'),
+			$banner = $('.banner'),
+			$nav_widget = $('.nav-widget');
+		
+		//temporary workaround for index.html using util.attachEventHandlers
+		//clean this up
+		window.swipe = create(Swipe ,{
+			imgs: $swipe_slides,
+			// mobile: true,
+			onSwipeRight: function(){
+				//banner.next();
+			},
+			onSwipeLeft: function(){
+				//banner.prev();
+			}
+		})
+		.removePointer($('.intro-text'));
 
-        var progress = create(ProgressBar, {
-            $ct: $('.progress-ct'),
-            $imgs: $swipe_slides
-        });
+		var progress = create(ProgressBar, {
+			$ct: $('.progress-ct'),
+			$imgs: $swipe_slides
+		});
 
 
 
 
 
-        //Attach handlers
-        UTIL.app._attachNavWidgetHandlers();
+		//Attach handlers
+		UTIL.app._attachNavWidgetHandlers();
 
-        
-
-
+		
 
 
-        //==== masonry ====
-        // (function(){
-        //     var $ct = $('.work-collage');
 
-        //     $ct.isotope({
-        //         itemSelector: 'img',
-        //         layoutMode: 'fitRows'
-        //         // masonry: { columnWidth: 350 }
-        //     });
-        // })();
-        (function(){
-            var ct = document.querySelector('.work-collage');
-            var msnry = new Masonry(ct, {
-                itemSelector: '.work-collage .elem',
-                isFitWidth: true
-            })
-        })();
-        </script>
 
-    </body>
+		//==== masonry ====
+		var $ct = $('.work-collage');
+		$ct.imagesLoaded(function(){
+			// $ct.masonry({
+			//     itemSelector: '.elem',
+			//     isFitWidth: true,
+			//     // transitionDuration: 0
+			// })
+			$ct.isotope({
+				itemSelector: '.elem',
+				layoutMode: "perfectMasonry",
+				masonry: {
+				   isFitWidth: true
+				}
+				 //disable resizing
+				 //resizable: false
+			});
+		});
+
+
+		})();
+		</script>
+
+	</body>
 </html>

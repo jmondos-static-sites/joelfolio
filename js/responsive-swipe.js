@@ -20,8 +20,11 @@ var Swipe = (function(){
         imgs:[],
         currentImg:0,
         req:{imgs:[]},
+        onSwipeLeft: function(){},
+        onSwipeRight: function(){},
         init: function init(){
             //=== runtime constructors ===//
+            
             
             //Shouldn't need these 2
             imgs = this.imgs;
@@ -48,7 +51,7 @@ var Swipe = (function(){
             }
         },
         prev: function prev(){
-            currentImg = Math.max(this.currentImg-1, 0);
+            currentImg = Math.max(currentImg-1, 0);
             if(pcval){
                 scrollImages(currentImg, speed);
             }
@@ -71,7 +74,8 @@ var Swipe = (function(){
         removePointer: function($elem){
             $elem.css('pointer-events', 'none');
             return this;
-        }
+        },
+        scrollImages: scrollImages
     }
 
     /**
@@ -80,8 +84,10 @@ var Swipe = (function(){
     * cancel : we animate back to where we were
     * end : we animate to the next image
     */
+    
     function swipeStatus(event, phase, direction, distance, fingers)
     {
+
         //If we are moving before swipe, and we are going L or R, then manually drag the images
         if( phase=="move" && (direction=="left" || direction=="right") )
         {
@@ -136,7 +142,7 @@ var Swipe = (function(){
             //pixel based
             scrollImages( IMG_WIDTH * currentImg, speed);
         }
-       
+        swipe.onSwipeLeft();
     }
 
     function nextImage()
@@ -150,13 +156,18 @@ var Swipe = (function(){
             //pixel based
             scrollImages( IMG_WIDTH * currentImg, speed);
         }
+        swipe.onSwipeRight();
     }
+
+
 
     /**
      * Manually update the position of the imgs on drag
      */
+
+     // Be careful modifying this, it is very touchy
     function scrollImages(distance, duration)
-    {
+    {   
         var val;
         imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
 
@@ -185,3 +196,4 @@ var Swipe = (function(){
     }
 
 })();
+

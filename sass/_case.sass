@@ -140,6 +140,18 @@ $bh: 54 //banner nav height
 	top: auto
 	padding-left: pem(14)
 	bottom: 8em
+
+.case-widget .banner-nav-text
+	position: absolute
+	top: pem(-4)
+	left: 0
+	font-size: 95%
+	padding-left: pem(38)
+
+.case-widget .widget-icon
+	left: pem(14)
+
+
 	
 
 
@@ -272,3 +284,9 @@ $slides:  lean-cuisine lean-pockets logos hwmfty threshold recipes
 		&.#{$i} [data-section="#{$i}"]
 			display: block
 
+.case-wrapper
+	.banner-nav-text
+		display: none
+	@each $i in $slides
+		&.#{$i} [data-slide="#{$i}"]
+			display: block
