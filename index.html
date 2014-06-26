@@ -120,32 +120,32 @@
 					<img class="" src="img/collage/lge1.jpg" alt="">
 					</a>
 
-					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem" data-filter="design">
-					<img class="img-small" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem img-small" data-filter="design">
+					<img class="" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
 					</a>
 
-					<a class="elem" data-filter="design">
-					<img class="img-large" src="img/collage/lge2.jpg" alt="">
+					<a class="elem img-large" data-filter="design">
+					<img class="" src="img/collage/lge2.jpg" alt="">
 					</a>
 
-					<a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt" data-filter="design">
-					<img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+					<a class="elem img-landscape" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt" data-filter="design">
+					<img class="" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
 					</a>
 
-					<a class="elem" data-filter="print">
-					<img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
+					<a class="elem img-small" data-filter="print">
+					<img class="" src="img/collage/small2.jpg" alt="Threshold Interactive">
 					</a>
 
-					<a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" data-filter="design">
-					<img class="img-small" src="img/collage/small4.jpg" alt="I love your more than">
+					<a class="elem img-small" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" data-filter="design">
+					<img class="" src="img/collage/small4.jpg" alt="I love your more than">
 					</a>
 
-					<a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts" data-filter="design">
-						<img class="img-landscape" src="img/collage/landscape3.jpg" alt="SweeTarts">
+					<a class="elem img-landscape" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts" data-filter="design">
+						<img class="" src="img/collage/landscape3.jpg" alt="SweeTarts">
 					</a>
 
-					<a class="elem" data-filter="design">
-						<img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
+					<a class="elem img-small" data-filter="design">
+						<img class="" src="img/collage/small5.jpg" alt="Jaritos No Habla">
 					</a>
 				</div>
 			</div>
@@ -295,7 +295,7 @@
 
 
 		//Attach handlers
-		//These are manky,use banner
+		//_nextElem and _prevElem are manky functions, change to use banner module
 		$('.nav-widget .next').click(function(){
 		    swipe.next();
 		    _nextElem()
@@ -311,31 +311,76 @@
 
 
 
-		//==== masonry ====
+		//==== isotope ====
 		$ct = UTIL.$collage = $('.work-collage')
+
+		//// Smart resize, resize elems for mobile
+		var $win = $(window);
+
 		$ct.imagesLoaded(function(){
-			// $ct.masonry({
-			//     itemSelector: '.elem',
-			//     isFitWidth: true,
-			//     // transitionDuration: 0
-			// })
+			if($win.width() < 717){ 
+			  // initialize Isotope
+				mobileIso($ct);
+			}
+			else{
+				desktopIso($ct);
+			}
+		
+			$this = $(this);
+			$win.smartresize(function(){
+
+			  if($win.width() < 717){
+    			mobileIso($this);
+			  }
+			  else{
+			    desktopIso($this);
+			  }
+			});
+			$('.work-collage .elem').addClass('darken');
+		});
+
+
+		function desktopIso($ct){
 			$ct.isotope({
 				itemSelector: '.elem',
 				layoutMode: "perfectMasonry",
 				masonry: {
-				   isFitWidth: true,
-				   transitionDuration: 400
+				   isFitWidth: true
 				}
-				 //disable resizing
-				 //resizable: false
 			});
-			//This adds the dark bg to all the links, needed to make img's dark.
-			//Not added in the markup as it flickers while images are still loading.
-			$('.work-collage .elem').addClass('darken');
+		}
+		function mobileIso($ct){
+			$ct.isotope({
+			  // update columnWidth to a percentage of container width
+			  itemSelector: '.elem',
+			  layoutMode: "perfectMasonry",
+			  masonry: { 
+			  	columnWidth: $ct.width() / 2,
+			  	isFitWidth: true
+			  }
+			});
+		}
 
-			
 
-		});
+		//Original desktop function
+		// $ct.imagesLoaded(function(){
+		// 	$ct.isotope({
+		// 		itemSelector: '.elem',
+		// 		layoutMode: "perfectMasonry",
+		// 		masonry: {
+		// 		   isFitWidth: true,
+		// 		   transitionDuration: 400
+		// 		}
+		// 	});
+		// 	//This adds the dark bg to all the links, needed to make img's dark.
+		// 	//Not added in the markup as it flickers while images are still loading.
+		// 	$('.work-collage .elem').addClass('darken');
+		// });
+		
+
+		
+
+		//========= end of isotope ========
 
 
 		})();

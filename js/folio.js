@@ -139,7 +139,8 @@ var $elems = $('.work-collage .elem');
 
 
 //hide x's for mobile
-if(UTIL.isMobile || UTIL.mobileFlag){
+//added true for desktop flag
+if(UTIL.isMobile || UTIL.mobileFlag || true){
 	$close.hide();
 	$list_elem.css('cursor', 'pointer')
 }
@@ -151,9 +152,8 @@ $list_elem.click(function(e){
 	var $this = $(this),
 			filter = $this.data('filter'),
 			$list = $elems.filter('[data-filter="'+ filter + '"]');
-	if(!UTIL.isMobile && !UTIL.mobileFlag){
-		
-		
+	//orignal desktop version, added false flag
+	if(!UTIL.isMobile && !UTIL.mobileFlag && false){
 		if($this.hasClass('active-elem')){
 			$this.removeClass('active-elem');
 			$this.children('.close-blue').show();
@@ -166,12 +166,11 @@ $list_elem.click(function(e){
 		}
 	}
 	else{
-		$list_elem.removeClass('active-elem');
 		if($this.hasClass('active-elem')){
 			$this.removeClass('active-elem');
 			UTIL.$collage.isotope({ filter: '' });
 
-			//If you want same system as desktop
+			//If you want same filter system as desktop
 			//some jsbossery right here, removes elem from filterList
 			// var filterIndex; 
 			// if( ~(filterIndex = filterList.indexOf(filter)) ){ 
@@ -181,6 +180,7 @@ $list_elem.click(function(e){
 		}
 		else{
 			UTIL.$collage.isotope({ filter: '[data-filter="'+ filter +'"]' });
+			$list_elem.removeClass('active-elem');
 			$this.addClass('active-elem');
 			
 		}

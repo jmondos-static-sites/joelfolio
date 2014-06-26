@@ -546,6 +546,7 @@ $bfw: 187
 	// +media("(max-width: 520px)")
 	// 	padding-bottom: 0
 
+
 .overlay-collage
 	position: absolute
 	width: 100%
@@ -572,8 +573,9 @@ $bfw: 187
 	margin: 0 auto
 	+media("mw", 716)
 		width: 100% !important
-	// +media("(max-width: 520px)")
-	// 	padding-bottom: 0
+		.img-small, .img-vert
+			//width: pc(350, 716)
+			width: 49.99%
 
 .work-collage img:after
 	content: ""

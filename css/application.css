@@ -811,6 +811,9 @@ footer span {
   .work-collage {
     width: 100% !important;
   }
+  .work-collage .img-small, .work-collage .img-vert {
+    width: 49.99%;
+  }
 }
 
 .work-collage img:after {
