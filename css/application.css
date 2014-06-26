@@ -690,11 +690,18 @@ footer span {
   margin-bottom: 1.5625em;
 }
 
+.btn-filter-ct {
+  background: #1fa2dc;
+  display: table;
+  margin: 0 auto;
+}
+
 .btn-filter {
   font-size: 1em;
   width: 11.6875em;
   height: 3.625em;
   vertical-align: bottom;
+  cursor: pointer;
 }
 @media (max-width: 320px) {
   .btn-filter {
@@ -721,6 +728,8 @@ footer span {
   width: 3.8125em;
   background: #1fa2dc url(../img/icon/down-black.png) no-repeat center;
   background-size: 1.25em 0.6875em;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .selected .down-arrow-box {
@@ -735,16 +744,11 @@ footer span {
 .filter-list {
   display: none;
   width: 11.6875em;
-  margin: 0 auto;
-  position: relative;
   z-index: 110;
-}
-
-.selected .filter-list {
-  display: block;
   position: absolute;
   left: 0;
   right: 0;
+  margin: 0 auto;
 }
 
 .filter-list .list-elem {
@@ -755,6 +759,7 @@ footer span {
   height: 3em;
   border-bottom: 1px solid #1fa1db;
   line-height: 3em;
+  cursor: default;
 }
 
 .close-blue {
@@ -771,6 +776,13 @@ footer span {
   bottom: 0;
   right: 0.625em;
   margin: auto;
+  cursor: pointer;
+}
+
+.list-elem.active-elem {
+  background: #1fa2dc;
+  border-bottom-color: #1fa2dc;
+  cursor: pointer;
 }
 
 .collage-ct {
@@ -829,10 +841,22 @@ footer span {
   bottom: 1.3125rem;
   right: 1.25rem;
   opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.elem img {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 .elem:hover:after {
   opacity: 1;
+}
+.elem.darken {
+  background: black;
+}
+.elem.dark img {
+  opacity: 0.1;
 }
 
 .swipe-ct .swipe-slide[data-slide="sweetarts"] {
@@ -853,7 +877,6 @@ footer span {
 }
 
 .swipe-ct .swipe-slide {
-  width: 100vw;
   width: 22.75%;
 }
 

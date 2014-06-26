@@ -441,12 +441,19 @@ $widget-w: pem(40)
 //=== Blue filter button ===
 $bfh: pem(58)
 $bfw: 187
+
+.btn-filter-ct
+	background: #1fa2dc
+	display: table
+	margin: 0 auto
+
 .btn-filter
 	font-size: pem(16)
 	@extend .resetBtn
 	width: pem($bfw)
 	height: $bfh
 	vertical-align: bottom
+	cursor: pointer
 	+media($smlDevice)
 		font-size: 110%
 
@@ -469,23 +476,31 @@ $bfw: 187
 	width: pem(61)
 	background: #1fa2dc url(../img/icon/down-black.png) no-repeat center
 	background-size: pem(20) pem(11)
+	-webkit-transition: -webkit-transform 0.5s
+	transition: transform 0.5s
+	
+
+
 
 .selected .down-arrow-box
 	+flipv
 
+
 .filter-list
 	+hide
 	width: pem($bfw)
-	margin: 0 auto
-	position: relative
 	z-index: 110
-
-
-.selected .filter-list
-	display: block
 	position: absolute
 	left: 0
 	right: 0
+	margin: 0 auto
+
+
+// .selected .filter-list
+// 	display: block
+// 	position: absolute
+// 	left: 0
+// 	right: 0
 
 .filter-list .list-elem
 	position: relative
@@ -496,6 +511,7 @@ $bfw: 187
 	height: $h
 	border-bottom: 1px solid #1FA1DB
 	line-height: $h
+	cursor: default
 
 .close-blue
 	font-size: pem(16)
@@ -511,8 +527,14 @@ $bfw: 187
 	bottom: 0
 	right: pem(10)
 	margin: auto
-//=== End of filter button ===
+	cursor: pointer
 
+.list-elem.active-elem
+	background: #1fa2dc
+	border-bottom-color: #1fa2dc
+	cursor: pointer
+
+//=== End of filter button ===
 
 
 
@@ -576,9 +598,19 @@ $bfw: 187
 		bottom: rem(21)
 		right: rem(20)
 		opacity: 0
+		-webkit-transition: opacity 0.3s
+		transition: opacity 0.3s
+	img
+		opacity: 1
+		-webkit-transition: opacity 0.3s
 		transition: opacity 0.3s
 	&:hover:after
 		opacity: 1
+	&.darken
+		background: #000 //just here to provide elem bg, doesn't change
+	&.dark img
+		opacity: 0.1
+
 		
 
 // go into flexy mode
@@ -617,7 +649,7 @@ $slides: sweetarts lasagna london zermatt
 	width: length($slides) * 110%
 
 .swipe-ct .swipe-slide
-	width: 100vw
+	//width: 100vw
 	width:  91 / length($slides) *1%
 
 .banner

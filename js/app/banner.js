@@ -54,8 +54,7 @@ var Banner = (function(){
 
       //change active slide
       $curElem.removeClass('active');
-      $newElem.addClass('active');
-
+      $newElem.addClass('active');      
     }
   }
 })();

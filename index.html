@@ -90,9 +90,9 @@
 						<i class="down-arrow-box"></i>
 					</button>
 					<div class="filter-list">
-						<div class="list-elem">web design<i class="close-blue"></i></div>
-						<div class="list-elem">branding<i class="close-blue"></i></div>
-						<div class="list-elem">print<i class="close-blue"></i></div>
+						<div class="list-elem" data-filter="design">web design<i class="close-blue"></i></div>
+						<div class="list-elem" data-filter="branding">branding<i class="close-blue"></i></div>
+						<div class="list-elem" data-filter="print">print<i class="close-blue"></i></div>
 					</div>
 				</div>
 			</div>
@@ -100,50 +100,51 @@
 			<div class="collage-ct">
 				<div class="overlay-collage hide"></div>
 				<div class="work-collage">
-					<a class="elem img-small">
+
+					<a class="elem img-small" data-filter="design">
 						<img class="" src="img/collage/small1.jpg" alt="Threshold Interactive">
 					</a>
-					<a class="elem img-landscape">
+					<a class="elem img-landscape" data-filter="branding">
 						<img class="" src="img/collage/landscape1.jpg" alt="Sugar House">
 					</a>
 
-					<a class="elem img-vert">
+					<a class="elem img-vert" data-filter="print">
 					<img class="" src="img/collage/vert2.jpg" alt="">
 					</a>
 
-					<a class="elem img-vert">
+					<a class="elem img-vert" data-filter="design">
 					<img class="" src="img/collage/vert1.jpg" alt="">
 					</a>
 
-					<a class="elem">
+					<a class="elem" data-filter="branding">
 					<img class="" src="img/collage/lge1.jpg" alt="">
 					</a>
 
-					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem">
+					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem" data-filter="design">
 					<img class="img-small" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
 					</a>
 
-					<a class="elem">
+					<a class="elem" data-filter="design">
 					<img class="img-large" src="img/collage/lge2.jpg" alt="">
 					</a>
 
-					<a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt">
+					<a class="elem" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt" data-filter="design">
 					<img class="img-landscape" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
 					</a>
 
-					<a class="elem">
+					<a class="elem" data-filter="print">
 					<img class="img-small" src="img/collage/small2.jpg" alt="Threshold Interactive">
 					</a>
 
-					<a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" >
+					<a class="elem" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" data-filter="design">
 					<img class="img-small" src="img/collage/small4.jpg" alt="I love your more than">
 					</a>
 
-					<a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts">
+					<a class="elem" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts" data-filter="design">
 						<img class="img-landscape" src="img/collage/landscape3.jpg" alt="SweeTarts">
 					</a>
 
-					<a class="elem">
+					<a class="elem" data-filter="design">
 						<img class="img-small" src="img/collage/small5.jpg" alt="Jaritos No Habla">
 					</a>
 				</div>
@@ -187,12 +188,11 @@
 			
 		<script>
 		(function(){
-
-
 		//==== init code ====
 		var $swipe_slides = $('.swipe-slide'),
 			$banner = $('.banner'),
 			$nav_widget = $('.nav-widget');
+
 
 		var banner = create(Banner, {
 		    $banner: $('.banner'),
@@ -204,7 +204,7 @@
 		//clean this up
 		window.swipe = create(Swipe ,{
 			imgs: $swipe_slides,
-			mobile: true,
+			mobile: UTIL.mobileFlag,
 			onSwipeRight: function(){
 				// banner.next();
 				_nextElem();
@@ -299,13 +299,11 @@
 		$('.nav-widget .next').click(function(){
 		    swipe.next();
 		    _nextElem()
-
-		    
 		});
 
 		$('.nav-widget .prev').click(function(){
 		    swipe.prev();
-
+		    _prevElem();
 		    
 		});
 		
@@ -314,7 +312,7 @@
 
 
 		//==== masonry ====
-		var $ct = $('.work-collage');
+		$ct = UTIL.$collage = $('.work-collage')
 		$ct.imagesLoaded(function(){
 			// $ct.masonry({
 			//     itemSelector: '.elem',
@@ -331,6 +329,12 @@
 				 //disable resizing
 				 //resizable: false
 			});
+			//This adds the dark bg to all the links, needed to make img's dark.
+			//Not added in the markup as it flickers while images are still loading.
+			$('.work-collage .elem').addClass('darken');
+
+			
+
 		});
 
 

@@ -108,22 +108,89 @@ $('.nav-close').click(function(){
 	$nav_overlay.addClass(_closed);
 });
 
-
-
 //==== End of nav-overlay ====
 
 
 
 
+//==== Filter button ====//
+var $list = $('.filter-list'),
+		$btn_ct = $('.btn-filter-ct'),
+		$btn_filter = $('.btn-filter'),
+		$list_elem = $('.list-elem');
+$btn_filter.click(function(){
+	$btn_ct.toggleClass('selected');
+	// $list.slideToggle(250);
+	$list.animate({
+    height:"toggle",
+    opacity:"toggle"
+  });
+
+});
+
+var $close = $('.close-blue');
+
+// $close.click(function(){
+// 	var $this = $(this);
+// 	$this.parent().addClass('grey-elem');
+// 	$this.hide();
+// });
+var $elems = $('.work-collage .elem');
 
 
-if(typeof UTIL === "undefined") UTIL={};
+//hide x's for mobile
+if(UTIL.isMobile || UTIL.mobileFlag){
+	$close.hide();
+	$list_elem.css('cursor', 'pointer')
+}
 
-UTIL.app={};
-//Methods/vars for this app
 
-//Merge these into 1 function, and make into module for nav widget
-//yeah this needs to be taken out.
+
+$list_elem.click(function(e){
+	var $e = $(e.target);
+	var $this = $(this),
+			filter = $this.data('filter'),
+			$list = $elems.filter('[data-filter="'+ filter + '"]');
+	if(!UTIL.isMobile && !UTIL.mobileFlag){
+		
+		
+		if($this.hasClass('active-elem')){
+			$this.removeClass('active-elem');
+			$this.children('.close-blue').show();
+			$list.removeClass('dark');
+		}
+		else if($e.hasClass('close-blue')){
+			$this.addClass('active-elem');
+			$e.hide();
+			$list.addClass('dark');
+		}
+	}
+	else{
+		$list_elem.removeClass('active-elem');
+		if($this.hasClass('active-elem')){
+			$this.removeClass('active-elem');
+			UTIL.$collage.isotope({ filter: '' });
+
+			//If you want same system as desktop
+			//some jsbossery right here, removes elem from filterList
+			// var filterIndex; 
+			// if( ~(filterIndex = filterList.indexOf(filter)) ){ 
+			// 	filterList.splice(filterIndex, 1)
+			// }
+			
+		}
+		else{
+			UTIL.$collage.isotope({ filter: '[data-filter="'+ filter +'"]' });
+			$this.addClass('active-elem');
+			
+		}
+	}
+});
+
+
+
+
+//=== End of filter ====
 
 
 })();
