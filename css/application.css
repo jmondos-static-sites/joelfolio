@@ -262,14 +262,14 @@ footer span {
 }
 
 .nav-overlay {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   z-index: 10;
   background: rgba(3, 3, 3, 0.95);
   padding-top: 3.75em;
   text-align: center;
-  -ms-transition: -ms-transition 0.6s ease-in-out;
+  -ms-transition: -ms-transform 0.6s ease-in-out;
   -webkit-transition: -webkit-transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
   -webkit-transform: translateX(0%);
@@ -963,6 +963,12 @@ footer span {
 
 .galleryTouch .swipe-imgs {
   width: 440%;
+}
+
+.isotope-item {
+  -ms-transition: -ms-transform 0.8s ease-in-out;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
 }
 
 .banner {

@@ -172,13 +172,8 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.touchswipe.min.js"></script>
 		<script src="js/modernizr.custom.js"></script>
-		<!-- <script src="js/hide-addr-bar.js"></script> -->
-		<!--  <script src="js/masonry.min.js"></script> -->
 		<script src="js/imagesLoaded.min.js"></script>
-		<!-- <script src="js/isotope.min.js"></script> -->
-
 		<script src="js/isotope.min.1.5.25.js"></script>
-
 		<script src="js/jquery.isotope.perfectmasonry.js"></script>
 		<script async src="js/lightbox.min.js"></script>
 		
@@ -204,16 +199,19 @@
 		    $slides: $swipe_slides
 		});
 		
-		//temporary workaround for index.html using util.attachEventHandlers
+		//temporary workaround for index.html using _nextElem, _prevElem
+		//Ideally these would use banner module
 		//clean this up
 		window.swipe = create(Swipe ,{
 			imgs: $swipe_slides,
 			mobile: true,
 			onSwipeRight: function(){
-				banner.next();
+				// banner.next();
+				_nextElem();
 			},
 			onSwipeLeft: function(){
-				banner.prev();
+				// banner.prev();
+				_prevElem();
 			}
 		})
 		.removePointer($('.intro-text'));
@@ -224,7 +222,75 @@
 		// 	$ct: $('.progress-ct'),
 		// 	$imgs: $swipe_slides
 		// });
+		
+		function _nextElem(){
+			//This is all for the nav widget ehh
+			var $curElem = $swipe_slides.filter('.active');
+			var $nextElem = $curElem.next();
+			var nextData = $nextElem.data('slide');
 
+			var $bg, $next;
+
+			if($nextElem.length){
+			    //update colour scheme
+			    $banner.addClass( nextData )
+			           .removeClass($curElem.data('slide'));
+			    
+			    //change active slide
+			    $curElem.removeClass('active');
+			    $nextElem.addClass('active');
+
+
+
+			    //You can can't transition bg-gradients in css, unless you use opacity
+			    //This is the result
+			    $bg = $nav_widget.children('.bg-grad');
+			    $bg.not('.active').remove();
+
+			    $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
+			    $bg.after($next);
+
+			    //$bg.addClass('op0');
+			    $bg.removeClass('active');
+			    $next.addClass('active')
+			    UTIL.timer(function(){
+			        $next.removeClass('op0');
+			    });
+			}
+		}
+
+		function _prevElem(){
+			var $curElem = $swipe_slides.filter('.active');
+			var $prevElem = $curElem.prev();
+			var prevData = $prevElem.data('slide');
+
+			var $bg, $next;
+
+			if($prevElem.length){
+			    //update colour scheme
+			    $banner.addClass( $prevElem.data('slide') )
+			           .removeClass($curElem.data('slide'));
+			    
+			    //change active slide
+			    $curElem.removeClass('active');
+			    $prevElem.addClass('active');
+
+
+			    //You can can't transition bg-gradients in css, unless you use opacity
+			    //This is the result
+			    $bg = $nav_widget.children('.bg-grad');
+			    $bg.not('.active').remove();
+			    $prev = $('<div class="bg-grad op0 " data-slide="'+ prevData + '"></div>');
+			    $bg.after($prev);
+
+			    $bg.removeClass('active');
+			    $prev.addClass('active');
+
+			    UTIL.timer(function(){
+			        $prev.removeClass('op0');
+			    });
+			}
+		}
 
 
 
@@ -232,76 +298,15 @@
 		//These are manky,use banner
 		$('.nav-widget .next').click(function(){
 		    swipe.next();
+		    _nextElem()
 
-
-		    //This is all for the nav widget ehh
-		    var $curElem = $swipe_slides.filter('.active');
-		    var $nextElem = $curElem.next();
-		    var nextData = $nextElem.data('slide');
-
-		    var $bg, $next;
-
-		    if($nextElem.length){
-		        //update colour scheme
-		        $banner.addClass( nextData )
-		               .removeClass($curElem.data('slide'));
-		        
-		        //change active slide
-		        $curElem.removeClass('active');
-		        $nextElem.addClass('active');
-
-
-
-		        //You can can't transition bg-gradients in css, unless you use opacity
-		        //This is the result
-		        $bg = $nav_widget.children('.bg-grad');
-		        $bg.not('.active').remove();
-
-		        $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
-		        $bg.after($next);
-
-		        //$bg.addClass('op0');
-		        $bg.removeClass('active');
-		        $next.addClass('active')
-		        UTIL.timer(function(){
-		            $next.removeClass('op0');
-		        });
-		    }
+		    
 		});
 
 		$('.nav-widget .prev').click(function(){
 		    swipe.prev();
 
-		    var $curElem = $swipe_slides.filter('.active');
-		    var $prevElem = $curElem.prev();
-		    var prevData = $prevElem.data('slide');
-
-		    var $bg, $next;
-
-		    if($prevElem.length){
-		        //update colour scheme
-		        $banner.addClass( $prevElem.data('slide') )
-		               .removeClass($curElem.data('slide'));
-		        
-		        //change active slide
-		        $curElem.removeClass('active');
-		        $prevElem.addClass('active');
-
-
-		        //You can can't transition bg-gradients in css, unless you use opacity
-		        //This is the result
-		        $bg = $nav_widget.children('.bg-grad');
-		        $bg.not('.active').remove();
-		        $prev = $('<div class="bg-grad op0 " data-slide="'+ prevData + '"></div>');
-		        $bg.after($prev);
-
-		        $bg.removeClass('active');
-		        $prev.addClass('active');
-
-		        UTIL.timer(function(){
-		            $prev.removeClass('op0');
-		        });
-		    }
+		    
 		});
 		
 

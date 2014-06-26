@@ -79,12 +79,21 @@ var _closed = Modernizr.csstransforms3d ? "closed" : (function(){
 
 function updateHamburger(){
 	if(ham.classList.contains('dark')){
-		hamWasDark = true;
-		ham.classList.remove('dark');
+		UTIL.timer(function hamgurgerSwitch(){
+			if(!$nav_overlay.hasClass('closed')) {
+				hamWasDark = true;
+				ham.classList.remove('dark');
+			}
+		}, 200)
+
 	}
 	else if(hamWasDark){
-		ham.classList.add('dark');
-		hamWasDark = false;
+		UTIL.timer(function hamgurgerSwitch(){
+			if($nav_overlay.hasClass('closed')) {
+				ham.classList.add('dark');
+				hamWasDark = false;
+			}
+		}, 450);
 	}
 }
 
