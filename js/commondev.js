@@ -65,10 +65,10 @@ if(window.location.host === "localhost"  || window.location.host === "192.168.1.
 							//w.gk.addClass(w.$c('CodeMirror-gutter-text')[0].childNodes[lineNum-1],  'runtimeError');
 							//echo(document.body.innerHTML);
 						}
-						d.innerHTML = "<div style='font-family:calibri;background:pink; padding:0.4em 2.7% 0.8em 2.7%;border-top:1px #999 solid; position: fixed; bottom:0; width: 98%;'><div>"+a+"<br>Source File: "+"<a href='"+b+"'>"+e+"</a>"+"<br>Line: "+lineNum+"</div><span style=\" display: none; float:left; margin:15px 0px 0px 15px; background:red;padding:4px 9px;border-radius:30px; text-align:center; color:#FFF;\"></span></div>";
+						d.innerHTML = "<div style='position: fixed; bottom:0;width: 100%; font-family:calibri;background:pink; padding:0.4em 2.7% 0.8em 2.7%;border-top:1px #999 solid; position: fixed; bottom:0; width: 98%;'><div style='float:left;'>"+a+"<br>Source File: "+"<a href='"+b+"'>"+e+"</a>"+"<br>Line: "+lineNum+"</div><span style=\" display: none; float:left; margin:15px 0px 0px 15px; background:red;padding:4px 9px;border-radius:30px; text-align:center; color:#FFF;\"></span></div>";
 					}
 					else{
-						d.innerHTML="<div style='font-family:calibri;background:pink; padding:0.4em 2.7% 0.8em 2.7%;border-top:1px #999 solid;'><div><strong>" + (/spritely/.test(window.location.href) ? "Spritely Core Error" : "Error" ) +"</strong><br>"+a+"<br>Source File: "+"<a href='"+b+"'>"+e+"</a>"+"<br>Line: "+lineNum+"</div><span style=\" display: none; float:left; margin:15px 0px 0px 15px; background:red;padding:4px 9px;border-radius:30px; text-align:center; color:#FFF;\"></span></div>";	
+						d.innerHTML="<div style='position: fixed; bottom:0;width: 100%; font-family:calibri;background:pink; padding:0.4em 2.7% 0.8em 2.7%;border-top:1px #999 solid;'><div style='float:left;'><strong>" + (/spritely/.test(window.location.href) ? "Spritely Core Error" : "Error" ) +"</strong><br>"+a+"<br>Source File: "+"<a href='"+b+"'>"+e+"</a>"+"<br>Line: "+lineNum+"</div><span style=\" display: none; float:left; margin:15px 0px 0px 15px; background:red;padding:4px 9px;border-radius:30px; text-align:center; color:#FFF;\"></span></div>";	
 					}
 					w.$id('errorContainer').appendChild(d);
 					w.gkErrorObj={a:a,b:b,c:c,d:1};

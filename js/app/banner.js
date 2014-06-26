@@ -5,7 +5,13 @@ var Banner = (function(){
     $banner:[],
     $slides:[],
 
-    req:{$banner:[], $slides:[]},
+    req:{
+      $banner:{
+        test: function(banner){return banner.length > 0}, 
+        msg: function(banner){return banner.selector + ' returned 0 nodes.' }
+      },
+      $slides:[]
+    },
     init: function(){
     },
     //next and prev could be taken out & just ref update

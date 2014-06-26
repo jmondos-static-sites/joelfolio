@@ -20,7 +20,7 @@
 
 				<!-- side nav bar -->
 			   
-				<nav class="nav-overlay closed">
+				<nav class="nav-overlay closed hide">
 					<div class="nav-close"></div>
 					<ul class="nav-links">
 						<li class="nav-white nav-about"><a href="about.html">About</a></li>
@@ -186,8 +186,8 @@
 		<script src="js/polyfills.js"></script>
 		<script src="js/util.js"></script>
 		<script src="js/responsive-swipe.js"></script>
-		<script src="js/progress-bar.js"></script>
 		<script src="js/folio.js"></script>
+		<script src="js/app/banner.js"></script>
 
 			
 		<script>
@@ -198,33 +198,111 @@
 		var $swipe_slides = $('.swipe-slide'),
 			$banner = $('.banner'),
 			$nav_widget = $('.nav-widget');
+
+		var banner = create(Banner, {
+		    $banner: $('.banner'),
+		    $slides: $swipe_slides
+		});
 		
 		//temporary workaround for index.html using util.attachEventHandlers
 		//clean this up
 		window.swipe = create(Swipe ,{
 			imgs: $swipe_slides,
-			// mobile: true,
+			mobile: true,
 			onSwipeRight: function(){
-				//banner.next();
+				banner.next();
 			},
 			onSwipeLeft: function(){
-				//banner.prev();
+				banner.prev();
 			}
 		})
 		.removePointer($('.intro-text'));
 
-		var progress = create(ProgressBar, {
-			$ct: $('.progress-ct'),
-			$imgs: $swipe_slides
-		});
 
+
+		// var progress = create(ProgressBar, {
+		// 	$ct: $('.progress-ct'),
+		// 	$imgs: $swipe_slides
+		// });
 
 
 
 
 		//Attach handlers
-		UTIL.app._attachNavWidgetHandlers($swipe_slides, $nav_widget);
+		//These are manky,use banner
+		$('.nav-widget .next').click(function(){
+		    swipe.next();
 
+
+		    //This is all for the nav widget ehh
+		    var $curElem = $swipe_slides.filter('.active');
+		    var $nextElem = $curElem.next();
+		    var nextData = $nextElem.data('slide');
+
+		    var $bg, $next;
+
+		    if($nextElem.length){
+		        //update colour scheme
+		        $banner.addClass( nextData )
+		               .removeClass($curElem.data('slide'));
+		        
+		        //change active slide
+		        $curElem.removeClass('active');
+		        $nextElem.addClass('active');
+
+
+
+		        //You can can't transition bg-gradients in css, unless you use opacity
+		        //This is the result
+		        $bg = $nav_widget.children('.bg-grad');
+		        $bg.not('.active').remove();
+
+		        $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
+		        $bg.after($next);
+
+		        //$bg.addClass('op0');
+		        $bg.removeClass('active');
+		        $next.addClass('active')
+		        UTIL.timer(function(){
+		            $next.removeClass('op0');
+		        });
+		    }
+		});
+
+		$('.nav-widget .prev').click(function(){
+		    swipe.prev();
+
+		    var $curElem = $swipe_slides.filter('.active');
+		    var $prevElem = $curElem.prev();
+		    var prevData = $prevElem.data('slide');
+
+		    var $bg, $next;
+
+		    if($prevElem.length){
+		        //update colour scheme
+		        $banner.addClass( $prevElem.data('slide') )
+		               .removeClass($curElem.data('slide'));
+		        
+		        //change active slide
+		        $curElem.removeClass('active');
+		        $prevElem.addClass('active');
+
+
+		        //You can can't transition bg-gradients in css, unless you use opacity
+		        //This is the result
+		        $bg = $nav_widget.children('.bg-grad');
+		        $bg.not('.active').remove();
+		        $prev = $('<div class="bg-grad op0 " data-slide="'+ prevData + '"></div>');
+		        $bg.after($prev);
+
+		        $bg.removeClass('active');
+		        $prev.addClass('active');
+
+		        UTIL.timer(function(){
+		            $prev.removeClass('op0');
+		        });
+		    }
+		});
 		
 
 
@@ -242,7 +320,8 @@
 				itemSelector: '.elem',
 				layoutMode: "perfectMasonry",
 				masonry: {
-				   isFitWidth: true
+				   isFitWidth: true,
+				   transitionDuration: 400
 				}
 				 //disable resizing
 				 //resizable: false

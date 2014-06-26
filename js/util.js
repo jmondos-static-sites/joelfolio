@@ -17,6 +17,13 @@ var create = (function(){
                         throw new Error ('parameter: ['+ i + '] did not meed param requirements');
                     }
                 }
+                else if(typeof req[i] === 'object' && Object.keys(req[i]).length){
+                    //This currently only allows 1 test & msg, can update for more in future
+                    if( req[i].test && !req[i].test( obj[i] ) ){ 
+                        throw new Error ('parameter: ['+ i + '] ' + req[i].msg( obj[i] )  || 'did not meed param requirements' );
+                    }
+
+                }
             }
             else{
                 err.push(i);
@@ -56,9 +63,6 @@ var create = (function(){
 
 //prod safe console.log
 var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
-
-
-
 
 
 

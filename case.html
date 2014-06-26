@@ -24,7 +24,7 @@
                     <!-- side nav bar -->
                    
 
-                    <nav class="nav-overlay closed">
+                    <nav class="nav-overlay closed hide">
                         <div class="nav-close"></div>
                         <ul class="nav-links">
                             <li class="nav-white nav-about"><a href="about.html">About</a></li>
@@ -323,15 +323,6 @@
 
             var $swipe_slides = $('.swipe-slide');
 
-            //This handles the swiping movement
-            //This window ref is not ideal, and progress bar must access it.
-            //Ideally the Swipe class keeps a list of instances and we update it through that?
-
-            window.swipe = create(Swipe, {
-                imgs: $swipe_slides,
-                // mobile: true
-            })
-            .removePointer($('.case-text'));
 
             //This handles UI changes to the banner, and other small theme changes in case.html
             //banner is just there to update that css class so the theme changes
@@ -339,6 +330,26 @@
                 $banner: $('.case-wrapper'),
                 $slides: $swipe_slides
             });
+
+
+            //This handles the swiping movement
+            //This window ref is not ideal, and progress bar must access it.
+            //Ideally the Swipe class keeps a list of instances and we update it through that?
+
+            window.swipe = create(Swipe, {
+                imgs: $swipe_slides,
+                mobile: true,
+                onSwipeLeft: function(){
+                    banner.prev();
+                },
+                onSwipeRight: function(){
+                    banner.next();
+                }
+
+            })
+            .removePointer($('.case-text'));
+
+
 
             // var progress = create(ProgressBar, {
             //     $ct: $('.progress-ct'),
