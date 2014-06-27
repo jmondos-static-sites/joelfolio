@@ -105,51 +105,51 @@
 				<div class="work-collage">
 
 					<a href="case.html#threshold" class="elem img-small" data-filter="web branding">
-						<img class="" src="img/collage/small1.jpg" alt="Threshold Interactive">
+						<img class="lazy" data-original="img/collage/small1.jpg" alt="Threshold Interactive">
 					</a>
 
 					<a href="case.html#lean-pockets" class="elem img-landscape" data-filter="branding">
-						<img class="" src="img/collage/landscape1.jpg" alt="Sugar House">
+						<img class="lazy" data-original="img/collage/landscape1.jpg" alt="Sugar House">
 					</a>
 
 					<a class="elem img-vert" data-filter="web">
-					<img class="" src="img/collage/vert2.jpg" alt="">
+					<img class="lazy" data-original="img/collage/vert2.jpg" alt="">
 					</a>
 
 					<a class="elem img-vert" data-filter="web">
-					<img class="" src="img/collage/vert1.jpg" alt="">
+					<img class="lazy" data-original="img/collage/vert1.jpg" alt="">
 					</a>
 
 					<a class="elem" data-filter="web">
-					<img class="" src="img/collage/lge1.jpg" alt="">
+					<img class="lazy" data-original="img/collage/lge1.jpg" alt="">
 					</a>
 
 					<a href="img/collage/shirt-orig.jpg" data-lightbox="a" class="elem img-small" data-filter="print">
-					<img class="" src="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+					<img class="lazy" data-original="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
 					</a>
 
 					<a class="elem img-large" data-filter="print">
-					<img class="" src="img/collage/lge2.jpg" alt="">
+					<img class="lazy" data-original="img/collage/lge2.jpg" alt="">
 					</a>
 
 					<a class="elem img-landscape" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt" data-filter="web print">
-					<img class="" src="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+					<img class="lazy" data-original="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
 					</a>
 
 					<a class="elem img-small" data-filter="web branding">
-					<img class="" src="img/collage/small2.jpg" alt="Threshold Interactive">
+					<img class="lazy" data-original="img/collage/small2.jpg" alt="Threshold Interactive">
 					</a>
 
 					<a class="elem img-small" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" data-filter="web branding">
-					<img class="" src="img/collage/small4.jpg" alt="I love your more than">
+					<img class="lazy" data-original="img/collage/small4.jpg" alt="I love your more than">
 					</a>
 
 					<a class="elem img-landscape" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts" data-filter="print">
-						<img class="" src="img/collage/landscape3.jpg" alt="SweeTarts">
+						<img class="lazy" data-original="img/collage/landscape3.jpg" alt="SweeTarts">
 					</a>
 					<!--
 					<a class="elem img-small" data-filter="design">
-						<img class="" src="img/collage/small5.jpg" alt="Jaritos No Habla">
+						<img class="lazy" data-original="img/collage/small5.jpg" alt="Jaritos No Habla">
 					</a>
 					-->
 				</div>
@@ -307,12 +307,12 @@
 		$('.nav-widget .prev').click(function(){
 		    swipe.prev();
 		    _prevElem();
-		    
 		});
 		
 
-
-
+		$("img.lazy").each(function(){
+			$(this).attr('src', $(this).data('original'));
+		});
 
 		//==== isotope ====
 		$ct = UTIL.$collage = $('.work-collage')
