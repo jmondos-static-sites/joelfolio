@@ -98,6 +98,30 @@ $('.nav-close').click(function(){
 	$nav_overlay.addClass(_closed);
 });
 
+if ($(window).width() <= 320) {
+	$('.hamburger-icon').drag('start', function(ev, dd) {
+		dd.limit = $banner.offset();
+		dd.limit.right = dd.limit.left + $banner.outerWidth() - $( this ).outerWidth();
+
+	}).drag(function( ev, dd ){
+		var leftOffset = dd.offsetX;
+		$( this ).css({ left: Math.min( dd.limit.right, Math.max( dd.limit.left, leftOffset ) ) });
+
+		var triggerPosition = $banner.outerWidth() - 120;
+
+		if (leftOffset < triggerPosition) {
+			$nav_overlay.toggleClass(_closed, false)
+			.promise()
+			.done(updateHamburger);
+
+		} else if (leftOffset >= triggerPosition) {
+			$nav_overlay.toggleClass(_closed, true)
+			.promise()
+			.done(updateHamburger);
+		}
+	});
+
+}
 //==== End of nav-overlay ====
 
 
