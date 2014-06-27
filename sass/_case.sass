@@ -96,19 +96,35 @@ $bh: 54 //banner nav height
 	padding-top: pem(120)
 	padding-bottom: pem(130)
 	position: relative
+	+media("mw", 1000)
+		width: 80%
+		padding: 7.5em 10% pem(130) 15%
+		margin: 0
+	+media("mw", 720)
+		padding-right: 0
+		width: 100%
+		padding-bottom: pem(90)
+
 
 .content-left
 	width: pc(714, 877)
 	padding-right: pc(110, 877)
 	float: left
+	+media("mw", 720)
+		padding-right: 0
 
 .content-right
 	width: pc(340, 877)
 	position: absolute
 	right: pc(-170, 877)
 	float: left
-	+media($smlDevice)
-		display: none
+	+media("mw", 1000)
+		// position: relative
+	+media("mw", 720)
+		position: relative
+		left: 0
+		top: pem(30)
+		width: 100%
 
 .content-right .title-desc
 	padding-bottom: 0
@@ -141,10 +157,11 @@ $bh: 54 //banner nav height
 	text-align: center
 	padding-bottom: pem(120)
 
-.nav-widget.case-widget
+.case-widget
 	top: auto
 	padding-left: pem(14)
 	bottom: 8em
+	position: relative
 
 .case-widget .banner-nav-text
 	position: absolute
@@ -166,11 +183,12 @@ $bh: 54 //banner nav height
 .section-case
 	padding-bottom: pem(150)
 
+.case-wrapper .swipe-slide
+	background-position: center
+
+
 //=== lean cuisine
 .case-wrapper.lean-cuisine
-	// .banner
-	// 	background-image: url(../img/case/lean-cuisine-feature.jpg)
-
 	.case-widget
 		+bg-gradient(#FF9B1F, #FF9B1F, #FE8D00)
 		& .widget-btn
@@ -180,8 +198,6 @@ $bh: 54 //banner nav height
 
 //=== lean pockets
 .case-wrapper.lean-pockets
-	// .banner
-	// 	background-image: url(../img/case/lean-pockets-feature.jpg)
 	.banner-nav
 		+bg-gradient(#87c51a, #87c51a, #76ae11)
 	.accent-line:before

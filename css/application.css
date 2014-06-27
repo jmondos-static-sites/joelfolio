@@ -1055,6 +1055,25 @@ footer span {
 }
 
 .banner.about {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+@media (max-width: 480px) {
+  .banner.about {
+    background-size: 60.344827586em 36.293103448em;
+    background-position: top;
+    height: 35.5em;
+  }
+}
+
+.banner.about {
   background-image: url(../img/about.jpg);
 }
 
@@ -1500,11 +1519,30 @@ footer span {
   display: table;
   clear: both;
 }
+@media (max-width: 1000px) {
+  .content-copy-ct {
+    width: 80%;
+    padding: 7.5em 10% 8.125em 15%;
+    margin: 0;
+  }
+}
+@media (max-width: 720px) {
+  .content-copy-ct {
+    padding-right: 0;
+    width: 100%;
+    padding-bottom: 5.625em;
+  }
+}
 
 .content-left {
   width: 81.41391106%;
   padding-right: 12.542759407%;
   float: left;
+}
+@media (max-width: 720px) {
+  .content-left {
+    padding-right: 0;
+  }
 }
 
 .content-right {
@@ -1513,9 +1551,12 @@ footer span {
   right: -19.384264538%;
   float: left;
 }
-@media (max-width: 320px) {
+@media (max-width: 720px) {
   .content-right {
-    display: none;
+    position: relative;
+    left: 0;
+    top: 1.875em;
+    width: 100%;
   }
 }
 
@@ -1556,10 +1597,11 @@ footer span {
   padding-bottom: 7.5em;
 }
 
-.nav-widget.case-widget {
+.case-widget {
   top: auto;
   padding-left: 0.875em;
   bottom: 8em;
+  position: relative;
 }
 
 .case-widget .banner-nav-text {
@@ -1576,6 +1618,10 @@ footer span {
 
 .section-case {
   padding-bottom: 9.375em;
+}
+
+.case-wrapper .swipe-slide {
+  background-position: center;
 }
 
 .case-wrapper.lean-cuisine .case-widget {

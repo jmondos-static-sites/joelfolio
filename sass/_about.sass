@@ -1,5 +1,23 @@
-.banner
-	
+.banner.about
+	background-repeat: no-repeat
+	background-position: center
+	width: 100%
+	position: relative
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+
+	position: relative
+	// +media($tablet)
+		//zoom in
+		// background-size: 170% //orig size: 1400/842
+		// background-position: top
+	+media($medDevice)
+		//zoom out
+		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		background-position: top
+		height: pem(568)
 
 .banner.about
 	background-image: url(../img/about.jpg)
