@@ -2,6 +2,11 @@
 //@author: Grant Kiely
 //@date started: 6/18/14
 
+html, body
+	+media("(max-width: 220px)")
+		font-size: 80%
+
+
 .wrapper
 	//padding-bottom: $footer //must be same height as the footer
 
@@ -38,7 +43,6 @@
 .hamburger-icon
 	$c: #fff //colour
 	display: block
-	+wh(29, 23)
 	+wh(45, 45)
 	position: fixed
 	top: pem(58)
@@ -77,6 +81,12 @@
 		&.dark
 			.meat, .meat:before, .meat:after
 				background: #242424
+	+media("(max-width: 220px)")
+		font-size: 100%
+		+wh(55, 55)
+		.meat, .meat:before, .meat:after
+			+wh(24, 3)
+		
 
 //// End of hamburger ////
 
@@ -197,14 +207,22 @@ $fb-w: 60
 	text-align: center
 	z-index: 1
 	+media($medDevice)
+		width: 80%
+	+media($medDevice + ", (max-height: 660px)")
 		font-size: 80%
 		top: pem(140, 12.8)
 	+media($smlDevice)
 		width: 100%
 		padding: pem(33, 12.8) pem(10, 12.8) 0
+	+media($medDevice + " and (max-height: 514px)")
+		padding-top: 0
+		top: pem(100, 12.8)
+	+media("(max-width: 311px)")
+		font-size: 70%
+
+
+
 		
-
-
 
 .title-white
 	font-family: Gentona, Arial
@@ -221,7 +239,6 @@ $fb-w: 60
 		font-size: pem(20,12.8)
 		width: 90%
 		margin: 0 auto
-
 
 
 .line-color
@@ -268,8 +285,10 @@ $fb-w: 60
 	width: pc(217 / 1400)
 	width: pem(217)
 	height: pem(44)
-	position: relative
-	top: pem(677)
+	position: absolute
+	bottom: pem(122)
+	left: 0
+	right: 0
 	margin: 0 auto
 	border-radius: pem(18)
 	border-radius: 10em
@@ -279,7 +298,7 @@ $fb-w: 60
 	//text element
 	transition: background 0.9s
 	+media($medDevice)
-		top: pem(442)
+		bottom: pem(90)
 
 .bg-grad
 	background-color: #fff
@@ -410,7 +429,8 @@ $widget-w: pem(40)
 			animation: updown 0.9s linear infinite
 
 	+media($smlDevice)
-		bottom: pem(20)
+		bottom: pem(28)
+
 
 	
 //=== End of header section ===//
@@ -668,15 +688,25 @@ $slides: sweetarts lasagna london zermatt
 	overflow-x: hidden
 	width: 100%
 	position: relative
+	+media($gtMedDevice)
+		min-height: rem(560)
+	+media($medDevice + " and (max-height: 465px)")
+		min-height: rem(468)
+	+media("(max-width: 311px) and (max-height: 465px)")
+		min-height: rem(408)
+		// min-height: rem(663)
+
 	// +media($tablet)
 		//zoom in
 		// background-size: 170% //orig size: 1400/842
 		// background-position: top
-	+media($medDevice)
+	//+media($medDevice)
 		//zoom out
 		//background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
 		//background-position: top
 		//height: pem(568)
+
+
 
 .banner .swipe-ct
 	float: left
@@ -694,7 +724,7 @@ $slides: sweetarts lasagna london zermatt
 .swipe-ct .swipe-slide
 	background-repeat: no-repeat
 	background-position: center top
-	background-attachment: fixed
+	//background-attachment: fixed
 	position: relative
 	-webkit-background-size: cover
 	-moz-background-size: cover
@@ -713,7 +743,6 @@ $slides: sweetarts lasagna london zermatt
 	-webkit-transform: translate3d(0px,0px,0px)
 	transform:  translate3d(0px,0px,0px)
 	float: left
-
 	+media($medDevice)
 		//zoom out
 		// background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
