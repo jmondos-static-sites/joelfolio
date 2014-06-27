@@ -341,9 +341,11 @@
                 mobile: UTIL.mobileFlag,
                 onSwipeLeft: function(){
                     banner.prev();
+                    progress.prev();
                 },
                 onSwipeRight: function(){
                     banner.next();
+                    progress.next();
                 }
 
             })
@@ -351,11 +353,21 @@
 
 
             // Progress bar
-            // var progress = create(ProgressBar, {
-            //     $ct: $('.progress-ct'),
-            //     $banner: $('.case-wrapper'),
-            //     $imgs: $swipe_slides
-            // });
+            var progress = create(ProgressBar, {
+                $ct: $('.progress-ct'),
+                $banner: $('.case-wrapper'),
+                $imgs: $swipe_slides,
+                click: function(e){
+                   var i = this.scrollTo(e);
+                    if(i){
+                        //swipe.scrollImages(i-1, 500);
+                        banner.update(i);
+                        swipe.scrollProgress(i, 500);
+                    }
+                }
+            });
+
+
 
 
 
@@ -366,21 +378,13 @@
             $('.arrow-left, .widget-btn.prev').click(function(){
                 swipe.prev();
                 banner.prev();
-                //progress.prev();
+                progress.prev();
             });
             $('.arrow-right, .widget-btn.next').click(function(){
                 swipe.next();
                 banner.next();
-                //progress.next();
+                progress.next();
             });
-
-            // progress.$ct.click(function(e){
-            //     var i = progress.scrollTo(e);
-            //     if(i){
-            //         swipe.scrollImages(i-1, 500);
-            //         banner.update(i)
-            //     }
-            // });
 
 
         })();

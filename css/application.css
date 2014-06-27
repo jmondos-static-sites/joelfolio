@@ -897,7 +897,10 @@ footer span {
 
 .banner {
   width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .banner .swipe-ct {
@@ -911,11 +914,13 @@ footer span {
   overflow: hidden;
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
+  height: 100%;
 }
 
 .swipe-ct .swipe-slide {
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
+  background-attachment: fixed;
   position: relative;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -925,17 +930,10 @@ footer span {
   color: white;
   padding: 0;
   margin: 0;
-  height: 52.75em;
+  height: 100%;
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
   float: left;
-}
-@media (max-width: 480px) {
-  .swipe-ct .swipe-slide {
-    background-size: 60.344827586em 36.293103448em;
-    background-position: top;
-    height: 35.5em;
-  }
 }
 
 .galleryTouch {
@@ -1007,26 +1005,6 @@ footer span {
   -ms-transition: -ms-transform 0.8s ease-in-out;
   -webkit-transition: -webkit-transform 0.8s ease-in-out;
   transition: transform 0.8s ease-in-out;
-}
-
-.banner {
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  position: relative;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 52.75em;
-  position: relative;
-}
-@media (max-width: 480px) {
-  .banner {
-    background-size: 60.344827586em 36.293103448em;
-    background-position: top;
-    height: 35.5em;
-  }
 }
 
 .banner.about {
@@ -1487,6 +1465,11 @@ footer span {
   position: absolute;
   right: -19.384264538%;
   float: left;
+}
+@media (max-width: 320px) {
+  .content-right {
+    display: none;
+  }
 }
 
 .content-right .title-desc {

@@ -634,6 +634,9 @@ $bfw: 187
 
 
 
+
+
+
 //===============================
 //Here is the sass for the banner
 //===============================
@@ -661,7 +664,19 @@ $slides: sweetarts lasagna london zermatt
 
 .banner
 	width: 100%
-	overflow: hidden
+	height: 100vh
+	overflow-x: hidden
+	width: 100%
+	position: relative
+	// +media($tablet)
+		//zoom in
+		// background-size: 170% //orig size: 1400/842
+		// background-position: top
+	+media($medDevice)
+		//zoom out
+		//background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		//background-position: top
+		//height: pem(568)
 
 .banner .swipe-ct
 	float: left
@@ -674,10 +689,12 @@ $slides: sweetarts lasagna london zermatt
 	overflow: hidden
 	-webkit-transform: translate3d(0px,0px,0px)
 	transform:  translate3d(0px,0px,0px)
+	height: 100%
 
 .swipe-ct .swipe-slide
 	background-repeat: no-repeat
-	background-position: center
+	background-position: center top
+	background-attachment: fixed
 	position: relative
 	-webkit-background-size: cover
 	-moz-background-size: cover
@@ -690,16 +707,18 @@ $slides: sweetarts lasagna london zermatt
 	// width:  pem(1400)
 	//width: 100vw
 
-	height: pem(844)
+	// height: pem(844)
+	height: 100%
+	//height: 100vh
 	-webkit-transform: translate3d(0px,0px,0px)
 	transform:  translate3d(0px,0px,0px)
 	float: left
 
 	+media($medDevice)
 		//zoom out
-		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
-		background-position: top
-		height: pem(568)
+		// background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
+		// background-position: top
+		// height: pem(568)
 	
 	
 

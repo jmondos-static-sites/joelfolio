@@ -11,6 +11,7 @@ var ProgressBar = (function(){
         // Can be overwritten w/ optional 2nd {} argument in create()
         $ct: [],
         $imgs: [],
+        click:function(){}, 
         length: 3,
         active: 1,
 
@@ -21,6 +22,7 @@ var ProgressBar = (function(){
         //==== Runs on object creation ====
         //==== gets called by create() on all all instances
         init: function(){
+            var _this = this;
             // Runtime constructors
             this.length = this.$imgs.length;
             
@@ -29,6 +31,9 @@ var ProgressBar = (function(){
                 var str = this.buildDots();
                 // this._attachEventHandlers()
             }
+            this.$ct.children('.pdot').click(function(e){
+                _this.click(e);
+            })
         },
 
         //=====================

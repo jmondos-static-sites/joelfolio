@@ -36,7 +36,7 @@ var Swipe = (function(){
 
             // testing flag to get desktop to behave like mobile
             // testMobile = true;
-            if(this.mobile){
+            if(UTIL.mobileFlag){
                 UTIL.isMobile = true
                 pcval = false;
             }
@@ -75,6 +75,17 @@ var Swipe = (function(){
             $elem.css('pointer-events', 'none');
             return this;
         },
+        scrollProgress: function(i){
+            currentImg = Math.min(i-1, maxImages-1);
+            if(pcval){
+                scrollImages(i-1, speed);
+            }
+            else{
+                //pixel based
+                scrollImages( IMG_WIDTH * (i-1) , speed);
+            }
+            
+        },
         scrollImages: scrollImages
     }
 
@@ -101,9 +112,6 @@ var Swipe = (function(){
                     scrollImages((IMG_WIDTH * currentImg) + distance, duration);
                 }
             }
-                
-               
-
             else if (direction == "right"){
                 if(pcval){
                     scrollImages(currentImg, duration);
