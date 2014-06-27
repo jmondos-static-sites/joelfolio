@@ -41,24 +41,6 @@ $document.scroll(function(){
 });
 //=== End of hamburger scroller ===
 
-
-
-// Handles smooth scrolling to a #element, 
-// include .smooth-scroll on click element and href="#targetElem"
-// http://css-tricks.com/snippets/jquery/smooth-scrolling/
-$('a.smooth-scroll[href*=#]:not([href=#])').click(function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top
-				}, 1000);
-				return false;
-			}
-		}
-});
-
 $(window).scroll(function() {
 	$('.banner-black-filter').css('opacity', function(){
 		var $headerHeight = $(this).height();

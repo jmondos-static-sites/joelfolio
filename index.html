@@ -79,7 +79,7 @@
 					<button class="widget-btn prev"></button>
 				</div>
 
-				<a href="#work" class="down-arrow-white smooth-scroll"></a>
+				<a href="#work" class="down-arrow-white smooth-scroll" data-scroll></a>
 			</header>
 		
 			<!-- content section -->
@@ -176,6 +176,7 @@
 		<!-- frameworks -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.touchswipe.min.js"></script>
+		<script src='js/smooth-scroll.min.js'></script>
 		<script src="js/modernizr.custom.js"></script>
 		<script src="js/imagesLoaded.min.js"></script>
 		<script src="js/isotope.min.1.5.25.js"></script>
@@ -192,6 +193,12 @@
 			
 		<script>
 		(function(){
+		
+		smoothScroll.init({
+			speed: 700,
+			easing: 'easeInOutCubic'
+		});
+
 		//==== init code ====
 		var $swipe_slides = $('.swipe-slide'),
 			$banner = $('.banner'),
