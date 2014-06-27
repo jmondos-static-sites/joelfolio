@@ -41,13 +41,15 @@ $document.scroll(function(){
 });
 //=== End of hamburger scroller ===
 
-$(window).scroll(function() {
-	$('.banner-black-filter').css('opacity', function(){
-		var $headerHeight = $(this).height();
-		var transparency = ($headerHeight-$(window).scrollTop() )/$headerHeight;
-		return 1 - transparency;
+if (!UTIL.isMobile) {
+	$(window).scroll(function() {
+		$('.banner-black-filter').css('opacity', function(){
+			var $headerHeight = $(this).height();
+			var transparency = ($headerHeight-$(window).scrollTop() )/$headerHeight;
+			return 1 - transparency;
+		});
 	});
-});
+}
 
 //====== nav-overlay handler =======
 var $nav_overlay = $('.nav-overlay'),
