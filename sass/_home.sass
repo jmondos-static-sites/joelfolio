@@ -9,7 +9,7 @@ html, body
 
 .wrapper
 	//padding-bottom: $footer //must be same height as the footer
-
+	height: 100%
 
 
 
@@ -86,10 +86,9 @@ html, body
 		+wh(55, 55)
 		.meat, .meat:before, .meat:after
 			+wh(24, 3)
-		
+
 
 //// End of hamburger ////
-
 .nav-overlay
 	position: fixed
 	height: 100%
@@ -165,7 +164,6 @@ html, body
 $fb-w: 60
 .nav-fb
 	width: pem($fb-w)
-	// background: red
 	height: pem(50)
 	position: relative
 	top: pem(7)
@@ -684,10 +682,13 @@ $slides: sweetarts lasagna london zermatt
 
 .banner
 	width: 100%
-	height: 100vh
+	//height: 100vh
+	height: 100%
 	overflow-x: hidden
 	width: 100%
 	position: relative
+
+.banner, .swipe-ct, .swipe-ct .swipe-slide
 	+media($gtMedDevice)
 		min-height: rem(560)
 	+media($medDevice + " and (max-height: 465px)")
@@ -716,12 +717,13 @@ $slides: sweetarts lasagna london zermatt
 	-webkit-transition-timing-function: ease-out
 	padding: 0
 	margin: 0
-	overflow: hidden
+	overflow-x: hidden
 	-webkit-transform: translate3d(0px,0px,0px)
 	transform:  translate3d(0px,0px,0px)
 	height: 100%
 
 .swipe-ct .swipe-slide
+
 	background-repeat: no-repeat
 	background-position: center top
 	//background-attachment: fixed
@@ -730,7 +732,6 @@ $slides: sweetarts lasagna london zermatt
 	-moz-background-size: cover
 	-o-background-size: cover
 	background-size: cover
-	height: pem(844)
 	color: #fff
 	padding: 0
 	margin: 0
@@ -748,6 +749,9 @@ $slides: sweetarts lasagna london zermatt
 		// background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
 		// background-position: top
 		// height: pem(568)
+
+.swipe-slide .bg-image
+	height: 100%
 	
 	
 

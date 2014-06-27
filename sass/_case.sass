@@ -184,7 +184,8 @@ $bh: 54 //banner nav height
 	padding-bottom: pem(150)
 
 .case-wrapper .swipe-slide
-	background-position: center
+	+media($gtMedDevice)
+		background-position: center
 
 
 //=== lean cuisine
@@ -303,6 +304,7 @@ $slides:  lean-cuisine lean-pockets logos hwmfty threshold recipes
 
 
 .case-wrapper
+	height: 100%
 	.section-case
 		display: none
 	@each $i in $slides
