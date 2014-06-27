@@ -144,10 +144,14 @@
 		font-size: 60%
 	+media("mw", 594 )
 		font-size: 40%
+	+media($smlDevice)
+		width: 80%
+		.map-img:before, .map-img:after, [data-svg]
+			display: none
 	//If device is under 300, they just get the frame
 	+media("mw", 300 )
 		width: 80%
-		.map-img:before, .map-img:after, .location-pin
+		.map-img:before, .map-img:after, [data-svg]
 			display: none
 
 

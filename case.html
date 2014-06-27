@@ -338,7 +338,7 @@
 
             window.swipe = create(Swipe, {
                 imgs: $swipe_slides,
-                mobile: true,
+                mobile: UTIL.mobileFlag,
                 onSwipeLeft: function(){
                     banner.prev();
                 },
@@ -350,7 +350,7 @@
             .removePointer($('.case-text'));
 
 
-
+            // Progress bar
             // var progress = create(ProgressBar, {
             //     $ct: $('.progress-ct'),
             //     $banner: $('.case-wrapper'),

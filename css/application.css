@@ -412,9 +412,11 @@ footer span {
   color: white;
   font-weight: normal;
 }
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .intro__text {
     font-size: 1.5625em;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -697,8 +699,8 @@ footer span {
 }
 
 .btn-filter {
-  font-size: 1em;
-  width: 11.6875em;
+  font-size: 1rem;
+  width: 11.6875rem;
   height: 3.625em;
   vertical-align: bottom;
   cursor: pointer;
@@ -743,7 +745,7 @@ footer span {
 
 .filter-list {
   display: none;
-  width: 11.6875em;
+  width: 11.6875rem;
   z-index: 110;
   position: absolute;
   left: 0;
@@ -790,6 +792,16 @@ footer span {
   margin: 0 auto;
   position: relative;
   padding-bottom: 19.75rem;
+}
+@media (max-width: 480px) {
+  .collage-ct {
+    padding-bottom: 6.25rem;
+  }
+}
+@media (max-width: 320px) {
+  .collage-ct {
+    padding-bottom: 0;
+  }
 }
 
 .overlay-collage {
@@ -1186,11 +1198,19 @@ footer span {
     font-size: 40%;
   }
 }
+@media (max-width: 320px) {
+  .frame-map {
+    width: 80%;
+  }
+  .frame-map .map-img:before, .frame-map .map-img:after, .frame-map [data-svg] {
+    display: none;
+  }
+}
 @media (max-width: 300px) {
   .frame-map {
     width: 80%;
   }
-  .frame-map .map-img:before, .frame-map .map-img:after, .frame-map .location-pin {
+  .frame-map .map-img:before, .frame-map .map-img:after, .frame-map [data-svg] {
     display: none;
   }
 }

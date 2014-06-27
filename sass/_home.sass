@@ -217,8 +217,10 @@ $fb-w: 60
 	line-height: pem(23)
 	color: #fff
 	font-weight: normal
-	+media($smlDevice)
+	+media($medDevice)
 		font-size: pem(20,12.8)
+		width: 90%
+		margin: 0 auto
 
 
 
@@ -448,9 +450,9 @@ $bfw: 187
 	margin: 0 auto
 
 .btn-filter
-	font-size: pem(16)
+	font-size: rem(16)
 	@extend .resetBtn
-	width: pem($bfw)
+	width: rem($bfw)
 	height: $bfh
 	vertical-align: bottom
 	cursor: pointer
@@ -488,7 +490,7 @@ $bfw: 187
 
 .filter-list
 	+hide
-	width: pem($bfw)
+	width: rem($bfw)
 	z-index: 110
 	position: absolute
 	left: 0
@@ -543,7 +545,10 @@ $bfw: 187
 	margin: 0 auto
 	position: relative
 	padding-bottom: rem(316)
-	// +media("(max-width: 520px)")
+	+media($medDevice)
+		padding-bottom: rem(100)
+	+media($smlDevice)
+		padding-bottom: 0
 	// 	padding-bottom: 0
 
 

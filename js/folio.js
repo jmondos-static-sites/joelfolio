@@ -151,7 +151,7 @@ $list_elem.click(function(e){
 	var $e = $(e.target);
 	var $this = $(this),
 			filter = $this.data('filter'),
-			$list = $elems.filter('[data-filter="'+ filter + '"]');
+			$list = $elems.filter('[data-filter*="'+ filter + '"]');
 	//orignal desktop version, added false flag
 	if(!UTIL.isMobile && !UTIL.mobileFlag && false){
 		if($this.hasClass('active-elem')){
@@ -179,7 +179,7 @@ $list_elem.click(function(e){
 			
 		}
 		else{
-			UTIL.$collage.isotope({ filter: '[data-filter="'+ filter +'"]' });
+			UTIL.$collage.isotope({ filter: '[data-filter*="'+ filter +'"]' });
 			$list_elem.removeClass('active-elem');
 			$this.addClass('active-elem');
 			
