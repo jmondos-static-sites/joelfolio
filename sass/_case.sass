@@ -82,10 +82,60 @@ $bh: 54 //banner nav height
 	+whe(16)
 	margin: 0 pem(3)
 	cursor: pointer
+	position: relative
+	transition: background 0.3s
+	overflow: hidden
+	background-color: rgba(0,0,0,0)
 
-	&.active
-		border: none
-		background: #fe8d00
+	&:after
+		content: ''
+		position: absolute
+		bottom: 0
+		height: 0
+		left: 0
+		box-shadow: 0 0 1px #fff
+		transition: height 0.3s ease
+		width: 100%
+
+	&.active:after
+		height: 100%
+
+	&.pdot[data-item='1']
+		&.active
+			border-color: #FF9B1F
+		&:after
+			background-color: #FF9B1F
+
+	&.pdot[data-item='2']
+		&.active
+			border-color: #87C51A
+		&:after
+			background-color: #87C51A
+
+	&.pdot[data-item='3']
+		&.active
+			border-color: #D820AF
+		&:after
+			background-color: #D820AF
+
+	&.pdot[data-item='4']
+		&.active
+			border-color: #2EACE4 
+		&:after
+			background-color: #2EACE4 
+
+	&.pdot[data-item='5']
+		&.active
+			border-color: #FCC73A
+		&:after
+			background-color: #FCC73A
+
+	&.pdot[data-item='6']
+		&.active
+			border-color: #2069E3
+		&:after
+			background-color: #2069E3
+
 
 //===== end of progress bar ====
 
@@ -194,8 +244,6 @@ $bh: 54 //banner nav height
 		+bg-gradient(#FF9B1F, #FF9B1F, #FE8D00)
 		& .widget-btn
 			background-color: #DA8319
-	.pdot.active
-		background-color: #FF9B1F
 
 //=== lean pockets
 .case-wrapper.lean-pockets
@@ -208,8 +256,6 @@ $bh: 54 //banner nav height
 		+bg-gradient(#87c51a, #87c51a, #76ae11)
 		& .widget-btn
 			background-color: darken(#76ae11, 5%)
-	.pdot.active
-		background-color: #87c51a
 
 .title-about.move-down
 	bottom: rem(40 + 108)
@@ -231,8 +277,6 @@ $bh: 54 //banner nav height
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 		& .widget-btn
 			background-color: darken(nth($grad, 2), 5%)
-	.pdot.active
-		background-color: nth($grad, 1)
 
 //=== hwmfty
 .case-wrapper.hwmfty
@@ -247,8 +291,6 @@ $bh: 54 //banner nav height
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 		& .widget-btn
 			background-color: darken(nth($grad, 2), 5%)
-	.pdot.active
-		background-color: nth($grad, 1)
 
 //=== threshold
 .case-wrapper.threshold
@@ -263,8 +305,6 @@ $bh: 54 //banner nav height
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 		& .widget-btn
 			background-color: darken(nth($grad, 2), 5%)
-	.pdot.active
-		background-color: nth($grad, 1)
 
 //=== recipes
 .case-wrapper.recipes
@@ -279,8 +319,6 @@ $bh: 54 //banner nav height
 		+bg-gradient( nth($grad, 1) , nth($grad, 1), nth($grad, 2) )
 		& .widget-btn
 			background-color: darken(nth($grad, 2), 5%)
-	.pdot.active
-		background-color: nth($grad, 1)
 
 
 
