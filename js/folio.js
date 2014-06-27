@@ -59,7 +59,13 @@ $('a.smooth-scroll[href*=#]:not([href=#])').click(function() {
 		}
 });
 
-
+$(window).scroll(function() {
+	$('.banner-black-filter').css('opacity', function(){
+		var $headerHeight = $(this).height();
+		var transparency = ($headerHeight-$(window).scrollTop() )/$headerHeight;
+		return 1 - transparency;
+	});
+});
 
 //====== nav-overlay handler =======
 var $nav_overlay = $('.nav-overlay'),
