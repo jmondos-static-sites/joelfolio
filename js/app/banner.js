@@ -22,8 +22,9 @@ var Banner = (function(){
 
       if($nextElem.length){
         //update colour scheme
-        this.$banner.addClass( nextData )
-            .removeClass($curElem.data('slide'));
+        this.$banner.attr('class', 'case-wrapper '+ nextData);
+        // this.$banner.addClass( nextData )
+        //     .removeClass($curElem.data('slide'));
         
         //change active slide
         $curElem.removeClass('active');
@@ -37,8 +38,7 @@ var Banner = (function(){
 
       if($prevElem.length){
           //update colour scheme
-          this.$banner.addClass( $prevElem.data('slide') )
-              .removeClass($curElem.data('slide'));
+          this.$banner.attr('class', 'case-wrapper '+ prevData);
           
           //change active slide
           $curElem.removeClass('active');
@@ -48,9 +48,10 @@ var Banner = (function(){
     update: function(i){
       var $curElem =  this.$slides.filter('.active'),
           $newElem = this.$slides.eq(i-1);
-
-      this.$banner.addClass( $newElem.data('slide') )
-                  .removeClass( $curElem.data('slide') );
+          
+      this.$banner.attr('class', 'case-wrapper '+ $newElem.data('slide'));
+      // this.$banner.addClass( $newElem.data('slide') )
+      //             .removeClass( $curElem.data('slide') );
 
       //change active slide
       $curElem.removeClass('active');
