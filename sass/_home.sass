@@ -343,6 +343,29 @@ $fb-w: 60
 	+bg-gradient(#febd10, #ffcb3f, #febd11)
 
 
+
+
+.widget-icon
+	// background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center
+	height: pem(16)
+	width: pem(13)
+	background-size: 100%
+	display: inline-block
+	position: absolute
+	left: pem(28)
+	top: pem(0)
+	bottom: 0
+	z-index: 1
+	margin: auto
+	.book-icon
+		display: none
+
+.sweetarts .widget-icon .book-icon
+	display: block
+	height: 100%
+	width: 100%
+
+
 .london .nav-widget
 	.widget-icon
 		background: url(../img/icon/location.png) no-repeat
@@ -359,20 +382,7 @@ $fb-w: 60
 	.widget-icon
 		background: url(../img/icon/location.png) no-repeat
 		background-size: pem(12) pem(15)
-	
 
-.widget-icon
-	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center
-	height: pem(16)
-	width: pem(13)
-	background-size: 100%
-	display: inline-block
-	position: absolute
-	left: pem(28)
-	top: pem(0)
-	bottom: 0
-	z-index: 1
-	margin: auto
 
 $widget-w: pem(40)
 .widget-btn
