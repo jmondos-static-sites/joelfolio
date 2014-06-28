@@ -1,4 +1,5 @@
 .banner.about
+	background-image: url(../img/about.jpg)
 	background-repeat: no-repeat
 	background-position: center
 	width: 100%
@@ -13,14 +14,11 @@
 		//zoom in
 		// background-size: 170% //orig size: 1400/842
 		// background-position: top
-	+media($medDevice)
+	+media($medDevice +" and (max-height:580px)")
 		//zoom out
 		background-size: pem(1400/1.45) pem(842/1.45) //orig size: 1400/842
-		background-position: top
-		height: pem(568)
 
-.banner.about
-	background-image: url(../img/about.jpg)
+
 
 .title-about
 	font: bolder rem(70) $gent
