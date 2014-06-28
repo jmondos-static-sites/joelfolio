@@ -47,7 +47,7 @@ html, body
 	position: fixed
 	top: pem(58)
 	right: pc(170, 1400)
-	z-index: 20
+	z-index: 120
 	cursor: pointer
 	.meat, .meat:before, .meat:after
 		+wh(29, 5)
@@ -93,7 +93,7 @@ html, body
 	position: fixed
 	height: 100%
 	width: 100%
-	z-index: 10
+	z-index: 110
 	background: rgba(3,3,3,0.95)
 	padding-top: pem(60)
 	text-align: center
@@ -679,6 +679,14 @@ $slides: sweetarts lasagna london zermatt
 .swipe-ct .swipe-slide
 	//width: 100vw
 	width:  91 / length($slides) *1%
+	&:after
+		content: ""
+		position: absolute
+		+trbl
+		top: 40%
+		+bg-gradient(rgba(0,0,0,0), rgba(0,0,0, 0), rgba(0,0,0,0.5) )
+		z-index: 0
+		pointer-events: none
 
 .banner
 	width: 100%
@@ -709,14 +717,12 @@ $slides: sweetarts lasagna london zermatt
 
 .banner-black-filter
 	position: absolute
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	background-color: black
+	+trbl
+	background-color: #000
 	z-index: 10
 	opacity: 0
 	pointer-events: none
+	transition: opacity 0.8s
 
 
 .banner .swipe-ct

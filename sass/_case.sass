@@ -22,6 +22,7 @@ $bh: 54 //banner nav height
 	height: pem($bh)
 	position: absolute
 	bottom: 0
+	z-index: 11
 	+bg-gradient(#FF9D1E, #FFA932, #FE8D01)
 
 .banner-nav-ctrls
@@ -343,6 +344,7 @@ $slides:  lean-cuisine lean-pockets logos hwmfty threshold recipes
 
 .case-wrapper
 	height: 100%
+
 	.section-case
 		display: none
 	@each $i in $slides
