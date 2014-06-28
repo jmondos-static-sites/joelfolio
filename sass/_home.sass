@@ -115,13 +115,15 @@ html, body
 		transform: translate3d(100%, 0, 0)
 	+media($smlDevice)
 		padding-top: pem(90)
-	
-
+	//I know I'm not supposed to do this mondo but I want a beer, ahah
+	a
+		-webkit-transition: color 0.2s, border 0.2s, background 0.2s
+		transition: color 0.2s, border 0.2s, background 0.2s
 
 
 
 .nav-close
-	background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center
+	// background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center
 	+wh(36)
 	background-size: 100%
 	margin: 0 auto pem(85)
@@ -171,8 +173,8 @@ $fb-w: 60
 
 .nav-fb a
 	display: block
-	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#FFFFFF" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
-	background-size: pc(18/$fb-w)
+	//background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#FFFFFF" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
+	// background-size: pc(18/$fb-w)
 	height: 100%
 	width: 100%
 	margin: 0 auto
@@ -180,10 +182,15 @@ $fb-w: 60
 	top: 0
 	bottom: 0
 	margin: auto
+	svg
+		height: 80%
+	&:hover
+		svg path
+			fill: #1D5CC5
 
 .nav-fb a:hover
-	background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#1d5cc5" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
-	background-size: pc(18/$fb-w)
+	//background: url('data:image/svg+xml;utf8, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.207px" height="17.008px" viewBox="0 0 8.207 17.008" enable-background="new 0 0 8.207 17.008" xml:space="preserve"><path fill="#1d5cc5" d="M0,5.625h1.758V3.916C1.758,3.162,1.777,2,2.325,1.28C2.901,0.518,3.693,0,5.054,0 c2.218,0,3.152,0.316,3.152,0.316L7.767,2.921c0,0-0.733-0.212-1.417-0.212c-0.684,0-1.296,0.245-1.296,0.929v1.986h2.804 L7.663,8.169H5.054v8.839H1.758V8.169H0V5.625z"/></svg>') no-repeat center
+	//background-size: pc(18/$fb-w)
 
 
 .nav-cv a
@@ -277,7 +284,7 @@ $fb-w: 60
 
 //=== Navigation widget ===//
 .nav-widget
-	font-family: Bariol
+	font-family: $baz
 	font-weight: bold
 	margin: 0 auto
 	width: pc(217 / 1400)
@@ -310,6 +317,7 @@ $fb-w: 60
 	opacity: 1
 	transition: opacity 0.9s
 	&:after
+		font-family: $baz
 		content: attr(data-slide)
 		font-size: pem(15)
 		top: 0.8em
@@ -378,19 +386,27 @@ $widget-w: pem(40)
 	width: $widget-w
 	cursor: pointer
 
+
+
 .widget-btn.next
-	right: 0
+	right: 0px
 	border-radius: 0 pem(18) pem(18) 0
 	border-radius: 0 10em 10em 0
 	background: white url(../img/icon/next.png) no-repeat
 	background-position: center
 	background-size: pem(8) pem(15)
+	&:active
+		box-shadow: -2px -1px 12px rgba(0, 0, 0, 0.45) inset
+		background-color: #eee
 
 .widget-btn.prev
-	right: $widget-w
+	right: pem(39.9)
 	background: white url(../img/icon/prev.png) no-repeat
 	background-position: center
 	background-size: pem(8) pem(15)
+	&:active
+		background-color: #eee
+		box-shadow: 2px 0px 9px rgba(0, 0, 0, 0.45) inset
 //=== End of nav widget ===//
 
 @-webkit-keyframes updown 
@@ -469,7 +485,7 @@ $bfw: 187
 
 .btn-filter
 	font-size: rem(16)
-	@extend .resetBtn
+	+resetBtn
 	width: rem($bfw)
 	height: $bfh
 	vertical-align: bottom
@@ -493,7 +509,7 @@ $bfw: 187
 
 .down-arrow-box
 	display: block
-	width: pem(61)
+	width: pem(60.9)
 	background: #1fa2dc url(../img/icon/down-black.png) no-repeat center
 	background-size: pem(20) pem(11)
 	-webkit-transition: -webkit-transform 0.5s
@@ -537,7 +553,7 @@ $bfw: 187
 	font-size: pem(16)
 	+wh(21)
 	// background: url('data:image/svg+xml;utf8, <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="90px" viewBox="0 0 70 90" enable-background="new 0 0 70 90" xml:space="preserve"><g><path d="M21.113,49.348h28v-9h-28V49.348z M60,0H10C4.5,0,0,4.5,0,10v70c0,5.5,4.5,10,10,10h50c5.5,0,10-4.5,10-10V10 C70,4.5,65.5,0,60,0z M60,80H10V10h50V80z M49,20.848H21v8.75h28V20.848z M49,60.098H21v8.75h28V60.098z"/></g></svg>') no-repeat center
-	background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="11.599px" height="11.192px" viewBox="0 0 11.599 11.192" enable-background="new 0 0 11.599 11.192" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M10.899,0.293c0.391,0.391,0.391,1.023,0,1.414l-9.192,9.192  c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l9.192-9.192C9.876-0.098,10.509-0.098,10.899,0.293z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M11.311,10.811c-0.384,0.384-1.006,0.384-1.391,0L0.882,1.772  c-0.384-0.384-0.384-1.007,0-1.391c0.384-0.384,1.006-0.384,1.391,0l9.038,9.038C11.695,9.804,11.695,10.427,11.311,10.811z"/></svg>') no-repeat center
+	//background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="11.599px" height="11.192px" viewBox="0 0 11.599 11.192" enable-background="new 0 0 11.599 11.192" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M10.899,0.293c0.391,0.391,0.391,1.023,0,1.414l-9.192,9.192  c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414l9.192-9.192C9.876-0.098,10.509-0.098,10.899,0.293z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#242424" d="M11.311,10.811c-0.384,0.384-1.006,0.384-1.391,0L0.882,1.772  c-0.384-0.384-0.384-1.007,0-1.391c0.384-0.384,1.006-0.384,1.391,0l9.038,9.038C11.695,9.804,11.695,10.427,11.311,10.811z"/></svg>') no-repeat center
 	background-color: #20A2DC
 	background-size: pem(11) pem(11)
 	border-radius: 30px
@@ -848,3 +864,25 @@ $imgs: sweetarts lasagna london zermatt
 	-ms-transition: -ms-transform 0.8s ease-in-out
 	-webkit-transition: -webkit-transform 0.8s ease-in-out
 	transition: transform 0.8s ease-in-out
+
+
+//=======
+// custom lightbox styles
+//======
+.lb-outerContainer
+	background: none !important
+
+.lb-closeContainer
+	//display: none
+
+.lb-caption
+	margin-left: 3.5%
+	h3, span
+		font: bold pem(20, 13) $baz
+		color: #fff
+		display: inline-block
+	h3
+		margin-right: pem(6, 20)
+	span
+		font-weight: 100
+

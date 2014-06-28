@@ -24,6 +24,9 @@
 	background: none
 	margin: 0
 	padding: 0
+	&::-moz-focus-inner 
+		padding: 0
+		border: 0
 
 =resetLink
 	text-decoration: none
@@ -197,6 +200,7 @@
 	-moz-transform: scaleY(-1)
 	-o-transform: scaleY(-1)
 	-webkit-transform: scaleY(-1)
+	-ms-transform: scaleY(-1)
 	transform: scaleY(-1)
 	filter: flipv /*IE*/
 	-ms-filter: "flipv" /*IE*/
@@ -205,6 +209,7 @@
 	-moz-transform: scaleX(-1)
 	-webkit-transform: scaleX(-1)
 	-o-transform: scaleX(-1)
+	-ms-transform: scaleX(-1)
 	transform: scaleX(-1)
 	-ms-filter: fliph /*IE*/
 	filter: fliph /*IE*/

@@ -173,11 +173,14 @@ var Swipe = (function(){
      * Manually update the position of the imgs on drag
      */
 
+     // This guy is the dom workhorse
      // Be careful modifying this, it is very touchy
     function scrollImages(distance, duration)
     {   
-        var val;
+
+        imgs.css("-ms-transition-duration", (duration/1000).toFixed(1) + "s");
         imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+        imgs.css("transition-duration", (duration/1000).toFixed(1) + "s");
 
         //inverse the number we set in the css
         if(pcval){
@@ -189,6 +192,7 @@ var Swipe = (function(){
         }
         //Render with smooth 3d, fallback to 2d
         if(Modernizr.csstransforms3d){
+            imgs.css("-ms-transform", "translate3d("+value +",0px,0px)");
             imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
             imgs.css("transform", "translate3d("+value +",0px,0px)");
         }

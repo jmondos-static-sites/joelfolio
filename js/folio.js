@@ -25,7 +25,8 @@
 
 //=== Hamburger change colour on scroll ===//
 //=== classList for perf win
-var $document = $(document),
+var $w = $(window),
+		$document = $(document),
 		$banner = $('.banner');
 
 var ham = document.getElementsByClassName('hamburger-icon')[0];
@@ -42,12 +43,18 @@ $document.scroll(function(){
 //=== End of hamburger scroller ===
 
 if (!UTIL.isMobile) {
-	$(window).scroll(function() {
-		$('.banner-black-filter').css('opacity', function(){
-			var $headerHeight = $(this).height();
-			var transparency = ($headerHeight-$(window).scrollTop() )/$headerHeight;
+	var $bannerBlack = $('.banner-black-filter'),
+			headerHeight = $bannerBlack.height(),
+			transparency;
+
+	$w.scroll(function() {
+		$bannerBlack.css('opacity', function(){
+			// $headerHeight = $(this).height();
+			transparency = (headerHeight-$w.scrollTop() )/headerHeight;
 			return 1 - transparency;
 		});
+		//$banner.css('webkitFilter', 'blur(' + (1-transparency) *4 + 'px)');
+
 	});
 }
 
@@ -87,7 +94,7 @@ function updateHamburger(){
 	}
 }
 
-//Handers for nav
+//Handlers for nav
 $('.hamburger-icon').click(function(){
 	$nav_overlay.toggleClass(_closed)
 	.promise()
