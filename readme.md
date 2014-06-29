@@ -29,7 +29,11 @@ Sass files will be outputted as css in in css dir.
 
 * Concat and uglify js
 ```sh
+
+cd joelfolio
 npm install -g gulp
+npm install gulp-concat
+npm install gulp-uglify
 cd /js
 gulp concat
 ```
