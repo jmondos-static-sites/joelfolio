@@ -12,3 +12,10 @@ gulp.task('concat', function(){
 			.pipe(uglify())
 			.pipe(gulp.dest('./js'));
 });
+
+// gulp.task('sprite', function(){
+// 	gulp.src('./img/*.jpg')
+// 			.pipe(sprite({
+// 				destImg: ''
+// 			}))
+// });
