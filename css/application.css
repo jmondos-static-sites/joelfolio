@@ -99,30 +99,30 @@ img {
 }
 
 @font-face {
-  font-family: "Bariol";
-  src: url(fonts/Bariol_Regular.otf);
+  font-family: Bariol;
+  src: url(fonts/web/bariol_regular.eot?#iefix) format("embedded-opentype"), url(fonts/Bariol_Regular.otf);
 }
 
 @font-face {
   font-family: "Bariol";
-  src: url(fonts/Bariol_Bold.otf);
+  src: url(fonts/web/bariol_bold.eot?#iefix) format("embedded-opentype"), url(fonts/Bariol_Bold.otf);
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "Gentona";
-  src: url(fonts/Gentona.otf);
+  font-family: Gentona;
+  src: url(fonts/web/gentona.eot?#iefix) format("embedded-opentype"), url(fonts/Gentona.otf);
 }
 
 @font-face {
   font-family: "Gentona";
-  src: url(fonts/Gentona_ExtraBold_DEMO.otf);
+  src: url(fonts/web/gentona_extrabold_demo.eot?#iefix) format("embedded-opentype"), url(fonts/Gentona_ExtraBold_DEMO.otf), url(fonts/web/gentona_extrabold_demo.otf);
   font-weight: bolder;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url(fonts/ProximaNova-Extrabld.otf);
+  src: url(fonts/web/proximanova_extrabld.eot?#iefix) format("embedded-opentype"), url(fonts/ProximaNova-Extrabld.otf);
   font-weight: bolder;
 }
 
@@ -146,7 +146,7 @@ footer .links {
 }
 footer h3 {
   text-transform: uppercase;
-  font-family: Gentona, Arial;
+  font-family: Gentona;
   font-size: 1.875em;
   display: inline-block;
   padding-right: 1.5em;
@@ -160,7 +160,7 @@ footer h3 {
   }
 }
 footer span {
-  font-family: Bariol, Arial;
+  font-family: Bariol;
   font-size: 1.0625em;
   padding-left: 2em;
 }
@@ -335,7 +335,7 @@ footer span {
 .nav-white a {
   font-size: 1.875em;
   color: white;
-  font-family: Bariol, Arial;
+  font-family: Bariol;
   text-decoration: none;
 }
 
@@ -390,7 +390,7 @@ footer span {
 }
 
 .nav-cv a {
-  font: bolder 2.125em Gentona, Arial;
+  font: bolder 2.125em Gentona;
 }
 .nav-cv a:hover {
   border-bottom: 0.058823529em solid white;
@@ -505,7 +505,7 @@ footer span {
 }
 
 .nav-widget {
-  font-family: Bariol, Arial;
+  font-family: Bariol;
   font-weight: bold;
   margin: 0 auto;
   width: 15.5%;
@@ -542,7 +542,7 @@ footer span {
   transition: opacity 0.9s;
 }
 .bg-grad:after {
-  font-family: Bariol, Arial;
+  font-family: Bariol;
   content: attr(data-slide);
   font-size: 0.9375em;
   top: 0.8em;
@@ -786,7 +786,7 @@ footer span {
 }
 
 .btn-filter .left-side {
-  font: bold 1.25em Bariol, Arial;
+  font: bold 1.25em Bariol;
   color: #232323;
   width: 6.3em;
   line-height: 2.95em;
@@ -825,7 +825,7 @@ footer span {
 
 .filter-list .list-elem {
   position: relative;
-  font: bold 1.25em Bariol, Arial;
+  font: bold 1.25em Bariol;
   color: #242424;
   background: #1c7ca6;
   height: 3em;
@@ -1015,7 +1015,8 @@ footer span {
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.8s;
+  -webkit-transition: 0.7s;
+  transition: opacity 0.7s;
 }
 
 .banner .swipe-ct {
@@ -1132,7 +1133,7 @@ footer span {
   margin-left: 3.5%;
 }
 .lb-caption h3, .lb-caption span {
-  font: bold 1.538461538em Bariol, Arial;
+  font: bold 1.538461538em Bariol;
   color: white;
   display: inline-block;
 }
@@ -1179,7 +1180,7 @@ footer span {
 }
 
 .title-about {
-  font: bolder 4.375rem Gentona, Arial;
+  font: bolder 4.375rem Gentona;
   color: white;
   position: absolute;
   bottom: 7.5rem;
@@ -1232,7 +1233,7 @@ footer span {
 }
 
 .title-content {
-  font: bolder 3.4375rem Proxima Nova, Arial;
+  font: bolder 3.4375rem Proxima Nova;
   color: #242424;
   text-align: center;
   padding-top: 9.625rem;
@@ -1269,7 +1270,7 @@ footer span {
 
 .content-sub {
   text-transform: uppercase;
-  font: bolder 1.625rem Proxima Nova, Arial;
+  font: bolder 1.625rem Proxima Nova;
   color: #242424;
   text-align: center;
   padding-top: 4.8125rem;
@@ -1300,7 +1301,7 @@ footer span {
 }
 
 .content-text {
-  font: 1.375rem Bariol, Arial;
+  font: 1.375rem Bariol;
   width: 43.857142857%;
   width: 80%;
   max-width: 38.1875rem;
@@ -1364,7 +1365,7 @@ footer span {
 
 .map-img:before {
   content: attr(data-place);
-  font: 1.25em Bariol, Arial;
+  font: 1.25em Bariol;
   color: white;
   position: absolute;
   z-index: 10;
@@ -1546,7 +1547,7 @@ footer span {
 }
 
 .banner-nav-text {
-  font: bold 1.0125rem/3.25rem Bariol, Arial;
+  font: bold 1.0125rem/3.25rem Bariol;
   color: #1c1c1c;
   position: absolute;
   left: 0;
@@ -1724,7 +1725,7 @@ footer span {
 }
 
 .title-desc {
-  font: bolder 1.875em Gentona, Arial;
+  font: bolder 1.875em Gentona;
   color: #232323;
   padding-bottom: 1em;
   position: relative;
@@ -1743,7 +1744,7 @@ footer span {
 }
 
 .text-normal {
-  font: 1.25em/1.6em Bariol, Arial;
+  font: 1.25em/1.6em Bariol;
   color: #767676;
 }
 

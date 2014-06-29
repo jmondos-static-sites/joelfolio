@@ -1,6 +1,6 @@
 window.UTIL = {};
 
-// global create function
+// supercharged create function
 var create = (function(){
     function addProps(child, o){
         for(var i in o){
@@ -8,21 +8,22 @@ var create = (function(){
         }
     }
     function checkReq(obj, req){
-        var err = [];
+        var err = [], typeStr;
         for(var i in req){
             if(obj && obj.hasOwnProperty(i)){
                 //also check against type
-                if(typeof req[i] === 'function'){
+                typeVal = typeof req[i];
+                if(typeVal === 'function'){
+                    //see what function returns, if false, throw err
                     if( !req[i](obj[i]) ) {
                         throw new Error ('parameter: ['+ i + '] did not meed param requirements');
                     }
                 }
-                else if(typeof req[i] === 'object' && Object.keys(req[i]).length){
+                else if(typeVal === 'object' && Object.keys(req[i]).length){
                     //This currently only allows 1 test & msg, can update for more in future
                     if( req[i].test && !req[i].test( obj[i] ) ){ 
                         throw new Error ('parameter: ['+ i + '] ' + req[i].msg( obj[i] )  || 'did not meed param requirements' );
                     }
-
                 }
             }
             else{
@@ -61,7 +62,7 @@ var create = (function(){
 })();
 
 
-//prod safe console.log
+//production safe console.log
 var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
 
 
