@@ -11,6 +11,16 @@
 		<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
 		<script src="js/svg.js" async></script>
     <!--<script src="js/vmin.polyfill.js"></script>-->
+    <noscript>
+    	<style>
+    		.intro-text{
+    			opacity: 1;
+    		}
+    		.nav-widget{
+    			opacity: 1;
+    		}
+    	</style>
+    </noscript>
 
 	</head>
 	<body>
@@ -393,6 +403,37 @@
 
 		//========= end of isotope ========
 
+
+
+		//====== let's ajax in some img's of other pages ====//
+		function preload(arr, isURL){
+			var img;
+			if(!isURL){
+				for(var i=0; i<arr.length; i++){
+					preload(arr[i], true)
+				}
+			}
+			else{
+				img = new Image();
+				img.src = arr;
+			}
+		}
+		
+
+		var img = new Image();
+		img.src = 'img/sweetarts.jpg';
+		img.onload = function(){
+			$('.intro-text').addClass('show');
+			$('.nav-widget').addClass('show');
+		};
+
+		$(window).load(function(){
+			
+
+			UTIL.timer(function(){
+				preload(["img/about.jpg", "img/case/lean-cuisine-feature.jpg", "img/case/logos-feature.jpg", "img/case/lean-pockets-feature.jpg", "img/case/hwmfty-feature.jpg", "img/case/lean-cuisine-design.jpg" ]);
+			}, 1500);
+		})
 
 		})();
 		</script>
