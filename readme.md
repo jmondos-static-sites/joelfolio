@@ -9,8 +9,6 @@ Build requirements
 * Compass
 * Node & Gulp js
 
-Installation
-
 ------------
 **SASS & JS:**
 

@@ -116,7 +116,9 @@ html, body
 		transform: translate3d(100%, 0, 0)
 	+media($smlDevice)
 		padding-top: pem(90)
-	//I know I'm not supposed to do this mondo but I want a beer, ahah
+	+media("(max-height: 490px)" )
+		padding-top: pem(35)
+	//this is bad practice, done late on a friday
 	a
 		-webkit-transition: color 0.2s, border 0.2s, background 0.2s
 		transition: color 0.2s, border 0.2s, background 0.2s
@@ -135,6 +137,8 @@ html, body
 .nav-links li
 	// margin-bottom: pem(68)
 	margin: 0 auto pem(60)
+	+media("(max-height: 490px)" )
+		margin-bottom: pem(37)
 
 
 .nav-white a
