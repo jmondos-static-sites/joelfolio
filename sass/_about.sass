@@ -166,7 +166,8 @@
 	// 		display: none
 
 
-
+.frame-map, .map-img
+	+nos
 
 //Handles text
 .map-img:before
@@ -200,7 +201,7 @@
 	transition: 0.35s opacity
 	
 //Hover event, all 3 elements need to fade in
-.map-img:hover
+.map-img:hover, .map-img:active
 	&:after, &:before, .location-pin path
 		opacity: 1
 
