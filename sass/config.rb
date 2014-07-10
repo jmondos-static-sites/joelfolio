@@ -6,8 +6,8 @@ require 'sass-css-importer'
 http_path = "/"
 css_dir = "../css"
 sass_dir = "/"
-images_dir = "images"
-javascripts_dir = "javascripts"
+images_dir = "../img"
+javascripts_dir = "../js"
 line_comments = false
 output_style = :compressed
 

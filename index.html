@@ -418,13 +418,18 @@
 				img.src = arr;
 			}
 		}
-		
+		function showIntroText(){
+			$('.intro-text').addClass('show');
+			$('.nav-widget').addClass('show');
+		}
 
 		var img = new Image();
 		img.src = 'img/sweetarts.jpg';
 		img.onload = function(){
-			$('.intro-text').addClass('show');
-			$('.nav-widget').addClass('show');
+			showIntroText();
+		};
+		img.onerror = function(){
+			showIntroText();
 		};
 
 		$(window).load(function(){

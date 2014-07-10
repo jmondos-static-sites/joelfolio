@@ -25,7 +25,6 @@ var Swipe = (function(){
         init: function init(){
             //=== runtime constructors ===//
             
-            
             //Shouldn't need these 2
             imgs = this.imgs;
             // maxImages = this.maxImgs = this.imgs.length; 
@@ -36,7 +35,7 @@ var Swipe = (function(){
 
             // testing flag to get desktop to behave like mobile
             // testMobile = true;
-            if(UTIL.mobileFlag){
+            if(UTIL.mobileFlag || this.mobile){
                 UTIL.isMobile = true
                 pcval = false;
             }

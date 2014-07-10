@@ -11,111 +11,164 @@
         <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
     </head>
     <body>
-        <div class="wrapper">
+        <div class="wrapper" id="test">
 
-            <div class="galleryTouch hide">
-              <div class="swipe-imgs">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
-              </div>
+           
+            <div class="collage-ct">
+                <div class="overlay-collage hide"></div>
+                <div class="work-collage">
+
+                    <a style="" href="case.html#threshold" class="elem img-small threshold" data-filter="web branding">
+                        <img class="lazy hide" data-original="img/collage/small1.jpg" alt="Threshold Interactive">
+                    </a>
+
+                    <a href="case.html#logos" class="elem img-landscape" data-filter="branding">
+                        <img class="lazy hide" data-original="img/collage/landscape1.jpg" alt="Sugar House">
+                    </a>
+
+                    <a href="case.html" class="elem img-vert" data-filter="web">
+                    <img class="lazy" data-original="img/collage/vert2.jpg" alt="">
+                    </a>
+
+                    <a href="case.html#lean-pockets" class="elem img-vert" data-filter="web">
+                    <img class="lazy" data-original="img/collage/vert1.jpg" alt="">
+                    </a>
+                    
+                        
+                    <a href="case.html#recipes" class="elem img-large" data-filter="web">
+                        <div class="large"></div>
+                    <img class="lazy hide" data-original="img/collage/lge1.jpg" alt="">
+
+                    </a>
+
+                    <a href="img/collage/shirt-orig.jpg" data-title="<h3>Threshold 2013 Softball Shirt,</h3><span>Design</span>" data-lightbox="a" class="elem img-small shirt" data-filter="print">
+                    <img class="lazy hide" data-original="img/collage/small3.jpg" alt="Threshold 2013 Softball Shirt">
+                    </a>
+
+                    <a href="case.html#hwmfty" class="elem img-large" data-filter="print">
+                    <img class="lazy hide" data-original="img/collage/lge2.jpg" alt="He's way more famous than you">
+                    </a>
+
+                    <a class="elem img-landscape" href="img/collage/selfie_lemon.jpg" data-lightbox="shirt"  data-title="<h3>Nestea Photoshoot,</h3><span>Art Direction</span>" data-filter="web print">
+                    <img class="lazy" data-original="img/collage/landscape2.jpg" alt="Nestea Photoshoot">
+                    </a>
+
+                    <a class="elem img-small" data-filter="web branding">
+                    <img class="lazy hide" data-original="img/collage/small2.jpg" alt="Threshold Interactive">
+                    </a>
+
+                    <a class="elem img-small" href="img/collage/ilymt-overlay.jpg" data-lightbox="ilymt" data-title="<h3>ILoveYouMoreThan.com,</h3><span>personal project</span>" data-filter="web branding">
+                    <img class="lazy hide" data-original="img/collage/small4.jpg" alt="I love your more than">
+                    </a>
+
+                    <a class="elem img-landscape" href="img/collage/sweetarts-orig.jpg" data-lightbox="sweetarts" data-title="<h3>SweeTarts,</h3><span>Sweet To Be You Campaign</span>" data-filter="print">
+                        <img class="lazy" data-original="img/collage/landscape3.jpg" alt="SweeTarts">
+                    </a>
+                    <!--
+                    <a class="elem img-small" data-filter="design">
+                        <img class="lazy" data-original="img/collage/small5.jpg" alt="Jaritos No Habla">
+                    </a>
+                    -->
+                </div>
             </div>
-
-            <div class="galleryTouch bg">
-              <div class="swipe-imgs">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-1.png">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-2.png">
-                <img src="http://www.awwwards.com/awards/images/2013/02/touchswipe-img-3.png">
-              </div>
-            </div>
-
 
 
 
         </div>
         <script src="js/commondev.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.touchswipe.min.js"></script>
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/imagesLoaded.min.js"></script>
+        <script src="js/lib/isotope.min.1.5.25.js"></script>
+        <script src="js/lib/jquery.isotope.perfectmasonry.js"></script>
+        <script src="js/lib/polyfills.js"></script>
+        <script src="js/app/app-util.js"></script>
+
         <script>
-            $(function() {
-                    var IMG_WIDTH = 500,
-                    currentImg=0,
-                    maxImages=3,
-                    speed=500,
-                    imgs = $(".swipe-imgs");
 
-                    //Check if window width is > img, if so use it instead, edge case
-                    // var $ww = $(window).width();
-                    // IMG_WIDTH = ($ww > IMG_WIDTH ) ? $ww : IMG_WIDTH;
+        //==== isotope ====
+        $ct = UTIL.$collage = $('.work-collage')
 
-                    //Init touch swipe
-                    imgs.swipe( {
-                        triggerOnTouchEnd : true,
-                        swipeStatus : swipeStatus,
-                        allowPageScroll:"vertical"
-                    });
+        //// Smart resize, resize elems for mobile
+        var $win = $(window);
 
-                    /**
-                    * Catch each phase of the swipe.
-                    * move : we drag the div.
-                    * cancel : we animate back to where we were
-                    * end : we animate to the next image
-                    */
-                    function swipeStatus(event, phase, direction, distance, fingers)
-                    {
-                        //If we are moving before swipe, and we are going L or R, then manually drag the images
-                        if( phase=="move" && (direction=="left" || direction=="right") )
-                        {
-                            var duration=0;
+        $ct.imagesLoaded(function(){
+            if($win.width() < 717){ 
+              // initialize Isotope
+                mobileIso($ct);
+            }
+            else{
+                desktopIso($ct);
+            }
+        
+            $this = $(this);
+            $win.smartresize(function(){
 
-                            if (direction == "left")
-                                scrollImages((IMG_WIDTH * currentImg) + distance, duration);
+              if($win.width() < 717){
+                mobileIso($this);
+              }
+              else{
+                desktopIso($this);
+              }
+            });
+            $('.work-collage .elem').addClass('darken');
+        });
 
-                            else if (direction == "right")
-                                scrollImages((IMG_WIDTH * currentImg) - distance, duration);
-                        }
+        $(window).load(function(){
+            if($win.width() < 717){ 
+              // initialize Isotope
+                mobileIso($ct);
+            }
+            else{
+                desktopIso($ct);
+            }
+        })
 
-                        //Else, cancel means snap back to the begining
-                        else if ( phase == "cancel")
-                        {
-                            scrollImages(IMG_WIDTH * currentImg, speed);
-                        }
 
-                        //Else end means the swipe was completed, so move to the next image
-                        else if ( phase =="end" )
-                        {
-                            if (direction == "right")
-                                previousImage()
-                            else if (direction == "left")
-                                nextImage()
-                        }
-                    }
+        function desktopIso($ct){
+            $ct.isotope({
+                itemSelector: '.elem',
+                layoutMode: "perfectMasonry",
+                masonry: {
+                   isFitWidth: true
+                }
+            });
+        }
+        function mobileIso($ct){
+            $ct.isotope({
+              // update columnWidth to a percentage of container width
+              itemSelector: '.elem',
+              layoutMode: "perfectMasonry",
+              masonry: { 
+                columnWidth: $ct.width() / 2,
+                isFitWidth: true
+              }
+            });
+        }
 
-                    function previousImage()
-                    {
-                        currentImg = Math.max(currentImg-1, 0);
-                        scrollImages( IMG_WIDTH * currentImg, speed);
-                    }
 
-                    function nextImage()
-                    {
-                        currentImg = Math.min(currentImg+1, maxImages-1);
-                        scrollImages( IMG_WIDTH * currentImg, speed);
-                    }
+        //Original desktop function
+        // $ct.imagesLoaded(function(){
+        //  $ct.isotope({
+        //      itemSelector: '.elem',
+        //      layoutMode: "perfectMasonry",
+        //      masonry: {
+        //         isFitWidth: true,
+        //         transitionDuration: 400
+        //      }
+        //  });
+        //  //This adds the dark bg to all the links, needed to make img's dark.
+        //  //Not added in the markup as it flickers while images are still loading.
+        //  $('.work-collage .elem').addClass('darken');
+        // });
+        
 
-                    /**
-                     * Manually update the position of the imgs on drag
-                     */
-                    function scrollImages(distance, duration)
-                    {
-                        imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+        
 
-                        //inverse the number we set in the css
-                        var value = (distance<0 ? "" : "-") + Math.abs(distance).toString();
+        //========= end of isotope ========
 
-                        imgs.css("-webkit-transform", "translate3d("+value +"px,0px,0px)");
-                    }
-                });
+        $("img.lazy").each(function(){
+            $(this).attr('src', $(this).data('original'));
+        });
         </script>
     </body>
 </html>

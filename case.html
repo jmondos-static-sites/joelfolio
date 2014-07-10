@@ -291,22 +291,22 @@
 
         
         <!-- remove commondev for prod -->
-        <!--<script src="js/commondev.js"></script> -->
+        <!--<script src="/js/commondev.js"></script> -->
 
-        <!-- frameworks --><!-- 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.touchswipe.min.js"></script>
-        <script src="js/jquery.event.drag.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/lightbox.min.js"></script>
- -->
-        <!-- site code --><!-- 
-        <script src="js/util.js"></script>
-        <script src="js/folio.js"></script>
-        <script src="js/responsive-swipe.js"></script>
-        <script src="js/progress-bar.js"></script>
-        <script src="js/app/banner.js"></script>
- -->
+        <!-- frameworks --><!--
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/jquery.touchswipe.min.js"></script>
+        <script src="js/lib/jquery.event.drag.min.js"></script>
+        <script src="js/lib/modernizr.custom.js"></script>
+        <script src="js/lib/lightbox.min.js"></script>-->
+
+        <!-- site code --><!--
+        <script src="js/app/app-util.js"></script>
+        <script src="js/app/folio.js"></script>
+        <script src="js/app/responsive-swipe.js"></script>
+        <script src="js/app/progress-bar.js"></script>
+        <script src="js/app/banner.js"></script>-->
+
         <script src="js/app.js"></script>
         
 
@@ -331,7 +331,7 @@
 
             window.swipe = create(Swipe, {
                 imgs: $swipe_slides,
-                mobile: UTIL.mobileFlag,
+                // mobile: true,
                 onSwipeLeft: function(){
                     banner.prev();
                     progress.prev();

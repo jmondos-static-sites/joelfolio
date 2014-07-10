@@ -2,6 +2,8 @@
 //@author: Grant Kiely
 //@date started: 6/18/14
 
+// $icons : sprite-map("../img/icon/*.png")
+
 html, body
 	+media("(max-width: 220px)")
 		font-size: 80%
@@ -905,3 +907,61 @@ $imgs: sweetarts lasagna london zermatt
 	span
 		font-weight: 100
 
+
+
+
+
+#test
+	.img-small, .img-landscape, .img-large
+		background: url(../img/collage/collage-sprite.jpg) no-repeat
+		height: 0
+
+	.img-small
+		background-size: 401.9%
+		//max-width: 350px
+		width: 350px
+		padding-top: 25%
+		+media("mw", 716)
+			background-attachment: fixed
+			width: 49.999%
+			padding-top: 25%
+			background-size: 200%
+		+media("mw", 1416)
+			padding-top: 33.333333%
+		+media("mw", 1066)
+			padding-top: 50%
+
+	.threshold
+		background-position: 0 0
+
+	.img-landscape
+		background-position: 50% 0
+		background-size: 200%
+		// max-width: 700px
+		width: 700px
+		padding-top: 25%
+		+media("mw", 716)
+			// background-attachment: fixed
+			width: 100%
+		+media("mw", 1416)
+			padding-top: 33.333333%
+		+media("mw", 1066)
+			padding-top: 50%
+
+	.img-large
+		background-position: 50% 25%
+		background-size: 200%
+		// max-width: 700px
+		width: 700px
+		max-width: 700px
+		padding-top: 50%
+		+media("mw", 716)
+			width: 100%
+		+media("mw", 1416)
+			padding-top: 66.66666666%
+		+media("mw", 1066)
+			padding-top: 100%
+
+	.work-collage
+		position: relative
+		-webkit-backface-visibility: hidden

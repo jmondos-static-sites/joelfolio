@@ -60,7 +60,8 @@
 	+media($medDevice)
 		font-size: rem(20)
 		line-height: 1.2em
-		+w(179)
+		// +w(179)
+		width: 80%
 		+lrma
 
 .title-content
@@ -136,6 +137,7 @@
 //before: text, after: overlay, .location-pin: svg container
 
 .frame-map
+	
 	background: url(../img/frame-map.jpg) no-repeat center
 	background-size: 100%
 	//Flexy // width: pc(752, $dw) // height: 0 // padding-top: pc(552, 752)
@@ -151,15 +153,18 @@
 		font-size: 60%
 	+media("mw", 594 )
 		font-size: 40%
-	+media($smlDevice)
-		width: 80%
-		.map-img:before, .map-img:after, [data-svg]
-			display: none
-	//If device is under 300, they just get the frame
-	+media("mw", 300 )
-		width: 80%
-		.map-img:before, .map-img:after, [data-svg]
-			display: none
+	+media("mw", 440)
+		display: none
+	// +media($smlDevice)
+	// 	width: 80%
+	// 	.map-img:before, .map-img:after, [data-svg]
+	// 		display: none
+	// //If device is under 300, they just get the frame
+	// +media("mw", 300 )
+	// 	width: 80%
+	// 	.map-img:before, .map-img:after, [data-svg]
+	// 		display: none
+
 
 
 
@@ -269,6 +274,34 @@
 	top: pem(0)
 	bottom: pem(55)
 	margin: auto
-	
+
+// mobile version
+$slides:  portugal france hawaii scotland morocco
+
+.swipe-wrap
+	display: none
+	overflow-x: hidden
+	width: 100%
+	height: pem(440)
+	margin-top: pem(60)
+	+media("mw", 440)
+		display: block
+
+.swipe-travel
+	height: 100%
+	width: 110 * length($slides) * 1%
+
+.swipe-travel .swipe-slide
+	height: 100%
+	background-size: 100%
+	position: relative
+	float: left
+	background-repeat: no-repeat
+	width:  (91) / length($slides) *1%
+
+	@each $i in $slides
+		&[data-slide="#{$i}"]
+			background-image: url(../img/about/#{$i}.jpg)
+
 	
 //====== End of frame-map =======
