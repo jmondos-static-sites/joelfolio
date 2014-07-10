@@ -12,30 +12,20 @@ Build requirements
 Installation
 
 ------------
-**SASS:**
+**SASS & JS:**
 
 * If you are using windows, install ruby.
 * gem install compass
 
-```sh
-cd /sass
-compass watch
-```
-Sass files will be outputted as css in in css dir.
 
-----------
-
-**JS:**
-
-* Concat and uglify js
+* Watch files with gulp
 ```sh
 
 cd joelfolio
 npm install -g gulp
 npm install gulp-concat
 npm install gulp-uglify
-cd /js
-gulp concat
+gulp
 ```
 
 Useful examples & resources: 
