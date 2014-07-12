@@ -439,11 +439,22 @@
 				preload(["img/about.jpg", "img/case/lean-cuisine-feature.jpg", "img/case/logos-feature.jpg", "img/case/lean-pockets-feature.jpg", "img/case/hwmfty-feature.jpg", "img/case/lean-cuisine-design.jpg" ]);
 			}, 1500);
 		})
-
 		})();
 
 
-
+		//IE specific for .lb-close
+		if(window.ActiveXObject !== undefined){
+			var css = '.lb-closeContainer { display: block } .custom-close{display:none}',
+			    head = document.head || document.getElementsByTagName('head')[0],
+			    style = document.createElement('style');
+			style.type = 'text/css';
+			if (style.styleSheet){
+			  style.styleSheet.cssText = css;
+			} else {
+			  style.appendChild(document.createTextNode(css));
+			}
+			head.appendChild(style);
+		}
 		</script>
 
 	</body>
