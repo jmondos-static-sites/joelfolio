@@ -898,7 +898,7 @@ $imgs: sweetarts lasagna london zermatt
 	background: none !important
 
 .lb-closeContainer
-	//display: none
+	display: none
 
 .lb-caption
 	margin-left: 3.5%
@@ -911,10 +911,24 @@ $imgs: sweetarts lasagna london zermatt
 	span
 		font-weight: 100
 
+.custom-close
+	position: absolute
+	top: pem(-41)
+	top: -6.2%
+	right: pem(7)
+	width: 4%
+	max-height: 2.2em
+
+.custom-close svg
+	width: 100%
 
 
 
 
+
+
+
+//testing the collage with one sprite
 #test
 	.img-small, .img-landscape, .img-large
 		background: url(../img/collage/collage-sprite.jpg) no-repeat
