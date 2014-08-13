@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="css/application.css" />
 		<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
 		<script src="js/svg.js"></script>
-    <!--<script src="js/vmin.polyfill.js"></script>-->
     <noscript>
     	<style>
     		.intro-text{
@@ -21,19 +20,17 @@
     		}
     	</style>
     </noscript>
-
 	</head>
 	<body>
 		<div class="wrapper">
 			<!-- main photo banner -->
-			<header class="banner sweetarts">
+			<header class="banner zermatt">
 				<div class="banner-black-filter"></div>
 				<a href="index.html" class="logo-joel">
 					<img src="img/icon/logo.png" alt="Campaign photo">
 				</a>
 
 				<!-- side nav bar -->
-			   
 				<nav class="nav-overlay closed hide">
 					<div class="nav-close" data-svg="nav-close"></div>
 					<ul class="nav-links">
@@ -46,10 +43,18 @@
 						<li class="nav-cv nav-white"><a href="#">CV</a></li>
 					</ul>
 				</nav>
-
+				
+				<!--
 				<i class="hamburger-icon top-of-page">
 					<i class="meat"></i>
 				</i>
+				-->
+
+				<div class="hamburger-icon">
+			  	<span class="lines"></span>
+				</div>
+
+
 
 				<!-- content and banner image slides-->
 				<div class="intro-text">
@@ -64,7 +69,13 @@
 
 				<div class="swipe-ct">
 					<!-- anything in these slides will slide :) -->
+					<!--
 					<div data-slide="sweetarts" class="swipe-slide active">
+						<div class="bg-image"></div>
+					</div>
+					-->
+
+					<div data-slide="zermatt" class="swipe-slide">
 						<div class="bg-image"></div>
 					</div>
 					
@@ -76,18 +87,17 @@
 						<div class="bg-image"></div>
 					</div>
 
-					<div data-slide="zermatt" class="swipe-slide">
-						<div class="bg-image"></div>
-					</div>
+					
 				</div><!-- swipe-ct -->
 
-
+				<!--
 				<div class="nav-widget">
 					<i class="widget-icon" data-svg="book-icon"></i>
 					<div data-slide="sweetarts" class="bg-grad active"></div>
 					<button class="widget-btn next"></button>
 					<button class="widget-btn prev"></button>
 				</div>
+				-->
 
 				<a href="#work" class="down-arrow-white smooth-scroll" data-scroll></a>
 			</header>

@@ -36,60 +36,11 @@ html, body
 		left: pc(50, $tw)
 	+media($smlDevice)
 		display: none
-	
 
+//	
+// Hamburger nav icon move to bottom
+// 
 
-
-///// Hamburger nav icon /////
-.hamburger-icon
-	$c: #fff //colour
-	display: block
-	+wh(45, 45)
-	position: fixed
-	top: pem(58)
-	right: pc(170, 1400)
-	z-index: 120
-	cursor: pointer
-	.meat, .meat:before, .meat:after
-		+wh(29, 5)
-		background: $c
-		border-radius: 20px
-	.meat:before, .meat:after
-		content: ""
-		position: absolute
-	.meat
-		display: block
-		position: absolute
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		margin: auto
-		&:before
-			top: pem(-9)
-		&:after
-			top: pem(9)
-	+media($tablet)
-		top: rem(42)
-		right: pc(50, $tw)
-	+media($smlDevice)
-		top: pem(6)
-		right: pem(5)
-		+wh(69,66)
-		background: #201C1D
-		border-radius: pem(20)
-	+media("(min-width: 321px)")
-		&.dark
-			.meat, .meat:before, .meat:after
-				background: #242424
-	+media("(max-width: 220px)")
-		font-size: 100%
-		+wh(55, 55)
-		.meat, .meat:before, .meat:after
-			+wh(24, 3)
-
-
-//// End of hamburger ////
 .nav-overlay
 	position: fixed
 	height: 100%
@@ -126,6 +77,7 @@ html, body
 
 
 .nav-close
+	visibility: hidden
 	// background: url('data:image/svg+xml;utf8, <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="35.983px" height="35.984px" viewBox="0 0 35.983 35.984" enable-background="new 0 0 35.983 35.984" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M1.251,35.984L0.568,35.33L34.733,0l0.682,0.654L1.251,35.984z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M0,1.249l0.654-0.683l35.33,34.17l-0.653,0.683L0,1.249z"/></svg>') no-repeat center
 	+wh(36)
 	background-size: 100%
@@ -985,3 +937,119 @@ $imgs: sweetarts lasagna london zermatt
 	.work-collage
 		position: relative
 		-webkit-backface-visibility: hidden
+
+
+
+
+
+///// Hamburger nav icon /////
+
+//// old code
+.hamburger-icon
+	$c: #fff //colour
+	display: block
+	+wh(45, 45)
+	position: fixed
+	top: pem(58)
+	right: pc(170, 1400)
+	z-index: 120
+	cursor: pointer
+	.meat, .meat:before, .meat:after
+		+wh(29, 5)
+		background: $c
+		border-radius: 20px
+	.meat:before, .meat:after
+		content: ""
+		position: absolute
+	.meat
+		display: block
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		margin: auto
+		&:before
+			top: pem(-9)
+		&:after
+			top: pem(9)
+	+media($tablet)
+		top: rem(42)
+		right: pc(50, $tw)
+	+media($smlDevice)
+		top: pem(6)
+		right: pem(5)
+		+wh(69,66)
+		background: #201C1D
+		border-radius: pem(20)
+	+media("(min-width: 321px)")
+		&.dark
+			.meat, .meat:before, .meat:after
+				background: #242424
+	+media("(max-width: 220px)")
+		font-size: 100%
+		+wh(55, 55)
+		.meat, .meat:before, .meat:after
+			+wh(24, 3)
+
+
+
+// new code, uses transition to x
+$bh: 3.8em
+$bw: $bh / 1.95
+$transition: 0.3s
+$navicon-size : 10.5em
+$color: #fff
+
+=line
+	display: block
+	width: $bw
+	height: pem(5)
+	background: $color
+	border-radius: pem(10)
+	transition: $transition
+	position: absolute
+	top: pem(10)
+
+.lines
+	//create middle line
+	+line
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	margin: auto
+
+	//create the upper and lower lines as pseudo-elements of the middle line
+	&:before, &:after
+		+line
+		position: absolute
+		left: 0
+		content: ''
+		transform-origin: $bh / 14 center
+	&:before
+		top: $bh / 6.5
+	&:after
+		top: -$bh / 6.5
+
+
+.hamburger-icon.close .lines
+	//hide the middle line
+	background: transparent
+	//overlay the lines by setting both their top values to 0
+	&:before, &:after
+		transform-origin: 50% 50%
+		top: 0
+		width: $bw
+	// rotate the lines to form the x shape
+	&:before
+		transform: rotate3d(0, 0, 1, 45deg)
+	&:after
+		transform: rotate3d(0, 0, 1, -45deg)
+
+.hamburger-icon.dark 
+	.lines, .lines:after, .lines:before
+		background: #242424
+
+//// End of hamburger ////

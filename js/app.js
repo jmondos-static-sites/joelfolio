@@ -1121,16 +1121,20 @@ var $w = $(window),
 		$banner = $('.banner');
 
 var ham = document.getElementsByClassName('hamburger-icon')[0];
-$document.scroll(function(){
+$document.scroll(updateHamburgerColour);
+
+function updateHamburgerColour(){
 	if ($document.scrollTop() >= $banner.height() - 76) {
-		if(!ham.classList.contains('dark'))
+		if(!ham.classList.contains('dark') && $nav_overlay.hasClass('closed')){
 			ham.classList.add('dark')
+		}
 	}
 	else{
 		if(ham.classList.contains('dark'))
 			ham.classList.remove('dark');
 	}
-});
+}
+
 //=== End of hamburger scroller ===
 
 if (!UTIL.isMobile) {
@@ -1185,16 +1189,28 @@ function updateHamburger(){
 	}
 }
 
+
+
 //Handlers for nav
-$('.hamburger-icon').click(function(){
+var $ham = $(ham);
+$ham.mouseenter(function(){
 	$nav_overlay.toggleClass(_closed)
 	.promise()
-	.done(updateHamburger);
+	.done(function(){
+		updateHamburger();
+		UTIL.timer(function(){
+			$ham.toggleClass('close');
+		}, 80);
+	});
 });
 
+
+
+/*
 $('.nav-close').click(function(){
 	$nav_overlay.addClass(_closed);
 });
+*/
 
 if ($(window).width() <= 320) {
 	$('.hamburger-icon').drag('start', function(ev, dd) {
