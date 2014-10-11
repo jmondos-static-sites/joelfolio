@@ -9,7 +9,9 @@
 		<link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
 		<link rel="stylesheet" href="css/application.css" />
 		<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
-		<script src="js/svg.js"></script>
+		<script src="//use.typekit.net/dvr0hav.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		<script async src="js/svg.js"></script>
     <noscript>
     	<style>
     		.intro-text{
@@ -18,11 +20,15 @@
     		.nav-widget{
     			opacity: 1;
     		}
+    		.wrapper{
+    			background-color: #171717
+    		}
     	</style>
     </noscript>
+    <script src="js/app/pace.js"></script>
 	</head>
-	<body>
-		<div class="wrapper">
+	<body style="background-color: #171717">
+		<div class="wrapper op0">
 			<!-- main photo banner -->
 			<header class="banner zermatt">
 				<div class="banner-black-filter"></div>
@@ -75,7 +81,7 @@
 					</div>
 					-->
 
-					<div data-slide="zermatt" class="swipe-slide">
+					<div data-slide="zermatt" class="swipe-slide active">
 						<div class="bg-image"></div>
 					</div>
 					
@@ -90,17 +96,29 @@
 					
 				</div><!-- swipe-ct -->
 
-				<!--
-				<div class="nav-widget">
+
+				<div class="nav-widget mod-no-btn">
 					<i class="widget-icon" data-svg="book-icon"></i>
-					<div data-slide="sweetarts" class="bg-grad active"></div>
+					<div data-slide="zermatt" class="bg-grad active"></div>
 					<button class="widget-btn next"></button>
 					<button class="widget-btn prev"></button>
 				</div>
-				-->
 
 				<a href="#work" class="down-arrow-white smooth-scroll" data-scroll></a>
+				
+				<!-- left/right nav arrows -->
+				<div class="arrows mod-left">
+					<div class="nav-arrow mod-left"></div>
+				</div>
+				<div class="arrows mod-right">
+					<div href="#work" class="nav-arrow mod-right"></div>
+				</div>
+
 			</header>
+
+		
+				
+			
 		
 			<!-- content section -->
 			<div id="work" class="section-work">
@@ -191,31 +209,44 @@
 		
 
 		<!-- remove commondev for prod -->
-		<script src="js/commondev.js"></script>
+		<script src="/js/commondev.js"></script>
 		
-		<!-- frameworks --><!-- 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.touchswipe.min.js"></script>
-		<script src="js/jquery.event.drag.min.js"></script>
-		<script src='js/smooth-scroll.min.js'></script>
-		<script src="js/modernizr.custom.js"></script>
-		<script src="js/imagesLoaded.min.js"></script>
-		<script src="js/isotope.min.1.5.25.js"></script>
-		<script src="js/jquery.isotope.perfectmasonry.js"></script>
+		<!-- frameworks -->
+		<script src="js/lib/jquery.min.js"></script>
+		<script src="js/lib/jquery.touchswipe.min.js"></script>
+		<script src="js/lib/jquery.event.drag.min.js"></script>
+		<script src='js/lib/smooth-scroll.min.js'></script>
+		<script src="js/lib/modernizr.custom.js"></script>
+		<script src="js/lib/imagesLoaded.min.js"></script>
+		<script src="js/lib/isotope.min.1.5.25.js"></script>
+		<script src="js/lib/jquery.isotope.perfectmasonry.js"></script>
 		<script async src="js/lightbox.min.js"></script>
-		 -->
-		<!-- site code --><!-- 
-		<script src="js/polyfills.js"></script>
-		<script src="js/util.js"></script>
-		<script src="js/responsive-swipe.js"></script>
-		<script src="js/folio.js"></script>
+		 
+		<!-- site code -->
+
+		<script src="js/app/polyfills.js"></script>
+		<script src="js/app/util.js"></script>
+		<script src="js/app/responsive-swipe.js"></script>
+		<script src="js/app/folio.js"></script>
 		<script src="js/app/banner.js"></script>
- 		-->
+ 		<!--
  		<script src="js/app.js"></script>
-			
+			-->
 		<script>
+		Pace.on('done', function(){
+
+			setTimeout(function(){
+				var $pace = $('.pace');
+				$('.wrapper').removeClass('op0');
+				$pace.addClass('op0');
+
+				setTimeout(function(){
+					$pace.remove();
+				}, 1000)
+			}, 1000)
+		});
+
 		(function(){
-		
 		smoothScroll.init({
 			speed: 700,
 			easing: 'easeInOutCubic'
@@ -249,47 +280,48 @@
 		})
 		.removePointer($('.intro-text'));
 
-
-
 		// var progress = create(ProgressBar, {
 		// 	$ct: $('.progress-ct'),
 		// 	$imgs: $swipe_slides
 		// });
 		
 		function _nextElem(){
-			//This is all for the nav widget ehh
+			//This is all for the nav widget ehhhh
 			var $curElem = $swipe_slides.filter('.active');
 			var $nextElem = $curElem.next();
 			var nextData = $nextElem.data('slide');
 
 			var $bg, $next;
 
-			if($nextElem.length){
-			    //update colour scheme
-			    $banner.addClass( nextData )
-			           .removeClass($curElem.data('slide'));
-			    
-			    //change active slide
-			    $curElem.removeClass('active');
-			    $nextElem.addClass('active');
-
-
-
-			    //You can can't transition bg-gradients in css, unless you use opacity
-			    //This is the result
-			    $bg = $nav_widget.children('.bg-grad');
-			    $bg.not('.active').remove();
-
-			    $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
-			    $bg.after($next);
-
-			    //$bg.addClass('op0');
-			    $bg.removeClass('active');
-			    $next.addClass('active')
-			    UTIL.timer(function(){
-			        $next.removeClass('op0');
-			    });
+			if(!$nextElem.length){
+				$nextElem = $swipe_slides.eq(0);
+				nextData = $nextElem.data('slide');
 			}
+
+	    //update colour scheme
+	    $banner.addClass( nextData )
+	           .removeClass($curElem.data('slide'));
+	    
+	    //change active slide
+	    $curElem.removeClass('active');
+	    $nextElem.addClass('active');
+
+
+
+	    //You can can't transition bg-gradients in css, unless you use opacity
+	    //This is the result
+	    $bg = $nav_widget.children('.bg-grad');
+	    $bg.not('.active').remove();
+
+	    $next = $('<div class="bg-grad op0" data-slide="'+ nextData + '"></div>');
+	    $bg.after($next);
+
+	    //$bg.addClass('op0');
+	    $bg.removeClass('active');
+	    $next.addClass('active')
+	    UTIL.timer(function(){
+	        $next.removeClass('op0');
+	    });
 		}
 
 		function _prevElem(){
@@ -327,16 +359,26 @@
 
 		//Attach handlers
 		//_nextElem and _prevElem are manky functions, change to use banner module
-		$('.nav-widget .next').click(function(){
-		    swipe.next();
-		    _nextElem()
-		});
+		// $('.nav-widget .next').click(function(){
+		//     swipe.next();
+		//     _nextElem()
+		// });
 
-		$('.nav-widget .prev').click(function(){
-		    swipe.prev();
-		    _prevElem();
-		});
-		
+		// $('.nav-widget .prev').click(function(){
+		//     swipe.prev();
+		//     _prevElem();
+		// });
+
+		$('.arrows.mod-right').click(function(){
+			_nextElem()
+			swipe.next();
+	    
+		})
+		$('.arrows.mod-left').click(function(){
+			swipe.prev();
+	    _prevElem()
+		})
+
 
 		$("img.lazy").each(function(){
 			$(this).attr('src', $(this).data('original'));
@@ -428,23 +470,23 @@
 				img.src = arr;
 			}
 		}
-		function showIntroText(){
+
+		// commented out as using pace.js now
+		//function showIntroText(){
 			$('.intro-text').addClass('show');
 			$('.nav-widget').addClass('show');
-		}
+		//}
 
-		var img = new Image();
-		img.src = 'img/sweetarts.jpg';
-		img.onload = function(){
-			showIntroText();
-		};
-		img.onerror = function(){
-			showIntroText();
-		};
+		// var img = new Image();
+		// img.src = 'img/zermatt.jpg';
+		// img.onload = function(){
+		// 	showIntroText();
+		// };
+		// img.onerror = function(){
+		// 	showIntroText();
+		// };
 
 		$(window).load(function(){
-			
-
 			UTIL.timer(function(){
 				preload(["img/about.jpg", "img/case/lean-cuisine-feature.jpg", "img/case/logos-feature.jpg", "img/case/lean-pockets-feature.jpg", "img/case/hwmfty-feature.jpg", "img/case/lean-cuisine-design.jpg" ]);
 			}, 1500);

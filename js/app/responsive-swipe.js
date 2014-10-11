@@ -50,7 +50,8 @@ var Swipe = (function(){
             }
         },
         prev: function prev(){
-            currentImg = Math.max(currentImg-1, 0);
+            // currentImg = Math.max(currentImg-1, 0);
+            //--currentImg;
             if(pcval){
                 scrollImages(currentImg, speed);
             }
@@ -58,17 +59,24 @@ var Swipe = (function(){
                 //pixel based
                 scrollImages( IMG_WIDTH * currentImg, speed);
             }
+             UTIL.timer(function(){
+               this.shiftImages(0); 
+            }.bind(this), speed+100);
         },
         next: function next(){
-            currentImg = Math.min(currentImg+1, maxImages-1);
+            // non-infinite loop
+            //currentImg = Math.min(currentImg+1, maxImages-1);
             
             if(pcval){
-                scrollImages(currentImg, speed);
+                scrollImages(1, speed);
             }
             else{
                 //pixel based
                 scrollImages( IMG_WIDTH * currentImg, speed);
             }
+            UTIL.timer(function(){
+               this.shiftImages(1); 
+            }.bind(this), speed+100);
         },
         removePointer: function($elem){
             $elem.css('pointer-events', 'none');
@@ -85,7 +93,23 @@ var Swipe = (function(){
             }
             
         },
-        scrollImages: scrollImages
+        scrollImages: scrollImages,
+        shiftImages: function(val){
+            if(val){
+                // var t = this.imgs.index(this.imgs.filter('.active')) +1;
+                this.imgs.eq(0).appendTo(this.imgs.parent());
+                this.imgs.filter('.active').prev().appendTo(this.imgs.parent());
+                scrollImages(0, 0);
+
+            }
+            else if(val === 0){
+                var i = this.imgs.index(this.imgs.filter('.active'));
+                if(i === 0){
+                    this.imgs.eq(this.imgs.length-1).prependTo(this.imgs.parent());
+                }
+                //this.imgs.filter('.active').prev().appendTo(this.imgs.parent());
+            }
+        }
     }
 
     /**

@@ -67,16 +67,20 @@
 	width: rem($w)
 
 //width perc, defaults to mobile
-=wp($w, $w2: 320)
+=wp($w, $w2: 100)
 	width: pc($w, $w2)
 
 =wh($w, $h:$w)
 	width: rem($w)
 	height: rem($h)
 
-=whp($w, $h: $w, $p: 320)
+=whp($w, $h: $w, $p: 100)
 	+wp($w, $p)
 	+h($h)
+
+=whpp($w, $h: $w, $p: $w)
+	+wp($w, $p)
+	height: pc($h)
 
 =wh100
 	width: 100%
@@ -87,7 +91,7 @@
 	height: pem($h, $base)
 
 =h($h)
-	height: rem($h)
+	height: em($h)
 
 =br($val)
 	border-radius: $val
@@ -220,3 +224,11 @@
 	transform: scaleX(-1)
 	-ms-filter: fliph /*IE*/
 	filter: fliph /*IE*/
+
+=rotate($val)
+	-webkit-transform: rotate($val + deg)
+	-moz-transform: rotate($val + deg)
+	-o-transform: rotate($val + deg)
+	-ms-transform: rotate($val + deg)
+	transform: rotate($val + deg)
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$val/9) /*for IE*/

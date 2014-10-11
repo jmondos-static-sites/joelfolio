@@ -11,6 +11,8 @@ html, body
 .wrapper
 	//padding-bottom: $footer //must be same height as the footer
 	height: 100%
+	-webkit-transition: 0.7s
+	transition: opacity 0.7s
 
 
 
@@ -45,7 +47,7 @@ html, body
 	position: fixed
 	height: 100%
 	width: 100%
-	z-index: 110
+	z-index: 900
 	background: rgba(3,3,3,0.95)
 	padding-top: pem(60)
 	text-align: center
@@ -188,20 +190,22 @@ $fb-w: 60
 		font-size: 70%
 
 
-
-		
-
 .title-white
-	font-family: Gentona, Arial
-	font-size: pem(110)
+	//font-family: Gentona, Arial
+	font-family: "brandon-grotesque", Arial
+	text-transform: uppercase
+	font-weight: 900
+	//font-size: pem(110)
+	font-size: pem(80)
 	color: #fff
 
 .intro__text
 	font-family: Bariol, Arial
+	font-family: $brg
+	font-weight: 100
 	font-size: pem(22)
 	line-height: pem(23)
 	color: #fff
-	font-weight: normal
 	+media($medDevice)
 		font-size: pem(20,12.8)
 		width: 90%
@@ -290,6 +294,55 @@ $fb-w: 60
 		position: absolute
 		text-transform: capitalize
 		padding-left: pem(50, 15)
+
+.nav-widget.mod-no-btn
+	.widget-btn
+		display: none
+	.bg-grad:after
+		+wp(100)
+		+tac
+		padding-left: 0
+
+
+.arrows
+	height: 100%
+	cursor: pointer
+	+wp(25)
+	z-index: 10
+	&:hover .nav-arrow
+		opacity: 1
+		+media("screen and (min-width: 980px)")
+			-webkit-animation: updown 0.9s linear infinite
+			animation: updown 0.9s linear infinite
+	&:hover
+		//background: rgba(255, 255, 255, 0.09)
+		//background: rgba(0,0,0, 0.2)
+	&.mod-left
+		position: relative
+	&.mod-right
+		position: absolute
+		top: 0
+		right: 0
+
+.nav-arrow
+	background: url(../img/icon/down-arrow.png) no-repeat center
+	background-size: pem(31) pem(12)
+	position: absolute
+	+trblma
+	+wh(46, 40)
+	cursor: pointer
+	opacity: 0
+	transition: opacity 0.5s
+	&.mod-right
+		+rotate(-90)
+		left: 30%
+	&.mod-left
+		+rotate(90)
+		right: 30%
+	
+
+	
+
 
 //themes
 
@@ -413,7 +466,7 @@ $widget-w: pem(40)
 	cursor: pointer
 	// -webkit-transition: background 0.3s
 	// transition: background 0.3s
-	+media("screen and (min-width: 1025px)")
+	+media("screen and (min-width: 980px)")
 		&:hover
 			-webkit-animation: updown 0.9s linear infinite
 			animation: updown 0.9s linear infinite
@@ -434,6 +487,7 @@ $widget-w: pem(40)
 	padding-top: pem(120)
 	padding-bottom: pem(70)
 	position: relative
+	background: #fff
 	+media($smlDevice)
 		padding-top: rem(50)
 		font-size: 90%
@@ -441,12 +495,17 @@ $widget-w: pem(40)
 .title-dark
 	font-family: Gentona, Arial
 	font-size: pem(80)
+	font-family: $brg
+	+ttu
+	font-size: pem(68)
 	margin-bottom: pem(5)
 	color: #242424
 
 .sub-text
 	font-family: Bariol
 	font-size: pem(24)
+	font-family: $brg
+	font-weight: 100
 	color: #424242
 	margin-bottom: pem(25)
 
@@ -555,6 +614,7 @@ $bfw: 187
 	margin: 0 auto
 	position: relative
 	padding-bottom: rem(316)
+	background: #fff
 	+media($medDevice)
 		padding-bottom: rem(100)
 	+media($smlDevice)
@@ -670,7 +730,7 @@ $slides: sweetarts lasagna london zermatt
 
 .swipe-ct .swipe-slide
 	//width: 100vw
-	width:  91 / length($slides) *1%
+	width:  92 / length($slides) *1%
 	&:after
 		content: ""
 		position: absolute
@@ -687,6 +747,7 @@ $slides: sweetarts lasagna london zermatt
 	overflow-x: hidden
 	width: 100%
 	position: relative
+	
 
 .banner, .swipe-ct, .swipe-ct .swipe-slide
 	+media($gtMedDevice)
@@ -952,7 +1013,7 @@ $imgs: sweetarts lasagna london zermatt
 	position: fixed
 	top: pem(58)
 	right: pc(170, 1400)
-	z-index: 120
+	z-index: 920
 	cursor: pointer
 	.meat, .meat:before, .meat:after
 		+wh(29, 5)
@@ -1053,3 +1114,27 @@ $color: #fff
 		background: #242424
 
 //// End of hamburger ////
+
+
+
+
+//////// page preloader /////////
+.pace 
+	-webkit-pointer-events: none
+	pointer-events: none
+	-webkit-user-select: none
+	-moz-user-select: none
+	user-select: none
+	-webkit-transition: opacity 0.5s
+	transition: opacity 0.5s
+
+.pace .pace-progress 
+	background-color: rgba(0, 0, 0, 0.3)
+	background-color: rgba(255, 255, 255, 0.05)
+	position: fixed
+	z-index: 10
+	top: 0
+	left: 0
+	bottom: 0
+	-webkit-transition: width 1s, opacity 0.5s
+	transition: width 1s, opacity 0.5s
