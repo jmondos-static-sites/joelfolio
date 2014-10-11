@@ -71,6 +71,7 @@ UTIL.timer(function(){
 	$nav_overlay.removeClass('hide');
 }, 600);
 
+
 //check if 3d is supported, if so use it, else fallback to 2d.
 var _closed = Modernizr.csstransforms3d ? "closed" : (function(){
 	$nav_overlay.removeClass('closed').addClass('closed2d'); 
@@ -112,7 +113,6 @@ $ham.mouseenter(function(){
 		}, 80);
 	});
 });
-
 
 
 /*
