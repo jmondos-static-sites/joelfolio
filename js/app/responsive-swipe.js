@@ -50,7 +50,7 @@ var Swipe = (function(){
             }
         },
         prev: function prev(){
-            // currentImg = Math.max(currentImg-1, 0);
+            currentImg = Math.max(currentImg-1, 0);
             //--currentImg;
             if(pcval){
                 scrollImages(currentImg, speed);
@@ -59,24 +59,25 @@ var Swipe = (function(){
                 //pixel based
                 scrollImages( IMG_WIDTH * currentImg, speed);
             }
-             UTIL.timer(function(){
-               this.shiftImages(0); 
-            }.bind(this), speed+100);
+            //  UTIL.timer(function(){
+            //    this.shiftImages(0); 
+            // }.bind(this), speed+100);
         },
         next: function next(){
             // non-infinite loop
-            //currentImg = Math.min(currentImg+1, maxImages-1);
+            currentImg = Math.min(currentImg+1, maxImages-1);
             
             if(pcval){
                 scrollImages(1, speed);
+                scrollImages(currentImg, speed);
             }
             else{
                 //pixel based
                 scrollImages( IMG_WIDTH * currentImg, speed);
             }
-            UTIL.timer(function(){
-               this.shiftImages(1); 
-            }.bind(this), speed+100);
+            // UTIL.timer(function(){
+            //    this.shiftImages(1); 
+            // }.bind(this), speed+100);
         },
         removePointer: function($elem){
             $elem.css('pointer-events', 'none');

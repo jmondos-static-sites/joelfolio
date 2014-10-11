@@ -46,28 +46,12 @@ gulp.task('sass', function(){
 		.pipe(gulp.dest('./css'));
 });
 
-function js(){
-	return gulp.src(path.js)
-	.pipe(concat('app.js'))
-	.pipe(gulp.dest('./js'));
-}
-
-function compass(){
-	return gulp.src(path.sass)
-	.pipe(plumber({ errorHandler: onError }))
-	.pipe(compass({
-		config_file: './sass/config.rb'
-	}))
-	.on('error', gutil.log)
-	.pipe(gulp.dest('./css'));
-}
 
 gulp.task('watch', function(){
 	livereload.listen();
 	gulp.watch(['./*.html', './css/application.css', './js/app/*.js']).on('change', livereload.changed);
 	gulp.watch(path.js, ['js']);
 	gulp.watch(path.sass, ['compass']);
-
 });
 
 gulp.task('fastwatch', function(){
