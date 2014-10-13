@@ -770,6 +770,117 @@ ios6Hideurl(window);
 ;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a){var e=a[d];if(!C(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.8.2",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.csstransforms3d=function(){var a=!!F("perspective");return a&&"webkitPerspective"in g.style&&w("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}",function(b,c){a=b.offsetLeft===9&&b.offsetHeight===3}),a};for(var G in q)y(q,G)&&(v=G.toLowerCase(),e[v]=q[G](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)y(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},z(""),i=k=null,function(a,b){function l(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function m(){var a=s.elements;return typeof a=="string"?a.split(" "):a}function n(a){var b=j[a[h]];return b||(b={},i++,a[h]=i,j[i]=b),b}function o(a,c,d){c||(c=b);if(k)return c.createElement(a);d||(d=n(c));var g;return d.cache[a]?g=d.cache[a].cloneNode():f.test(a)?g=(d.cache[a]=d.createElem(a)).cloneNode():g=d.createElem(a),g.canHaveChildren&&!e.test(a)&&!g.tagUrn?d.frag.appendChild(g):g}function p(a,c){a||(a=b);if(k)return a.createDocumentFragment();c=c||n(a);var d=c.frag.cloneNode(),e=0,f=m(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function q(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?o(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+m().join().replace(/[\w\-]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function r(a){a||(a=b);var c=n(a);return s.shivCSS&&!g&&!c.hasCSS&&(c.hasCSS=!!l(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||q(a,c),a}var c="3.7.0",d=a.html5||{},e=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,f=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,g,h="_html5shiv",i=0,j={},k;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",g="hidden"in a,k=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){g=!0,k=!0}})();var s={elements:d.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:c,shivCSS:d.shivCSS!==!1,supportsUnknownElements:k,shivMethods:d.shivMethods!==!1,type:"default",shivDocument:r,createElement:o,createDocumentFragment:p};a.html5=s,r(b)}(this,b),e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("cssvwunit",function(){var a;return Modernizr.testStyles("#modernizr { width: 50vw; }",function(b,c){var d=parseInt(window.innerWidth/2,10),e=parseInt((window.getComputedStyle?getComputedStyle(b,null):b.currentStyle).width,10);a=e==d}),a});
 /** smooth-scroll v4.8.1, by Chris Ferdinandi | http://github.com/cferdinandi/smooth-scroll | Licensed under MIT: http://gomakethings.com/mit/ */
 !function(e,t){"function"==typeof define&&define.amd?define("smoothScroll",t(e)):"object"==typeof exports?module.smoothScroll=t(e):e.smoothScroll=t(e)}(this,function(e){"use strict";var t={},n=!!document.querySelector&&!!e.addEventListener,o={speed:500,easing:"easeInOutCubic",offset:0,updateURL:!1,callbackBefore:function(){},callbackAfter:function(){}},r=function(e,t){for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e},a=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;a>r;r++)t.call(n,e[r],r,e)},c=function(e,t){var n;return"easeInQuad"===e&&(n=t*t),"easeOutQuad"===e&&(n=t*(2-t)),"easeInOutQuad"===e&&(n=.5>t?2*t*t:-1+(4-2*t)*t),"easeInCubic"===e&&(n=t*t*t),"easeOutCubic"===e&&(n=--t*t*t+1),"easeInOutCubic"===e&&(n=.5>t?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1),"easeInQuart"===e&&(n=t*t*t*t),"easeOutQuart"===e&&(n=1- --t*t*t*t),"easeInOutQuart"===e&&(n=.5>t?8*t*t*t*t:1-8*--t*t*t*t),"easeInQuint"===e&&(n=t*t*t*t*t),"easeOutQuint"===e&&(n=1+--t*t*t*t*t),"easeInOutQuint"===e&&(n=.5>t?16*t*t*t*t*t:1+16*--t*t*t*t*t),n||t},u=function(e,t,n){var o=0;if(e.offsetParent)do o+=e.offsetTop,e=e.offsetParent;while(e);return o=o-t-n,o>=0?o:0},l=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},i=function(e){return e.replace(/^\s+|\s+$/g,"")},f=function(e){var t={};return e&&(e=e.split(";"),e.forEach(function(e){e=i(e),""!==e&&(e=e.split(":"),t[e[0]]=i(e[1]))})),t},s=function(e,t){history.pushState&&(t||"true"===t)&&history.pushState({pos:e.id},"",e)};return t.animateScroll=function(t,n,a,i){var d=r(o,a||{}),p=f(t?t.getAttribute("data-options"):null);d=r(d,p);var h,m,b,g=document.querySelector("[data-scroll-header]"),O=null===g?0:g.offsetHeight+g.offsetTop,v=e.pageYOffset,y=u(document.querySelector(n),O,parseInt(d.offset,10)),I=y-v,S=l(),Q=0;t&&"a"===t.tagName.toLowerCase()&&i&&i.preventDefault(),s(n,d.updateURL);var H=function(o,r,a){var c=e.pageYOffset;(o==r||c==r||e.innerHeight+c>=S)&&(clearInterval(a),d.callbackAfter(t,n))},j=function(){Q+=16,m=Q/parseInt(d.speed,10),m=m>1?1:m,b=v+I*c(d.easing,m),e.scrollTo(0,Math.floor(b)),H(b,y,h)},E=function(){d.callbackBefore(t,n),h=setInterval(j,16)};0===e.pageYOffset&&e.scrollTo(0,0),E()},t.init=function(e){if(n){var c=r(o,e||{}),u=document.querySelectorAll("[data-scroll]");a(u,function(e){e.addEventListener("click",t.animateScroll.bind(null,e,e.hash,c),!1)})}},t});
+window.UTIL = {};
+
+// supercharged create function
+var create = (function(){
+    function addProps(child, o){
+        for(var i in o){
+            child[i] = o[i];
+        }
+    }
+    function checkReq(obj, req){
+        var err = [], typeStr;
+        for(var i in req){
+            if(obj && obj.hasOwnProperty(i)){
+                //also check against type
+                typeVal = typeof req[i];
+                if(typeVal === 'function'){
+                    //see what function returns, if false, throw err
+                    if( !req[i](obj[i]) ) {
+                        throw new Error ('parameter: ['+ i + '] did not meed param requirements');
+                    }
+                }
+                else if(typeVal === 'object' && Object.keys(req[i]).length){
+                    //This currently only allows 1 test & msg, can update for more in future
+                    if( req[i].test && !req[i].test( obj[i] ) ){ 
+                        throw new Error ('parameter: ['+ i + '] ' + req[i].msg( obj[i] )  || 'did not meed param requirements' );
+                    }
+                }
+            }
+            else{
+                err.push(i);
+            }
+        }
+        if(err.length) {
+            throw new Error('create() missing parameter' + (err.length > 1 ? 's' : '') + ': ' + err.join(', ') );
+        }
+    }
+    function getAllProps(parent){
+        var obj={};
+        for(var i in parent){
+            if(typeof parent[i] !== "function" && i !== "req" && i.charAt(0) !== "_"){
+                obj[i] = parent[i];
+            }
+        }
+        return obj;
+    }
+    return function create(parent, obj){
+        var child = Object.create(parent);
+        if(obj) addProps(child, obj);
+        //Check params
+        if(child.req){
+            //If object do normal checkReq
+            if(typeof child.req === "object") checkReq(obj, child.req);
+            //If string get do full check, does not include vars prefixed with _
+            else if(typeof child.req === "string" && child.req.toLowerCase() === "all"){
+                var tempObj = getAllProps(parent);
+                checkReq(obj, tempObj);
+            }
+        }
+        if(typeof child.init === "function") child.init();
+        return child;
+    }
+})();
+
+
+//production safe console.log
+var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
+
+
+
+
+//UTIL methods
+(function(){
+//Detect mobile devices
+//updated: jun 22 2014
+//Check if new regex is being used
+//go here -> http://detectmobilebrowsers.com/
+//then here -> http://jsbeautifier.org/
+//copy what is between if statement
+UTIL.isMobile = (function(){
+    var a = navigator.userAgent || navigator.vendor || window.opera;
+    //also check's ipad
+    if(/(iPhone|iPod|iPad).*AppleWebKit/i.test(navigator.userAgent)) return true;
+    return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4));
+})();
+
+
+UTIL.mobileFlag = /\?mobile/.test(window.location.href);
+
+var timer={};
+UTIL.timer = function timer(func, time){
+    clearTimeout(timer);
+    var name, reg;
+    
+    if(Function.name){
+        name = func.name
+    }
+    else{
+        reg = func.toString().match(/^function\s*([^\s(]+)/);
+        if(reg && reg[1])
+            name = reg[1];
+    }
+    if(name)
+        timer[name] = setTimeout(func, time || 0);
+    else
+        setTimeout(func, time || 0);
+}
+})();
+
+
+
+
 var Banner = (function(){
   
   return{
@@ -1310,348 +1421,231 @@ var ProgressBar = (function(){
 
 
 //This is working but needs to be cleaned up
-//We should not set maxImages or any of inside but have it set similar to progress-bar.js
 
 var Swipe = (function(){
-    var $w = $(window)
-    var IMG_WIDTH = $w.width(),
-    currentImg=0,
-    maxImages=3,
-    speed=500,
-    imgs = [],
-    pcval, testMobile = false;
+		var $w = $(window)
+		var IMG_WIDTH = $w.width(),
+		lastImg =0,
+		currentImg=0,
+		speed=500,
+		imgs = [],
+		imgList,
+		$parent,
+		pcval, testMobile = false;
 
-    //if is mobile: use pixels, assume the viewport size is not going to change.
-    //use % for desktop
-    //Unfortunately % disables the touch swipe motion, look at fixing that
-    //If there is no fix, work out way to account for resize on mobile.
+		//if is mobile: use pixels, assume the viewport size is not going to change.
+		//use % for desktop
+		//Unfortunately % disables the touch swipe motion, look at fixing that
+		//If there is no fix, work out way to account for resize on mobile.
 
-    return {
-        mobile : false,
-        imgs:[],
-        currentImg:0,
-        req:{imgs:[]},
-        onSwipeLeft: function(){},
-        onSwipeRight: function(){},
-        init: function init(){
-            //=== runtime constructors ===//
-            
-            //Shouldn't need these 2
-            imgs = this.imgs;
-            // maxImages = this.maxImgs = this.imgs.length; 
-            maxImages = this.imgs.length;
-
-
-            pcval = !UTIL.isMobile;
-
-            // testing flag to get desktop to behave like mobile
-            // testMobile = true;
-            if(UTIL.mobileFlag || this.mobile){
-                UTIL.isMobile = true
-                pcval = false;
-            }
-
-            if(Modernizr.cssvwunit && UTIL.isMobile){
-            //Init touch swipe
-                imgs.swipe( {
-                    triggerOnTouchEnd : true,
-                    swipeStatus : swipeStatus,
-                    allowPageScroll:"vertical"
-                });
-            }
-        },
-        prev: function prev(){
-            currentImg = Math.max(currentImg-1, 0);
-            //--currentImg;
-            if(pcval){
-                scrollImages(currentImg, speed);
-            }
-            else{
-                //pixel based
-                scrollImages( IMG_WIDTH * currentImg, speed);
-            }
-            //  UTIL.timer(function(){
-            //    this.shiftImages(0); 
-            // }.bind(this), speed+100);
-        },
-        next: function next(){
-            // non-infinite loop
-            currentImg = Math.min(currentImg+1, maxImages-1);
-            
-            if(pcval){
-                scrollImages(1, speed);
-                scrollImages(currentImg, speed);
-            }
-            else{
-                //pixel based
-                scrollImages( IMG_WIDTH * currentImg, speed);
-            }
-            // UTIL.timer(function(){
-            //    this.shiftImages(1); 
-            // }.bind(this), speed+100);
-        },
-        removePointer: function($elem){
-            $elem.css('pointer-events', 'none');
-            return this;
-        },
-        scrollProgress: function(i){
-            currentImg = Math.min(i-1, maxImages-1);
-            if(pcval){
-                scrollImages(i-1, speed);
-            }
-            else{
-                //pixel based
-                scrollImages( IMG_WIDTH * (i-1) , speed);
-            }
-            
-        },
-        scrollImages: scrollImages,
-        shiftImages: function(val){
-            if(val){
-                // var t = this.imgs.index(this.imgs.filter('.active')) +1;
-                this.imgs.eq(0).appendTo(this.imgs.parent());
-                this.imgs.filter('.active').prev().appendTo(this.imgs.parent());
-                scrollImages(0, 0);
-
-            }
-            else if(val === 0){
-                var i = this.imgs.index(this.imgs.filter('.active'));
-                if(i === 0){
-                    this.imgs.eq(this.imgs.length-1).prependTo(this.imgs.parent());
-                }
-                //this.imgs.filter('.active').prev().appendTo(this.imgs.parent());
-            }
-        }
-    }
-
-    /**
-    * Catch each phase of the swipe.
-    * move : we drag the div.
-    * cancel : we animate back to where we were
-    * end : we animate to the next image
-    */
-    
-    function swipeStatus(event, phase, direction, distance, fingers)
-    {
-
-        //If we are moving before swipe, and we are going L or R, then manually drag the images
-        if( phase=="move" && (direction=="left" || direction=="right") )
-        {
-            var duration=0;
-            if (direction == "left"){
-                if(pcval){
-                   scrollImages(currentImg, duration); 
-                }
-                else{
-                    //pixel version
-                    scrollImages((IMG_WIDTH * currentImg) + distance, duration);
-                }
-            }
-            else if (direction == "right"){
-                if(pcval){
-                    scrollImages(currentImg, duration);
-                }
-                else{
-                    //pixel version
-                    scrollImages((IMG_WIDTH * currentImg) - distance, duration);
-                }
-
-            }
-        }
-
-        //Else, cancel means snap back to the begining
-        else if ( phase == "cancel")
-        {
-            scrollImages(IMG_WIDTH * currentImg, speed);
-        }
-
-        //Else end means the swipe was completed, so move to the next image
-        else if ( phase =="end" )
-        {
-            if (direction == "right")
-                prevImage()
-            else if (direction == "left")
-                nextImage()
-        }
-    }
-
-    function prevImage()
-    {
-        currentImg = Math.max(currentImg-1, 0);
-        if(pcval){
-            scrollImages(currentImg, speed);
-        }
-        else{
-            //pixel based
-            scrollImages( IMG_WIDTH * currentImg, speed);
-        }
-        swipe.onSwipeLeft();
-    }
-
-    function nextImage()
-    {
-        currentImg = Math.min(currentImg+1, maxImages-1);
-        
-        if(pcval){
-            scrollImages(currentImg, speed);
-        }
-        else{
-            //pixel based
-            scrollImages( IMG_WIDTH * currentImg, speed);
-        }
-        swipe.onSwipeRight();
-    }
+		return {
+				mobile : false,
+				imgs:[],
+				imgList: [], // list of names
+				currentImg:0,
+				$parent: [], // parent of slides
+				req:{imgs:[]},
+				onSwipeLeft: function(){},
+				onSwipeRight: function(){},
+				init: function init(){
+						//=== runtime constructors ===//
+						
+						//Shouldn't need these 2
+						imgs = this.imgs;
+						maxImages = this.imgs.length;
+						
+						imgList = $.map(this.imgs, function(n, i){
+							return $(n).data('slide');
+						});
+						$parent = this.imgs.parent();
 
 
 
-    /**
-     * Manually update the position of the imgs on drag
-     */
+						pcval = !UTIL.isMobile;
 
-     // This guy is the dom workhorse
-     // Be careful modifying this, it is very touchy
-    function scrollImages(distance, duration)
-    {   
+						// testing flag to get desktop to behave like mobile
+						// testMobile = true;
+						if(UTIL.mobileFlag || this.mobile){
+								UTIL.isMobile = true
+								pcval = false;
+						}
 
-        imgs.css("-ms-transition-duration", (duration/1000).toFixed(1) + "s");
-        imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
-        imgs.css("transition-duration", (duration/1000).toFixed(1) + "s");
+						if(Modernizr.cssvwunit && UTIL.isMobile){
+						//Init touch swipe
+								imgs.swipe( {
+										triggerOnTouchEnd : true,
+										swipeStatus : swipeStatus,
+										allowPageScroll:"vertical"
+								});
+						}
+				},
+				prev: function prev(){
+					lastImg = currentImg;
+					// currentImg = Math.max(currentImg-1, 0);
+					currentImg = currentImg > 0 ? currentImg -1 : this.imgs.length -1;
+					if(pcval){
+							scrollImages2('right');
+					}
+					else{
+							//pixel based
+							scrollImages2( IMG_WIDTH * currentImg, speed);
+					}
+				},
+				next: function next(){
+					// non-infinite loop
+					lastImg = currentImg;
+					// currentImg = Math.min(currentImg+1, maxImages-1);
+					currentImg = currentImg < this.imgs.length - 1 ? currentImg+1 : 0;
+					if(pcval){
+							scrollImages2('left');
+					}
+					else{
+							//pixel based
+							scrollImages2( IMG_WIDTH * currentImg, speed);
+					}
+				},
+				removePointer: function($elem){
+					$elem.css('pointer-events', 'none');
+					return this;
+				},
+				prepImage: function(){
+					//this.imgs.eq(currentImg);
+				},
+				scrollProgress: function(i){
+						currentImg = Math.min(i-1, maxImages-1);
+						if(pcval){
+								scrollImages2(i-1, speed);
+						}
+						else{
+								//pixel based
+								scrollImages2( IMG_WIDTH * (i-1) , speed);
+						}
+						
+				},
+				scrollImages2: scrollImages2
+		}
 
-        //inverse the number we set in the css
-        if(pcval){
-            value = (distance<0 ? "" : "-") + distance*100 + "%";
-        }
-        else{
-            //pixel based
-            var value = (distance<0 ? "" : "-") + Math.abs(distance) + "px";
-        }
-        //Render with smooth 3d, fallback to 2d
-        if(Modernizr.csstransforms3d){
-            imgs.css("-ms-transform", "translate3d("+value +",0px,0px)");
-            imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
-            imgs.css("transform", "translate3d("+value +",0px,0px)");
-        }
-        else{
-            imgs.css("-ms-transform", "translate("+value +",0px)");
-            imgs.css("-webkit-transform", "translate("+value +",0px)");
-            imgs.css("transform", "translate("+value +",0px)");
-        }
-    }
+		/**
+		* Catch each phase of the swipe.
+		* move : we drag the div.
+		* cancel : we animate back to where we were
+		* end : we animate to the next image
+		*/
+		
+		function swipeStatus(event, phase, direction, distance, fingers)
+		{
 
-    function updateInternalVals(){
-        IMG_WIDTH = $w.width();
-    }
+				//If we are moving before swipe, and we are going L or R, then manually drag the images
+				if( phase=="move" && (direction=="left" || direction=="right") )
+				{
+						var duration=0;
+						if (direction == "left"){
+								if(pcval){
+									 scrollImages2(currentImg, duration); 
+								}
+								else{
+										//pixel version
+										scrollImages2((IMG_WIDTH * currentImg) + distance, duration);
+								}
+						}
+						else if (direction == "right"){
+								if(pcval){
+										scrollImages2(currentImg, duration);
+								}
+								else{
+										//pixel version
+										scrollImages2((IMG_WIDTH * currentImg) - distance, duration);
+								}
 
-})();
+						}
+				}
 
+				//Else, cancel means snap back to the begining
+				else if ( phase == "cancel")
+				{
+						scrollImages2(IMG_WIDTH * currentImg, speed);
+				}
 
-window.UTIL = {};
+				//Else end means the swipe was completed, so move to the next image
+				else if ( phase =="end" )
+				{
+						if (direction == "right")
+								prevImage()
+						else if (direction == "left")
+								nextImage()
+				}
+		}
 
-// supercharged create function
-var create = (function(){
-    function addProps(child, o){
-        for(var i in o){
-            child[i] = o[i];
-        }
-    }
-    function checkReq(obj, req){
-        var err = [], typeStr;
-        for(var i in req){
-            if(obj && obj.hasOwnProperty(i)){
-                //also check against type
-                typeVal = typeof req[i];
-                if(typeVal === 'function'){
-                    //see what function returns, if false, throw err
-                    if( !req[i](obj[i]) ) {
-                        throw new Error ('parameter: ['+ i + '] did not meed param requirements');
-                    }
-                }
-                else if(typeVal === 'object' && Object.keys(req[i]).length){
-                    //This currently only allows 1 test & msg, can update for more in future
-                    if( req[i].test && !req[i].test( obj[i] ) ){ 
-                        throw new Error ('parameter: ['+ i + '] ' + req[i].msg( obj[i] )  || 'did not meed param requirements' );
-                    }
-                }
-            }
-            else{
-                err.push(i);
-            }
-        }
-        if(err.length) {
-            throw new Error('create() missing parameter' + (err.length > 1 ? 's' : '') + ': ' + err.join(', ') );
-        }
-    }
-    function getAllProps(parent){
-        var obj={};
-        for(var i in parent){
-            if(typeof parent[i] !== "function" && i !== "req" && i.charAt(0) !== "_"){
-                obj[i] = parent[i];
-            }
-        }
-        return obj;
-    }
-    return function create(parent, obj){
-        var child = Object.create(parent);
-        if(obj) addProps(child, obj);
-        //Check params
-        if(child.req){
-            //If object do normal checkReq
-            if(typeof child.req === "object") checkReq(obj, child.req);
-            //If string get do full check, does not include vars prefixed with _
-            else if(typeof child.req === "string" && child.req.toLowerCase() === "all"){
-                var tempObj = getAllProps(parent);
-                checkReq(obj, tempObj);
-            }
-        }
-        if(typeof child.init === "function") child.init();
-        return child;
-    }
-})();
+		function prevImage()
+		{
+				swipe.prev();
+				swipe.onSwipeLeft();
+		}
 
-
-//production safe console.log
-var clog = (function(){if(window.console && window.location.host === "localhost") return function clog(val){console.log(val);};else return function clog(){};})();
+		function nextImage()
+		{
+				swipe.next();
+				swipe.onSwipeRight();
+		}
 
 
 
+		/**
+		 * Manually update the position of the imgs on drag
+		 */
 
-//UTIL methods
-(function(){
-//Detect mobile devices
-//updated: jun 22 2014
-//Check if new regex is being used
-//go here -> http://detectmobilebrowsers.com/
-//then here -> http://jsbeautifier.org/
-//copy what is between if statement
-UTIL.isMobile = (function(){
-    var a = navigator.userAgent || navigator.vendor || window.opera;
-    //also check's ipad
-    if(/(iPhone|iPod|iPad).*AppleWebKit/i.test(navigator.userAgent)) return true;
-    return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4));
-})();
+		 // This guy is the dom workhorse
+		 // Be careful modifying this, it is very touchy
+		function scrollImages(distance, duration)
+		{   
+				var value;
+				imgs.css("-ms-transition-duration", (duration/1000).toFixed(1) + "s");
+				imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+				imgs.css("transition-duration", (duration/1000).toFixed(1) + "s");
 
+				//inverse the number we set in the css
+				if(pcval){
+						value = (distance<0 ? "" : "-") + distance*100 + "%";
+				}
+				else{
+						//pixel based
+						value = (distance<0 ? "" : "-") + Math.abs(distance) + "px";
+				}
+				//Render with smooth 3d, fallback to 2d
+				if(Modernizr.csstransforms3d){
+						imgs.css("-ms-transform", "translate3d("+value +",0px,0px)");
+						imgs.css("-webkit-transform", "translate3d("+value +",0px,0px)");
+						imgs.css("transform", "translate3d("+value +",0px,0px)");
+				}
+				else{
+						imgs.css("-ms-transform", "translate("+value +",0px)");
+						imgs.css("-webkit-transform", "translate("+value +",0px)");
+						imgs.css("transform", "translate("+value +",0px)");
+				}
+		}
 
-UTIL.mobileFlag = /\?mobile/.test(window.location.href);
+		//The power of sass
+		function scrollImages2(dir){
+			
+			dir == "left" ? $parent.removeAttr('data-pre-trans-right') : $parent.removeAttr('data-pre-trans-left');
+			$parent.attr('data-pre-trans-' + dir, imgList[lastImg]);
+			//dir == "left" ? $parent.removeAttr('data-trans-right') : $parent.removeAttr('data-trans-left');
+			$parent.removeAttr('data-trans-left');
+			$parent.removeAttr('data-trans-right');
 
-var timer={};
-UTIL.timer = function timer(func, time){
-    clearTimeout(timer);
-    var name, reg;
-    
-    if(Function.name){
-        name = func.name
-    }
-    else{
-        reg = func.toString().match(/^function\s*([^\s(]+)/);
-        if(reg && reg[1])
-            name = reg[1];
-    }
-    if(name)
-        timer[name] = setTimeout(func, time || 0);
-    else
-        setTimeout(func, time || 0);
-}
+			setTimeout(function(){
+				$parent.attr('data-trans-' + dir, imgList[lastImg]);
+			})
+		}
+
+		function updateInternalVals(){
+				IMG_WIDTH = $w.width();
+		}
+		//
 })();
 
 
 
+
+// Instead of moving/removing dom elems, lets do a virtual tracker and consistently update transforms
+// 

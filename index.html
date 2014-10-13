@@ -206,7 +206,8 @@
 
 		<!-- remove commondev for prod -->
 		<script src="/js/commondev.js"></script>
-		<!-- frameworks -->
+
+		<!-- library code -->
 		<script src="js/lib/jquery.min.js"></script>
 		<script src="js/lib/jquery.touchswipe.min.js"></script>
 		<script src="js/lib/jquery.event.drag.min.js"></script>
@@ -216,6 +217,7 @@
 		<script src="js/lib/isotope.min.1.5.25.js"></script>
 		<script src="js/lib/jquery.isotope.perfectmasonry.js"></script>
 		<script async src="js/lightbox.min.js"></script>
+
 		 
 		<!-- site code -->
 
@@ -322,6 +324,7 @@
 		function _prevElem(){
 			var $curElem = $swipe_slides.filter('.active');
 			var $prevElem = $curElem.prev();
+			$prevElem = $prevElem.length ? $prevElem : $swipe_slides.last()
 			var prevData = $prevElem.data('slide');
 
 			var $bg, $next;
@@ -370,8 +373,8 @@
 	    
 		})
 		$('.arrows.mod-left').click(function(){
-			swipe.prev();
 	    _prevElem()
+	    swipe.prev();
 		})
 
 
@@ -417,6 +420,7 @@
 				}
 			});
 		}
+
 		function mobileIso($ct){
 			$ct.isotope({
 			  // update columnWidth to a percentage of container width

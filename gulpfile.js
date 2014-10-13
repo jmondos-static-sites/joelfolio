@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 		livereload = require('gulp-livereload');
 
 var path = {
-	js: ['./js/lib/jquery.min.js', './js/lib/*.js', './js/app/*.js' ],
+	js: ['./js/lib/jquery.min.js', './js/lib/*.js', './js/app/util.js', './js/app/*.js' ],
 	sass: ['./sass/*.sass']
 }
 var onError = function(err) {
