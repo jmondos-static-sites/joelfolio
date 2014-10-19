@@ -192,7 +192,7 @@ $fb-w: 60
 
 .title-white
 	//font-family: Gentona, Arial
-	font-family: "brandon-grotesque", Arial
+	font-family: $brg
 	text-transform: uppercase
 	font-weight: 900
 	//font-size: pem(110)
@@ -200,10 +200,11 @@ $fb-w: 60
 	color: #fff
 
 .intro__text
-	font-family: Bariol, Arial
+	// font-family: Bariol, Arial
+	font-size: pem(22)
 	font-family: $brg
 	font-weight: 100
-	font-size: pem(22)
+	
 	line-height: pem(23)
 	color: #fff
 	+media($medDevice)
@@ -339,7 +340,9 @@ $fb-w: 60
 	&.mod-left
 		+rotate(90)
 		right: 30%
-	
+	&.mod-left, &.mod-right
+		@media (max-width: $medDeviceVal)
+			display: none
 
 	
 

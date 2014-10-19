@@ -5,7 +5,6 @@ var gulp = require('gulp'),
 		compass = require('gulp-compass'),
 		sass = require('gulp-sass'),
 		plumber = require('gulp-plumber'),
-		// server = require ('tiny-lr')(),
 		livereload = require('gulp-livereload');
 
 var path = {

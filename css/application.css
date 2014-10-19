@@ -404,7 +404,7 @@ footer span {
 }
 
 .title-white {
-  font-family: "brandon-grotesque", Arial;
+  font-family: "brandon-grotesque";
   text-transform: uppercase;
   font-weight: 900;
   font-size: 5em;
@@ -412,10 +412,9 @@ footer span {
 }
 
 .intro__text {
-  font-family: Bariol, Arial;
+  font-size: 1.375em;
   font-family: "brandon-grotesque";
   font-weight: 100;
-  font-size: 1.375em;
   line-height: 1.4375em;
   color: white;
 }
@@ -591,6 +590,11 @@ footer span {
   transform: rotate(90deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$val/9);
   right: 30%;
+}
+@media (max-width: 480px) {
+  .nav-arrow.mod-left, .nav-arrow.mod-right {
+    display: none;
+  }
 }
 
 .bg-grad[data-slide="sweetarts"] {
