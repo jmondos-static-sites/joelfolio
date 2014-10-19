@@ -591,7 +591,7 @@ footer span {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$val/9);
   right: 30%;
 }
-@media (max-width: 480px) {
+@media (max-width: 480) {
   .nav-arrow.mod-left, .nav-arrow.mod-right {
     display: none;
   }
@@ -1404,7 +1404,7 @@ footer span {
   }
 }
 @media (min-width: 321px) {
-  .hamburger-icon.dark .meat, .hamburger-icon.dark .meat:before, .hamburger-icon.dark .meat:after {
+  .hamburger-icon.dark .lines, .hamburger-icon.dark .lines:before, .hamburger-icon.dark .lines:after {
     background: #242424;
   }
 }
